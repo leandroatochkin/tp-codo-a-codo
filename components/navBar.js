@@ -6,6 +6,8 @@ import { categoriesDisplay } from "./categoriesDisplay.js";
 import { displayBooks } from "../assets/lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 
+import { isLoggedIn } from "../assets/userAuth.js";
+
 const books = displayBooks
 
 
@@ -118,9 +120,14 @@ export const navBar = (arr, name) => {
     };
   
     wishlist.addEventListener('click', () => {
-      displayDiv.innerHTML = ''
-      wishlistDisplay(favBooks)
-      navbar.classList.remove('show')
+      if(isLoggedIn()){
+        displayDiv.innerHTML = ''
+        wishlistDisplay(favBooks)
+        navbar.classList.remove('show')
+      } else {
+        window.alert('Debe estar loggeado para realizar esta acción')
+      }
+      
     })
   
     shoppingCart.addEventListener('click', () => {

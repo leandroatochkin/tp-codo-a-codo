@@ -35,6 +35,7 @@ const emailInput = document.createElement("input");
 emailInput.setAttribute("type", "email");
 emailInput.setAttribute("name", "email");
 emailInput.setAttribute("placeholder", "Ingrese su correo electrónico...");
+emailInput.setAttribute('required', 'true')
 
 const emailLabel = document.createElement("div");
 emailLabel.textContent = "e-mail";
@@ -43,6 +44,7 @@ const passwordInput = document.createElement("input");
 passwordInput.setAttribute("type", "password");
 passwordInput.setAttribute("name", "password");
 passwordInput.setAttribute("placeholder", "Ingrese su contraseña...");
+passwordInput.setAttribute('required', 'true');
 
 const passwordLabel = document.createElement("div");
 passwordLabel.textContent = "contraseña";
@@ -51,11 +53,13 @@ const repeatPasswordInput = document.createElement("input");
 repeatPasswordInput.setAttribute("type", "password");
 repeatPasswordInput.setAttribute("name", "repeat-password");
 repeatPasswordInput.setAttribute("placeholder", "Repita su contraseña...");
+repeatPasswordInput.setAttribute('required', 'true')
 
 const userNameInput = document.createElement("input");
 userNameInput.setAttribute("type", "text");
 userNameInput.setAttribute("name", "username");
 userNameInput.setAttribute("placeholder", "Ingrese su nombre de usuario...");
+userNameInput.setAttribute('required', true)
 
 const usernameLabel = document.createElement("div");
 usernameLabel.textContent = "Nombre de usuario";
@@ -96,7 +100,14 @@ loginForm.addEventListener("submit", async (event) => {
 
   console.log(email, password, username, address);
 
-  users.push(new User(username, email, password, address));
+  const userExists = users.some(user => user.email === email || user.username === username);//checks for existing users
+if(userExists){
+    console.error('user taken')
+}
+else{
+    users.push(new User(username, email, password, address));
+}
+  
   
   console.log(users)
   //const isValid = validateLoginForm(formData);

@@ -1,5 +1,6 @@
 import { cartArray, favBooks } from "../assets/arrays.js";
 import { homeDisplay } from "./homeDisplay.js";
+import { isLoggedIn } from "../assets/userAuth.js";
 
 export const seeFullInventoryByCat = (category, books) =>{
     const displayDiv = document.querySelector('#display-div')
@@ -92,9 +93,12 @@ export const seeFullInventoryByCat = (category, books) =>{
         inventoryItemButtonsContainer.appendChild(addToFavsButton)
         addToFavsButton.textContent = 'Favoritos'
         addToFavsButton.onclick = () => {
-          const title = inventoryItemRow.id
-          favBooks.push(title)
-          console.log(favBooks)
+          if(isLoggedIn()){
+            const title = inventoryItemRow.id
+            favBooks.push(title)
+          } else {
+            window.alert('Debe estar loggeado para realizar esta acción')
+          }
         }
   
         inventoryItemContainer.appendChild(inventoryItemImageContainer)

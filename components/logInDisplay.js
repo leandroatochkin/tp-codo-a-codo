@@ -1,5 +1,7 @@
 import {homeDisplay} from './homeDisplay.js'
 import { createAccountDisplay } from './createAccount.js';
+import { users } from '../assets/arrays.js';
+import { setLoggedIn } from '../assets/userAuth.js';
 
 export const logInDisplay = () => {
 
@@ -77,13 +79,18 @@ export const logInDisplay = () => {
     
       console.log(email, password);
     
-      //const isValid = validateLoginForm(formData);
+      const user = users.find(user => user.email === email);
     
-      //if (isValid) {
-      //    await submitLoginForm(formData);
-      //} else {
-      //    alert('Please fill in all fields.');
-      //}
+      if (user) {
+        if (user.password === password){
+          console.log('success')
+          setLoggedIn(true)
+        } else {
+          console.log('failes')
+        }
+      } else {
+        console.log('user not found ')
+      }
     });
     
     }

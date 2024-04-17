@@ -1,4 +1,5 @@
 import { cartArray } from "../assets/arrays.js";
+import { isLoggedIn } from "../assets/userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
 
 
@@ -101,10 +102,15 @@ export const shoppingCartDisplay = () => {
       let boughtArr = []
   
       buyButton.onclick = () => {
+        if(isLoggedIn()){
         boughtArr.push(cart)
         cartArray.splice(0, cart.length);
         homeDisplay()
         return boughtArr
+        } else {
+          window.alert('Debe estar loggeado para realizar esta acción')
+        }
+        
       }
       cancelButton.onclick = () => { console.log('cancelado') }
   

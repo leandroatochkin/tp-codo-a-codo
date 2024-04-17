@@ -1,5 +1,6 @@
 import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
 import { cartArray, favBooks } from "../assets/arrays.js";
+import { isLoggedIn } from "../assets/userAuth.js";
 
 let cart = cartArray
 
@@ -70,8 +71,13 @@ export const categoriesDisplay = (category, books) => {
         favButton.textContent = '❤️'
   
         favButton.onclick = () => {
-          const title = bookContainer.id
-          favBooks.push(title)
+          if(isLoggedIn()){
+            const title = bookContainer.id
+            favBooks.push(title)
+          } else {
+            window.alert('Debe estar loggeado para realizar esta acción')
+          }
+          
         }
   
         const bookCover = document.createElement('img');
