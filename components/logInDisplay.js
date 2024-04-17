@@ -1,4 +1,5 @@
 import {homeDisplay} from './homeDisplay.js'
+import { createAccountDisplay } from './createAccount.js';
 
 export const logInDisplay = () => {
 
@@ -52,6 +53,11 @@ export const logInDisplay = () => {
     const createAccountButton = document.createElement("button");
     createAccountButton.setAttribute("id","create-account-button");
     createAccountButton.textContent = "Crear cuenta";
+
+    createAccountButton.addEventListener('click', ()=>{
+      loginModal.remove()
+      createAccountDisplay()
+    })
     
     loginForm.appendChild(closeButtonContainer)
     loginForm.appendChild(emailLabel);

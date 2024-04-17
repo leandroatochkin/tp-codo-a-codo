@@ -1,4 +1,5 @@
 import { cartArray, favBooks } from "../assets/arrays.js";
+import { homeDisplay } from "./homeDisplay.js";
 
 export const seeFullInventoryByCat = (category, books) =>{
     const displayDiv = document.querySelector('#display-div')

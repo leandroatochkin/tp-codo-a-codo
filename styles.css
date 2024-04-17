@@ -244,7 +244,7 @@ color: var(--main-color-dark);
 
 
 #cat-back-button-container{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding-bottom: 5px;
@@ -508,6 +508,8 @@ color: var(--main-color-dark);
     border-radius: 8px;
     height: 20px;
   }
+
+
   
   #login-modal-bg {
     position: absolute;
@@ -519,6 +521,49 @@ color: var(--main-color-dark);
     align-items: center;
     z-index: 10;
   }
+
+  /*create account*/
+
+  #create-account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--light-background-color);
+    padding: 10px;
+    border-radius: 16px;
+    width: 50vw;
+    padding: 10px;
+  }
+
+  #create-account-form-close-button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #create-acc-form-close-button{
+    background-color: var(--light-background-color);
+    color: var(--main-color-dark);
+    border: none;
+    font-weight: bolder;
+  }
+
+  #create-acc-form-close-button:hover{
+    background-color: var(--main-color-dark);
+    color: var(--main-accent-color);
+    cursor: pointer;
+  }
+  
+  #create-account-form>input {
+    border-radius: 8px;
+    border: none;
+    height: 20px;
+  }
+  
+  
+  
+  
+
+
 }
 
 /*SMALL SCREENS*/
@@ -1006,4 +1051,40 @@ padding-top: 1%;
     align-items: center;
     z-index: 10;
   }
+
+  /*create account*/
+
+  #create-account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--light-background-color);
+    padding: 10px;
+    width: 100vw;
+    padding: 10px;
+  }
+
+  #create-account-form-close-button-container{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #create-acc-form-close-button{
+    background-color: var(--light-background-color);
+    color: var(--main-color-dark);
+    border: none;
+    font-weight: bolder;
+  }
+
+  #create-acc-form-close-button:hover{
+    background-color: var(--main-color-dark);
+    color: var(--main-accent-color);
+  }
+  
+  #create-account-form>input {
+    border-radius: 8px;
+    border: none;
+    height: 20px;
+  }
+
   }
