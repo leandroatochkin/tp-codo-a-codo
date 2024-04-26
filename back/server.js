@@ -1,34 +1,38 @@
-// server.js
+
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors')
+require('dotenv').config()
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+const password = process.env.DATABASE_PASS;
 
-// Create connection to MySQL database
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'LeandrO1990!!',
+  password: password,
   database: 'book_store'
 });
 
-// Connect to MySQL
+
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to MySQL database');
 });
 
-// Middleware
+
+app.use(cors({
+    origin: 'http://localhost:5500',
+}))
+
 app.use(bodyParser.json());
 
-app.use(cors())
 
 
-// Define routes
-app.get('/books', (req, res) => {
+app.get('/books', ( req, res ) => {//get books db
   connection.query('SELECT * FROM books', (err, results) => {
     if (err) throw err;
     const result = res.json(results)
@@ -36,9 +40,19 @@ app.get('/books', (req, res) => {
   });
 });
 
+app.get('/users', ( req, res ) => {//get users db
+    connection.query('SELECT * FROM users', (err, results) => {
+      if (err) throw err;
+      const result = res.json(results)
+      console.log(result)
+    });
+  });
+
+app.options('/users', cors())
+
 app.post('/users', (req, res) => {
     const { username, email, password, address, role } = req.body;
-  
+    console.log('request body', req.body)
     connection.query('INSERT INTO users (username, email, password, address, role) VALUES (?, ?, ?, ?, ?)', 
                      [username, email, password, address, role], 
                      (err, result) => {
@@ -49,12 +63,13 @@ app.post('/users', (req, res) => {
         console.log("User inserted successfully");
         res.status(200).json({ success: true });
       }
-    });
+    })
+    console.log('request body', req.body);
   });
 
-// Add more routes for CRUD operations as needed
 
-// Start server
+
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
