@@ -1087,5 +1087,10 @@ padding-top: 1%;
     border: none;
     height: 20px;
   }
+  .input-error{
+    background-color: red;
+    font-weight: bolder;
+    color: linen
+  }
 
   }

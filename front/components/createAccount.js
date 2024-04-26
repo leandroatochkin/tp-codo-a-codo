@@ -1,6 +1,14 @@
 import { homeDisplay } from "./homeDisplay.js";
 import { User } from "../assets/userModel.js";
-import { users } from "../assets/arrays.js";
+// import { users } from "../assets/arrays.js";
+import { userInfo, userdb } from "../assets/lookUp.js";
+
+
+
+const users = userInfo
+const userDataBase = userdb
+
+console.log(users)
 
 export const createAccountDisplay = () =>{
 
@@ -97,25 +105,60 @@ loginForm.addEventListener("submit", async (event) => {
   const password = formData.get("password");
   const username = formData.get("username");
   const address = formData.get("address");
+  const role = 'user'
 
-  console.log(email, password, username, address);
+  function addUser(username, email, password, address, role) {
+    // Define the data to be sent in the request body
+    const userData = {
+      username: username,
+      email: email,
+      password: password,
+      address: address,
+      role: role
+    };
 
-  const userExists = users.some(user => user.email === email || user.username === username);//checks for existing users
+  
+    // Make a POST request to the server endpoint
+    fetch(userDataBase, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': '*/*'
+      },
+      body: JSON.stringify(userData) // Convert the data to JSON format
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to add user');
+      }
+      return response.json(); // Parse the response JSON
+    })
+    .then(data => {
+      console.log('User added successfully:', data);
+      // Handle success if needed
+    })
+    .catch(error => {
+      console.error('Error adding user:', error.message);
+      // Handle error if needed
+    });
+  }
+
+
+  const userExists = users.some(user => user.username === username)
+  const emailExists = users.some(user => user.email === email)
 if(userExists){
-    console.error('user taken')
+    userNameInput.classList.add('input-error')
+    window.alert('Nombre de usuario no disponible')
 }
-else{
-    users.push(new User(username, email, password, address));
+if(emailExists){
+  emailInput.classList.add('input-error')
+  window.alert('Ya existe una cuenta con este email')
+}
+if(!userExists && !emailExists){
+addUser(username, email, password, address, role)
 }
   
   
-  console.log(users)
-  //const isValid = validateLoginForm(formData);
-
-  //if (isValid) {
-  //    await submitLoginForm(formData);
-  //} else {
-  //    alert('Please fill in all fields.');
-  //}
+  
 });
 }

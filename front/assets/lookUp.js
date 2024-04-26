@@ -122,7 +122,7 @@ const fetchData = async () => {
     if (!response.ok) { 
       throw new Error('Failed to fetch data');
     }
-    const data = await response.json(); // Parse JSON data from response
+    const data = await response.json(); 
     return data
   } catch (error) {
     console.log('Error fetching data:', error);
@@ -138,7 +138,30 @@ const displayBooksData = async () => {
   }
 };
 
+const fetchUsers = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/users');
+    if (!response.ok) { 
+      throw new Error('Failed to fetch users');
+    }
+    const users = await response.json(); 
+    return users
+  } catch (error) {
+    console.log('Error fetching data:', error);
+  }
+};
+
+const displayUsersData = async () => {
+  try {
+    const userData = await fetchUsers(); 
+    return userData; 
+  } catch (error) {
+    console.error('Error using fetched data:', error);
+  }
+};
+
 let displayBooks = await displayBooksData()
+let userInfo = await  displayUsersData()
+const userdb = 'http://localhost:3000/users'
 
-
-export {displayBooks}
+export {displayBooks, userInfo, userdb}
