@@ -1,5 +1,5 @@
 import { displayBooks, booksdb } from "../assets/lookUp.js";
-import  { createInput } from "../assets/helperFunctions.js";
+import  { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
 
 
 
@@ -59,37 +59,40 @@ export const adminDisplay = () => {
     // Render initial table with displayBooks
     renderBooksTable(displayBooks);
 
+    
     /*----------------ADD BOOK FORM-----------------*/
     const addBookForm = document.createElement('form');
     addBookForm.classList.add('book-form-hidden');
     addBookForm.setAttribute('method', 'post');
     
 
-    /*----------------INPUTS-------------*/
+    /*-----------------INPUTS-------------------*/
 
     
 
-    const titleInput = createInput('text', 'title',  'Titulo')
-    const authorInput = createInput('text', 'author',  'Autor')
-    const coverInput = createInput('text', 'cover',  'Ruta de la imagen')
-    const priceInput = createInput('text', 'price',  'Precio')
-    const categoryInput = createInput('text', 'category',  'Categoria')
-    const quantityInput = createInput('text', 'quantity',  'Cantidad en Stock')
+    const titleInput = createInput('text', 'title',  'Titulo', true)
+    const authorInput = createInput('text', 'author',  'Autor', true)
+    const coverInput = createInput('text', 'cover',  'Ruta de la imagen', true)
+    const priceInput = createInput('text', 'price',  'Precio', true)
+    const categoryInput = createInput('text', 'category',  'Categoria', true)
+    const quantityInput = createInput('text', 'quantity',  'Cantidad en Stock', true)
     
 
     const formButtonSubmit = document.createElement("input");
     formButtonSubmit.setAttribute("type", "submit");
     formButtonSubmit.setAttribute("value", "añadir");
 
-    addBookForm.appendChild(titleInput);
-    addBookForm.appendChild(authorInput);
-    addBookForm.appendChild(coverInput);
-    addBookForm.appendChild(priceInput);
-    addBookForm.appendChild(categoryInput);
-    addBookForm.appendChild(quantityInput);
-    addBookForm.appendChild(formButtonSubmit);
+    appendMultipleChildrens(addBookForm, [
+        titleInput,
+        authorInput,
+        coverInput,
+        priceInput,
+        categoryInput,
+        quantityInput,
+        formButtonSubmit
+    ])
 
-    /*-----------BUTTON----------------*/
+    /*-----------------BUTTON-------------------*/
     const addBookButton = document.createElement('button');
     addBookButton.textContent = 'AGREGAR NUEVO LIBRO';
 
@@ -102,7 +105,7 @@ export const adminDisplay = () => {
     displayDiv.appendChild(addBookButton);
     displayDiv.appendChild(addBookForm);
 
-    /*-----------------FUNCTIONS-------------------*/
+    /*-----------------API FUNCTIONS-------------------*/
     addBookForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 

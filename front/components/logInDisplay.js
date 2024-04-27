@@ -33,6 +33,7 @@ export const logInDisplay = () => {
     })
 
     closeButtonContainer.appendChild(closeButton)
+    /*-----------------INPUTS-------------------*/
 
     const emailLabel = document.createElement('div')
     emailLabel.setAttribute('id', 'email-label')
@@ -41,6 +42,7 @@ export const logInDisplay = () => {
     const passwordLabel = document.createElement('div')
     passwordLabel.setAttribute('id', 'password-label')
     passwordLabel.textContent = 'ingrese su contraseña'
+
 
     const emailInput = createInput('email', 'email', 'Email...')
     emailInput.classList.add('input-correct')
@@ -73,6 +75,7 @@ export const logInDisplay = () => {
         createAccountButton
       ])
 
+    /*-----------------API FUNCTIONS-------------------*/
     
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();

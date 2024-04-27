@@ -38,6 +38,8 @@ closeButton.addEventListener('click', ()=>{
 
 closeButtonContainer.appendChild(closeButton)
 
+/*-----------------INPUTS-------------------*/
+
 const emailInput = createInput('email', 'email', 'Ingrese su correo electrónico...', true)
 
 const emailLabel = document.createElement("div");
@@ -78,7 +80,7 @@ appendMultipleChildrens(loginForm, [
   createAccButton
 ])
 
-
+/*-----------------API FUNCTIONS-------------------*/
 
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
