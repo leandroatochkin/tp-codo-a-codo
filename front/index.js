@@ -1,14 +1,10 @@
 import { navBar } from "./components/navBar.js";
 import { homeDisplay } from "./components/homeDisplay.js";
-import { getLoggedIn, getUserRole, renderLoggedInComponents } from "./assets/userAuth.js";
 
 const navbarContainer = document.querySelector(".navbar-container");
 const displayDiv = document.querySelector(".display-div");
 
 const initialize = () => {
-  const role = getUserRole();
-  const logged = getLoggedIn();
-  console.log(role, logged);
   navBar()
   homeDisplay()
 };

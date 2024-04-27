@@ -141,7 +141,7 @@ export const navBar = ( logged, role) => {
     };
   
     wishlist.addEventListener('click', () => {
-      if(isLoggedIn()){
+      if(logged){
         displayDiv.innerHTML = ''
         wishlistDisplay(favBooks)
         navbar.classList.remove('show')
