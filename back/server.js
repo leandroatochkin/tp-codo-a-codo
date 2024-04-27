@@ -1,13 +1,15 @@
 
+require('dotenv').config()
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors')
-require('dotenv').config()
+
 
 const app = express();
 const port = process.env.PORT;
 const password = process.env.DATABASE_PASS;
+
 
 
 const connection = mysql.createConnection({
@@ -67,7 +69,50 @@ app.post('/users', (req, res) => {
     console.log('request body', req.body);
   });
 
+  app.post('/books', (req, res) => {
+    const { title, author, cover, price, category, quantity } = req.body;
+    connection.query('INSERT INTO books (title, author, cover, price, category, quantity) VALUES (?, ?, ?, ?, ?, ?)', 
+                     [title, author, cover, price, category, quantity], 
+                     (err, result) => {
+      if (err) {
+        console.error("Error inserting book:", err);
+        res.status(500).json({ error: 'Error inserting book' });
+      } else {
+        console.log("Book inserted successfully");
+        res.status(200).json({ success: true });
+      }
+    });
+});
 
+app.put('/books/:id', (req, res) => {
+    const bookId = req.params.id;
+    const { title, author, category, ISBN } = req.body;
+    connection.query('UPDATE books SET title = ?, author = ?, category = ?, ISBN = ? WHERE id = ?', 
+                     [title, author, category, ISBN, bookId], 
+                     (err, result) => {
+      if (err) {
+        console.error("Error updating book:", err);
+        res.status(500).json({ error: 'Error updating book' });
+      } else {
+        console.log("Book updated successfully");
+        res.status(200).json({ success: true });
+      }
+    });
+});
+
+app.delete('/books/:id', (req, res) => {
+  const bookId = req.params.id;
+
+  connection.query('DELETE FROM books WHERE id = ?', [bookId], (err, result) => {
+      if (err) {
+          console.error("Error deleting book:", err);
+          res.status(500).json({ error: 'Error deleting book' });
+      } else {
+          console.log("Book deleted successfully");
+          res.status(200).json({ success: true });
+      }
+  });
+});
 
 
 app.listen(port, () => {
