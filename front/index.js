@@ -1,15 +1,21 @@
 import { navBar } from "./components/navBar.js";
 import { homeDisplay } from "./components/homeDisplay.js";
+import { getLoggedIn, getUserRole, renderLoggedInComponents } from "./assets/userAuth.js";
 
-const CATEGORIES = ['ficción', 'historia', 'recetas', 'cómics'];
-let PAGE_TITLE = 'AUREA';
+const navbarContainer = document.querySelector(".navbar-container");
+const displayDiv = document.querySelector(".display-div");
 
 const initialize = () => {
-  
-
-  
-  navBar(CATEGORIES, PAGE_TITLE);
-  homeDisplay();
+  const role = getUserRole();
+  const logged = getLoggedIn();
+  console.log(role, logged);
+  navBar()
+  homeDisplay()
 };
 
-initialize();
+try {
+  initialize();
+} catch (error) {
+  console.error("Error initializing application:", error);
+  // You can add additional error handling logic here, such as displaying an error message to the user
+}

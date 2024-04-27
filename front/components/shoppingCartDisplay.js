@@ -1,5 +1,5 @@
 import { cartArray } from "../assets/arrays.js";
-import { isLoggedIn } from "../assets/userAuth.js";
+import { getLoggedIn } from "../assets/userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
 
 
@@ -7,7 +7,7 @@ import { homeDisplay } from "./homeDisplay.js";
 export const shoppingCartDisplay = () => {
 
   let cart = cartArray
-
+  const log = getLoggedIn()
     const fetchShoppinCart = (cart) => {
 
     const body = document.querySelector('body');
@@ -102,7 +102,7 @@ export const shoppingCartDisplay = () => {
       let boughtArr = []
   
       buyButton.onclick = () => {
-        if(isLoggedIn()){
+        if(log){
         boughtArr.push(cart)
         cartArray.splice(0, cart.length);
         homeDisplay()

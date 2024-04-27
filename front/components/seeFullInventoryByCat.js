@@ -1,11 +1,12 @@
 import { cartArray, favBooks } from "../assets/arrays.js";
 import { homeDisplay } from "./homeDisplay.js";
-import { isLoggedIn } from "../assets/userAuth.js";
+import { getLoggedIn } from "../assets/userAuth.js";
 
 export const seeFullInventoryByCat = (category, books) =>{
     const displayDiv = document.querySelector('#display-div')
     const fetchCatInventory = (category, books) => {
       //clear out old content before adding new info
+      const log = getLoggedIn()
   
       // const spacer = document.createElement('div')
        const catInventoryContainer = document.createElement('div')
@@ -93,7 +94,7 @@ export const seeFullInventoryByCat = (category, books) =>{
         inventoryItemButtonsContainer.appendChild(addToFavsButton)
         addToFavsButton.textContent = 'Favoritos'
         addToFavsButton.onclick = () => {
-          if(isLoggedIn()){
+          if(log){
             const title = inventoryItemRow.id
             favBooks.push(title)
           } else {

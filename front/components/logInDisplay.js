@@ -1,7 +1,9 @@
 import {homeDisplay} from './homeDisplay.js'
 import { createAccountDisplay } from './createAccount.js';
-import { users } from '../assets/arrays.js';
 import { setLoggedIn } from '../assets/userAuth.js';
+import { userInfo } from '../assets/lookUp.js';
+
+const users = userInfo
 
 export const logInDisplay = () => {
 
@@ -42,10 +44,12 @@ export const logInDisplay = () => {
     const emailInput = document.createElement("input");
     emailInput.setAttribute("type", "email");
     emailInput.setAttribute("name", "email");
+    emailInput.classList.add('input-correct')
     
     const passwordInput = document.createElement("input");
     passwordInput.setAttribute("type", "password");
     passwordInput.setAttribute("name", "password");
+    passwordInput.classList.add('input-correct')
     
     const loginButton = document.createElement("input");
     loginButton.setAttribute("type", "submit");
@@ -84,12 +88,22 @@ export const logInDisplay = () => {
       if (user) {
         if (user.password === password){
           console.log('success')
-          setLoggedIn(true)
+          console.log(user.role)
+          setLoggedIn(true, user.role)
+          
+          loginModal.remove()
+          homeDisplay()
         } else {
-          console.log('failes')
+          console.log('failed')
         }
       } else {
         console.log('user not found ')
+        emailInput.classList.remove('input-correct')
+        emailInput.classList.toggle('input-error')
+        
+        passwordInput.classList.remove('input-correct')
+        passwordInput.classList.toggle('input-error')
+        window.alert('El usuario o contraseña son  incorrectos')
       }
     });
     

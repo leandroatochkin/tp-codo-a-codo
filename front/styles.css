@@ -1082,14 +1082,15 @@ padding-top: 1%;
     color: var(--main-accent-color);
   }
   
-  #create-account-form>input {
+  .input-correct {
     border-radius: 8px;
     border: none;
     height: 20px;
   }
   .input-error{
-    background-color: red;
+    background-color: palevioletred;
     font-weight: bolder;
+    border: 2px solid red;
     color: linen
   }
 

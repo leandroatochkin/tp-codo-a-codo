@@ -1,11 +1,12 @@
 import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
 import { cartArray, favBooks } from "../assets/arrays.js";
-import { isLoggedIn } from "../assets/userAuth.js";
+import { getLoggedIn } from "../assets/userAuth.js";
 
 let cart = cartArray
 
 
 export const categoriesDisplay = (category, books) => {
+  const log = getLoggedIn()
   
     const displayDiv = document.querySelector('#display-div')
     const fetchBooks = (category, books) => {
@@ -73,7 +74,7 @@ export const categoriesDisplay = (category, books) => {
         favButton.textContent = '❤️'
   
         favButton.onclick = () => {
-          if(isLoggedIn()){
+          if(log){
             const title = bookContainer.id
             favBooks.push(title)
           } else {
