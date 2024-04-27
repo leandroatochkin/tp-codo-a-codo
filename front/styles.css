@@ -563,11 +563,12 @@ color: var(--main-color-dark);
   /*ADMIN USER DISPLAY*/
 
   #table-container{
+    margin-top: 10%;
     max-height: 500px;
     overflow-y: scroll;
   }
   .book-table{
-    max-height: 400px; 
+    max-height: 500px; 
     overflow-y: auto; 
   }
   .table-cell:hover{

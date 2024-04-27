@@ -19,7 +19,7 @@ let PAGE_TITLE = 'AUREA';
 
 export const navBar = ( logged, role) => {
   
-   console.log(role)
+   
 
  
 

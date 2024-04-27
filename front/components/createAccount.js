@@ -1,14 +1,13 @@
 import { homeDisplay } from "./homeDisplay.js";
-import { User } from "../assets/userModel.js";
-// import { users } from "../assets/arrays.js";
 import { userInfo, userdb } from "../assets/lookUp.js";
+import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
 
 
 
 const users = userInfo
 const userDataBase = userdb
 
-console.log(users)
+
 
 export const createAccountDisplay = () =>{
 
@@ -39,43 +38,24 @@ closeButton.addEventListener('click', ()=>{
 
 closeButtonContainer.appendChild(closeButton)
 
-const emailInput = document.createElement("input");
-emailInput.setAttribute("type", "email");
-emailInput.setAttribute("name", "email");
-emailInput.setAttribute("placeholder", "Ingrese su correo electrónico...");
-emailInput.setAttribute('required', 'true')
+const emailInput = createInput('email', 'email', 'Ingrese su correo electrónico...', true)
 
 const emailLabel = document.createElement("div");
 emailLabel.textContent = "e-mail";
 
-const passwordInput = document.createElement("input");
-passwordInput.setAttribute("type", "password");
-passwordInput.setAttribute("name", "password");
-passwordInput.setAttribute("placeholder", "Ingrese su contraseña...");
-passwordInput.setAttribute('required', 'true');
+const  passwordInput = createInput('password','password', 'Contraseña: ', true)
 
 const passwordLabel = document.createElement("div");
 passwordLabel.textContent = "contraseña";
 
-const repeatPasswordInput = document.createElement("input");
-repeatPasswordInput.setAttribute("type", "password");
-repeatPasswordInput.setAttribute("name", "repeat-password");
-repeatPasswordInput.setAttribute("placeholder", "Repita su contraseña...");
-repeatPasswordInput.setAttribute('required', 'true')
+const repeatPasswordInput = createInput('password', 'repeat-password', 'Repita su contraseña...', true)
 
-const userNameInput = document.createElement("input");
-userNameInput.setAttribute("type", "text");
-userNameInput.setAttribute("name", "username");
-userNameInput.setAttribute("placeholder", "Ingrese su nombre de usuario...");
-userNameInput.setAttribute('required', true)
+const userNameInput = createInput('text', 'username', 'Ingrese su nombre de usuario...', true)
 
 const usernameLabel = document.createElement("div");
 usernameLabel.textContent = "Nombre de usuario";
 
-const addressInput = document.createElement("input");
-addressInput.setAttribute("type", "text");
-addressInput.setAttribute("name", "address");
-addressInput.setAttribute("placeholder", "Ingrese su dirección...");
+const addressInput = createInput('text', 'address', 'Ingrese su dirección...', true)
 
 const addressLabel = document.createElement("div");
 addressLabel.textContent = "Dirección para envíos";
@@ -84,17 +64,21 @@ const createAccButton = document.createElement("input");
 createAccButton.setAttribute("type", "submit");
 createAccButton.setAttribute("value", "crear");
 
-loginForm.appendChild(closeButtonContainer);
-loginForm.appendChild(usernameLabel);
-loginForm.appendChild(userNameInput);
-loginForm.appendChild(emailLabel);
-loginForm.appendChild(emailInput);
-loginForm.appendChild(passwordLabel);
-loginForm.appendChild(passwordInput);
-loginForm.appendChild(repeatPasswordInput);
-loginForm.appendChild(addressLabel);
-loginForm.appendChild(addressInput);
-loginForm.appendChild(createAccButton);
+appendMultipleChildrens(loginForm, [
+  closeButtonContainer,
+  usernameLabel,
+  userNameInput,
+  emailLabel,
+  emailInput,
+  passwordLabel,
+  passwordInput,
+  repeatPasswordInput,
+  addressLabel,
+  addressInput,
+  createAccButton
+])
+
+
 
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();

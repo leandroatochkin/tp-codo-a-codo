@@ -12,7 +12,7 @@ const homeContainer = document.querySelector("#display-div");
 export const setLoggedIn = (loggedIn, userRole) => {
   globalState.loggedIn = loggedIn;
   globalState.userRole = userRole;
-  console.log(loggedIn, userRole);
+ 
   renderLoggedInComponents();
 };
 

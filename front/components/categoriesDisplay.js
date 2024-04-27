@@ -1,6 +1,7 @@
 import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
 import { cartArray, favBooks } from "../assets/arrays.js";
 import { getLoggedIn } from "../assets/userAuth.js";
+import { appendMultipleChildrens } from "../assets/helperFunctions.js";
 
 let cart = cartArray
 
@@ -87,18 +88,21 @@ export const categoriesDisplay = (category, books) => {
         bookCover.setAttribute('src', book.cover);
         bookCover.setAttribute('alt', book.title);
         bookCover.classList.add('book-cover');
-        bookContainer.appendChild(bookCover);
-        bookContainer.appendChild(bookContainerInfoContainer)
+
+        appendMultipleChildrens(bookContainer,[bookCover, bookContainerInfoContainer])
+
+        appendMultipleChildrens(bookContainerInfoContainer, [
+          bookContainerInfoContainerTextContainer,
+          bookContainerInfoContainerButtonsContainer
+        ])
   
-        bookContainerInfoContainer.appendChild(bookContainerInfoContainerTextContainer)
-        bookContainerInfoContainer.appendChild(bookContainerInfoContainerButtonsContainer)
-  
-        bookContainerInfoContainerTextContainer.appendChild(bookTitle);
-        bookContainerInfoContainerTextContainer.appendChild(bookAuthor);
-        bookContainerInfoContainerTextContainer.appendChild(bookPrice);
-        bookContainerInfoContainerButtonsContainer.appendChild(buyButton);
-        bookContainerInfoContainerButtonsContainer.appendChild(favButton);
-  
+        appendMultipleChildrens(bookContainerInfoContainerTextContainer, [
+          bookTitle,
+          bookAuthor,
+          bookPrice,
+          buyButton,
+          favButton
+        ])
   
         coverContainer.appendChild(bookContainer);
   

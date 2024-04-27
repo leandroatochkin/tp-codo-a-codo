@@ -1,6 +1,7 @@
 import { cartArray, favBooks } from "../assets/arrays.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { getLoggedIn } from "../assets/userAuth.js";
+import { appendMultipleChildrens } from "../assets/helperFunctions.js";
 
 export const seeFullInventoryByCat = (category, books) =>{
     const displayDiv = document.querySelector('#display-div')
@@ -28,9 +29,8 @@ export const seeFullInventoryByCat = (category, books) =>{
   
   
       catInventoryContainer.setAttribute('id','cat-inventory-container')
-      // displayDiv.appendChild(spacer)
-      displayDiv.appendChild(catInventoryContainer)
-      displayDiv.appendChild(backButtonContainer)
+      
+      appendMultipleChildrens(displayDiv,[catInventoryContainer, backButtonContainer])
   
       const filteredBooks = books.filter(book => book.category === category);
       filteredBooks.forEach(book=>{
@@ -61,9 +61,8 @@ export const seeFullInventoryByCat = (category, books) =>{
   
         const inventoryItemAuthor = document.createElement('h3')
         inventoryItemAuthor.textContent= book.author
-  
-        inventoryItemTitleAuthorContainer.appendChild(inventoryItemTitle)
-        inventoryItemTitleAuthorContainer.appendChild(inventoryItemAuthor)
+
+        appendMultipleChildrens(inventoryItemTitleAuthorContainer, [inventoryItemTitle, inventoryItemAuthor]) 
   
         const inventoryItemQuantityPriceContainer = document.createElement('div')
         inventoryItemQuantityPriceContainer.classList.add('inventory-item-quantity-price-container')
@@ -73,9 +72,8 @@ export const seeFullInventoryByCat = (category, books) =>{
   
         const inventoryItemPrice = document.createElement('h3')
         inventoryItemPrice.textContent = 'Precio unitario: ' + '$'+book.price
-  
-        inventoryItemQuantityPriceContainer.appendChild(inventoryItemQuantity)
-        inventoryItemQuantityPriceContainer.appendChild(inventoryItemPrice)
+
+        appendMultipleChildrens(inventoryItemQuantityPriceContainer, [inventoryItemQuantity, inventoryItemPrice])
   
         const inventoryItemButtonsContainer = document.createElement('div')
         inventoryItemButtonsContainer.classList.add('inventory-item-buttons-container')
@@ -101,11 +99,13 @@ export const seeFullInventoryByCat = (category, books) =>{
             window.alert('Debe estar loggeado para realizar esta acción')
           }
         }
-  
-        inventoryItemContainer.appendChild(inventoryItemImageContainer)
-        inventoryItemContainer.appendChild(inventoryItemTitleAuthorContainer)
-        inventoryItemContainer.appendChild(inventoryItemQuantityPriceContainer)
-        inventoryItemContainer.appendChild(inventoryItemButtonsContainer)
+
+        appendMultipleChildrens(inventoryItemContainer, [
+          inventoryItemImageContainer,
+          inventoryItemTitleAuthorContainer,
+          inventoryItemQuantityPriceContainer,
+          inventoryItemButtonsContainer
+        ])
   
         inventoryItemRow.appendChild(inventoryItemContainer)
   

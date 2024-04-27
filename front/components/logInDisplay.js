@@ -2,6 +2,7 @@ import {homeDisplay} from './homeDisplay.js'
 import { createAccountDisplay } from './createAccount.js';
 import { setLoggedIn } from '../assets/userAuth.js';
 import { userInfo } from '../assets/lookUp.js';
+import { createInput, appendMultipleChildrens } from '../assets/helperFunctions.js';
 
 const users = userInfo
 
@@ -40,15 +41,11 @@ export const logInDisplay = () => {
     const passwordLabel = document.createElement('div')
     passwordLabel.setAttribute('id', 'password-label')
     passwordLabel.textContent = 'ingrese su contraseña'
-    
-    const emailInput = document.createElement("input");
-    emailInput.setAttribute("type", "email");
-    emailInput.setAttribute("name", "email");
+
+    const emailInput = createInput('email', 'email', 'Email...')
     emailInput.classList.add('input-correct')
-    
-    const passwordInput = document.createElement("input");
-    passwordInput.setAttribute("type", "password");
-    passwordInput.setAttribute("name", "password");
+
+    const passwordInput = createInput('password', 'password', 'Contraseña')
     passwordInput.classList.add('input-correct')
     
     const loginButton = document.createElement("input");
@@ -65,13 +62,17 @@ export const logInDisplay = () => {
       createAccountDisplay()
     })
     
-    loginForm.appendChild(closeButtonContainer)
-    loginForm.appendChild(emailLabel);
-    loginForm.appendChild(emailInput);
-    loginForm.appendChild(passwordLabel);
-    loginForm.appendChild(passwordInput);
-    loginForm.appendChild(loginButton);
-    loginForm.appendChild(createAccountButton);
+    appendMultipleChildrens(loginForm, 
+      [
+        closeButtonContainer, 
+        emailLabel, 
+        emailInput, 
+        passwordLabel, 
+        passwordInput, 
+        loginButton, 
+        createAccountButton
+      ])
+
     
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -81,14 +82,14 @@ export const logInDisplay = () => {
       const email = formData.get("email");
       const password = formData.get("password");
     
-      console.log(email, password);
+  
     
       const user = users.find(user => user.email === email);
     
       if (user) {
         if (user.password === password){
-          console.log('success')
-          console.log(user.role)
+         
+   
           setLoggedIn(true, user.role)
           
           loginModal.remove()
