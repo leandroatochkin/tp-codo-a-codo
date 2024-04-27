@@ -6,11 +6,11 @@ import { categoriesDisplay } from "./categoriesDisplay.js";
 import { displayBooks } from "../assets/lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
+import { adminDisplay } from "./adminDisplay.js";
 
 
 const books = displayBooks  
 
-console.log(books)
 
 
 
@@ -160,6 +160,12 @@ export const navBar = ( logged, role) => {
     logIn.addEventListener('click', ()=>{
       displayDiv.innerHTML = ''
       logInDisplay()
+      navbar.classList.remove('show')
+    })
+
+    admin.addEventListener('click', ()=>{
+      displayDiv.innerHTML = ''
+      adminDisplay()
       navbar.classList.remove('show')
     })
 

@@ -560,9 +560,40 @@ color: var(--main-color-dark);
     height: 20px;
   }
   
+  /*ADMIN USER DISPLAY*/
+
+  #table-container{
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+  .book-table{
+    max-height: 400px; 
+    overflow-y: auto; 
+  }
+  .table-cell:hover{
+    background-color: var(--main-color-dark);
+    color: var(--light-background-color);
+    font-weight: bolder;
+    cursor: pointer;
+  }
   
-  
-  
+  .book-form-hidden{
+    display: none;
+  }
+
+  .book-form-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid 3px red;
+    padding: 2%;
+  }
+
+  .add-book-form-input{
+    width: 50%;
+  }
 
 
 }
@@ -1093,5 +1124,5 @@ padding-top: 1%;
     border: 2px solid red;
     color: linen
   }
-
+/*ADMIN USER DISPLAY*/
   }

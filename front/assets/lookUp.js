@@ -163,5 +163,6 @@ const displayUsersData = async () => {
 let displayBooks = await displayBooksData()
 let userInfo = await  displayUsersData()
 const userdb = 'http://localhost:3000/users'
+const booksdb = 'http://localhost:3000/books'
 
-export {displayBooks, userInfo, userdb}
+export {displayBooks, userInfo, userdb, booksdb}
