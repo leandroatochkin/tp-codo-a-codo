@@ -37,6 +37,7 @@ export const categoriesDisplay = (category, books) => {
         bookContainer.classList.add('book-container');
         bookContainer.setAttribute('id', `${book.title}`)
         bookContainer.style.backgroundImage = `url(${book.cover})`
+        console.log(book.cover)
         bookContainer.style.backgroundSize = `cover`
   
         const bookContainerInfoContainer = document.createElement('div')

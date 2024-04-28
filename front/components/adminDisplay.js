@@ -21,6 +21,7 @@ export const adminDisplay = () => {
 
        
         const booksHeaderRow = document.createElement('tr');
+        booksHeaderRow.setAttribute('class', 'header-row')
         const booksHeaders = ['ID', 'Título', 'Autor', 'Cover', 'Precio', 'Categoria', 'Stock']; 
         booksHeaders.forEach(headerText => {
             const th = document.createElement('th');
@@ -35,9 +36,14 @@ export const adminDisplay = () => {
             const bookData = [book.id, book.title, book.author, book.cover, book.price, book.category, book.quantity]; // Adjust as per your book data structure
             bookData.forEach(cellData => {
                 const cell = document.createElement('td');
-                cell.textContent = cellData;
+                if (cellData && cellData.length > 15) {
+                cell.textContent = cellData.slice(0, 14) + "...";
+                } else {
+                cell.textContent = cellData || '';
+                }
                 cell.classList.add('table-cell');
                 row.appendChild(cell);
+                
                 
             });
             const deleteBtn = document.createElement('button');
@@ -141,7 +147,11 @@ export const adminDisplay = () => {
         addBookForm.classList.toggle('book-form-show');
     };
 
-    displayDiv.appendChild(tableContainer);
+    const areaTitle = document.createElement('h1')
+    areaTitle.textContent='Control y manejo de stock'
+    areaTitle.classList.add('stock-management-title')
+
+    appendMultipleChildrens(displayDiv, [areaTitle, tableContainer]);
     appendMultipleChildrens(tableContainer,[booksTable, formsContainer])
     appendMultipleChildrens(formsContainer, [updateBookForm, addBookButton, addBookForm]);
 
