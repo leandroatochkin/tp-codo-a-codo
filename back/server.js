@@ -86,9 +86,9 @@ app.post('/users', (req, res) => {
 
 app.put('/books/:id', (req, res) => {
     const bookId = req.params.id;
-    const { title, author, category, ISBN } = req.body;
-    connection.query('UPDATE books SET title = ?, author = ?, category = ?, ISBN = ? WHERE id = ?', 
-                     [title, author, category, ISBN, bookId], 
+    const { id, title, author, cover, price, category, quantity, bookIdNum } = req.body;
+    connection.query('UPDATE books SET id = ?, title = ?, author = ?, cover = ?, price = ?, category = ?, quantity = ? WHERE id = ?', 
+                     [id, title, author, cover, price, category, quantity, bookIdNum], 
                      (err, result) => {
       if (err) {
         console.error("Error updating book:", err);
