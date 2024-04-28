@@ -565,11 +565,25 @@ color: var(--main-color-dark);
   #table-container{
     margin-top: 10%;
     max-height: 500px;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    background-color: aqua;
+    display: flex;
+    position: relative;
+  }
+  .forms-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .update-book-form{
+    width: auto;
+    display: flex;
+    flex-direction: column;
   }
   .book-table{
-    max-height: 500px; 
-    overflow-y: auto; 
+    max-height: 500px;
+    max-width: 80vw; 
+    overflow-y: auto;
+    background-color: #FF6542; 
   }
   .table-cell:hover{
     background-color: var(--main-color-dark);
@@ -595,7 +609,7 @@ color: var(--main-color-dark);
   .add-book-form-input{
     width: 50%;
   }
-
+  
 
 }
 

@@ -14,4 +14,7 @@ export const appendMultipleChildrens = (parent, childrens) =>{
         parent.appendChild(children); 
     });
 }
+
+
+
     
