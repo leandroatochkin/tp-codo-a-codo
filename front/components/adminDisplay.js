@@ -20,21 +20,13 @@ export const adminDisplay = () => {
         booksTable.innerHTML = '';
 
        
-        const booksHeaderRow = document.createElement('tr');
-        booksHeaderRow.setAttribute('class', 'header-row')
-        const booksHeaders = ['ID', 'Título', 'Autor', 'Cover', 'Precio', 'Categoria', 'Stock']; 
-        booksHeaders.forEach(headerText => {
-            const th = document.createElement('th');
-            th.textContent = headerText;
-            booksHeaderRow.appendChild(th);
-        });
-        booksTable.appendChild(booksHeaderRow);
 
         // Create table rows for each book
         booksData.forEach(book => {
             const row = document.createElement('tr');
+            row.classList.add('table-row')
             const bookData = [book.id, book.title, book.author, book.cover, book.price, book.category, book.quantity]; // Adjust as per your book data structure
-            bookData.forEach(cellData => {
+            bookData.forEach((cellData, index) => {
                 const cell = document.createElement('td');
                 if (cellData && cellData.length > 15) {
                 cell.textContent = cellData.slice(0, 14) + "...";
@@ -42,12 +34,30 @@ export const adminDisplay = () => {
                 cell.textContent = cellData || '';
                 }
                 cell.classList.add('table-cell');
+                if (index === 0) { // Adjust width for the first column
+                    cell.style.width = "3%"; 
+                } else if (index === 1) {  
+                    cell.style.width = "15%";
+                } else if (index === 2) { 
+                    cell.style.width = "10%"; 
+                } else if (index === 3) { 
+                    cell.style.width = "15%"; 
+                } else if (index === 4) {
+                    cell.style.width = "10%"; 
+                } else if (index === 5) { 
+                    cell.style.width = "15%"; 
+                } else if (index === 6) { 
+                    cell.style.width = "10%"; 
+                } else if (index === 7) {
+                    cell.style.width = "15%";
+                }
                 row.appendChild(cell);
                 
                 
             });
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Eliminar';
+            deleteBtn.classList.add('row-button')
             deleteBtn.onclick = (e) => {
                 const confirmation = window.prompt('Esta acción no se puede deshacer. Escriba - ok - para continuar.')
                 if(confirmation === 'ok'){
@@ -55,8 +65,11 @@ export const adminDisplay = () => {
                 } 
             }
             const updateBtn = document.createElement('button');
-            updateBtn.textContent = 'Modificar'
+            updateBtn.textContent = 'Modificar';
+            updateBtn.classList.add('row-button')
             updateBtn.onclick = ()=> {
+                    updateBookForm.classList.remove('updateform-hidden')
+                    updateBookForm.classList.toggle('updateform-show', true)
                     // Populate the update form with the details of the corresponding book
                     idInputUpdate.value = book.id;
                     titleInputUpdate.value = book.title;
@@ -73,11 +86,22 @@ export const adminDisplay = () => {
         });
     }
 
+    const booksHeaderRow = document.createElement('div');
+        booksHeaderRow.setAttribute('class', 'header-row')
+        const booksHeaders = ['ID', 'Título', 'Autor', 'Cover', 'Precio', 'Categoria', 'Stock', 'Opciones']; 
+        booksHeaders.forEach(headerText => {
+            const th = document.createElement('h3');
+            th.textContent = headerText;
+            booksHeaderRow.appendChild(th);
+        });
+
+
     // Render initial table with displayBooks
     renderBooksTable(displayBooks);
 
     const formsContainer = document.createElement('div');
     formsContainer.classList.add('forms-container');
+  
 
     
     /*----------------ADD BOOK FORM-----------------*/
@@ -87,7 +111,8 @@ export const adminDisplay = () => {
 
     const updateBookForm = document.createElement('form')
     updateBookForm.classList.add('update-book-form');
-    updateBookForm.setAttribute('method', 'post')
+    updateBookForm.classList.add('updateform-hidden');
+    updateBookForm.setAttribute('method', 'post');
     
 
     /*-----------------INPUTS-------------------*/
@@ -99,8 +124,12 @@ export const adminDisplay = () => {
     const categoryInput = createInput('text', 'category',  'Categoria', true)
     const quantityInput = createInput('text', 'quantity',  'Cantidad en Stock', true)
 
+
+    const updateBookFormTitle = document.createElement('div')
+    updateBookFormTitle.textContent = 'MODIFICAR'
     const idInputUpdate = createInput('text', 'id',  'ID', true)
     idInputUpdate.setAttribute("readonly", "true");
+    idInputUpdate.setAttribute('display', 'none')
     const titleInputUpdate = createInput('text', 'title',  'Titulo', true)
     const authorInputUpdate = createInput('text', 'author',  'Autor', true)
     const coverInputUpdate = createInput('text', 'cover',  'Ruta de la imagen', true)
@@ -117,8 +146,17 @@ export const adminDisplay = () => {
     updateButtonSubmit.setAttribute("type", "submit");
     updateButtonSubmit.setAttribute("value", "actualizar");
 
+    const updateCloseButton = document.createElement('button')
+    updateCloseButton.classList.add('updateform-close-btn')
+    updateCloseButton.textContent = 'Cerrar'
+    updateCloseButton.onclick = () =>{
+        updateBookForm.classList.add('updateform-hidden')
+    }
+
+
     //UPDATE BOOK
     appendMultipleChildrens(updateBookForm,[
+        updateBookFormTitle,
         idInputUpdate,
         titleInputUpdate,
         authorInputUpdate,
@@ -126,7 +164,8 @@ export const adminDisplay = () => {
         priceInputUpdate,
         categoryInputUpdate,
         quantityInputUpdate,
-        updateButtonSubmit
+        updateButtonSubmit,
+        updateCloseButton
     ])
     //ADD BOOK
     appendMultipleChildrens(addBookForm, [
@@ -151,7 +190,7 @@ export const adminDisplay = () => {
     areaTitle.textContent='Control y manejo de stock'
     areaTitle.classList.add('stock-management-title')
 
-    appendMultipleChildrens(displayDiv, [areaTitle, tableContainer]);
+    appendMultipleChildrens(displayDiv, [areaTitle, booksHeaderRow,tableContainer]);
     appendMultipleChildrens(tableContainer,[booksTable, formsContainer])
     appendMultipleChildrens(formsContainer, [updateBookForm, addBookButton, addBookForm]);
 

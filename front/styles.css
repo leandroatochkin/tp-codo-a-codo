@@ -570,47 +570,56 @@ color: var(--main-color-dark);
   
   /*ADMIN USER DISPLAY*/
   .stock-management-title{
-    margin-top: 5%;
+    margin-top: 6%;
+    padding: 0;
   }
 
   #table-container{
-    max-height: 500px;
+    padding-left: 1%;
+    max-height: 250px;
     overflow-y: scroll;
-    background-color: aqua;
     display: flex;
     position: fixed;
   }
   .header-row{
-    position: fixed;
-    width: 80vw;
+    margin-top: 0;
+    width: 65vw;
     display: flex;
     justify-content: space-between;
-    padding-right: 10%;
-    padding-bottom: 2%;
-    
+    padding-left: 1%;
+  }
+  
+  .book-table{
+    max-height: 300px;
+    width: 65vw; 
+    overflow-y: auto;
+    background-color: #FF6542; 
+  }
+
+  .table-row{
+    background-color: white;
+  }
+
+  .row-button{
+    width: 80px;
+    font-weight: bolder;
+    cursor: pointer;
   }
   .forms-container{
     display: flex;
     flex-direction: column;
     position: fixed;
     right: 0;
+    margin-right: 10%;
   }
   .update-book-form{
     width: auto;
     display: flex;
     flex-direction: column;
   }
-  .book-table{
-    max-height: 500px;
-    width: 80vw; 
-    overflow-y: auto;
-    background-color: #FF6542; 
-  }
-  .table-cell:hover{
-    background-color: var(--main-color-dark);
-    color: var(--light-background-color);
-    font-weight: bolder;
-    cursor: pointer;
+  
+  .updateform-close-btn{
+    display: none;
   }
   
   .book-form-hidden{
@@ -641,6 +650,10 @@ color: var(--main-color-dark);
 @media only screen and (max-width: 767px){
   /*HERE STARTS THE NAVBAR*/
 
+  #primary-title{
+    color: var(--light-background-color);
+    text-shadow: 1px 4px 4px var(--secondary-accent-color);
+  }
   #primary-title:hover{
     cursor: pointer;
     }
@@ -699,14 +712,16 @@ color: var(--main-color-dark);
   .hidden > #navbar-wishlist,
   .hidden > #navbar-shoppingcart,
   .hidden > #navbar-login,
-  .hidden > #navbar-input {
+  .hidden > #navbar-input,
+  .hidden > #navbar-admin {
     display: none; /* Or display: block; depending on your layout */
   }
   .show > #navbar-categories,
   .show > #navbar-wishlist,
   .show > #navbar-shoppingcart,
   .show > #navbar-login,
-  .show > #navbar-input{
+  .show > #navbar-input,
+  .show > #navbar-admin{
     display: flex; /* Or display: block; depending on your layout */
     flex-direction: column;
     align-items: center;
@@ -740,7 +755,7 @@ color: var(--main-color-dark);
   #toggle-menu-button{
     height: 40px;
     width: 40px;
-    color: var(--main-accent-color);
+    color: var(--light-background-color);
     border: none;
     background: none;
   }
@@ -759,7 +774,7 @@ color: var(--main-color-dark);
 
   .navbar-button:hover {
     cursor: pointer;
-    background-color: var(--main-accent-color);
+    background-color: var(--light-background-color);
     color: var(--main-color-dark);
 }
 /*CATEGORIES MENU*/
@@ -1105,7 +1120,7 @@ padding-top: 1%;
   }
   
   #create-account-button {
-    background-color: var(--main-color-light);
+    background-color: var(--main-color-dark);
     color: var(--light-background-color);
     border: none;
     border-radius: 8px;
@@ -1164,4 +1179,79 @@ padding-top: 1%;
     color: linen
   }
 /*ADMIN USER DISPLAY*/
+.stock-management-title{
+    margin-top: 12%;
+    padding: 0;
+  }
+
+  #table-container{
+    height: 80vh;
+    overflow-y: scroll;
+    display: flex;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .header-row{
+    display: none;
+  }
+  
+  .book-table{
+    height: 100px;
+    width: 100vw; 
+    overflow-y: auto;
+    background-color: #FF6542; 
+    font-size: 8px;
+    font-weight: bold;
+  }
+  
+  .forms-container{
+    background-color: var(--main-color-dark);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    bottom: 0;
+  }
+
+  .table-row{
+    background-color: white;
+  }
+
+  .row-button{
+    width: 80px;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+  
+  .updateform-show{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  .updateform-hidden{
+    display: none;
+  }
+  
+  
+  .book-form-hidden{
+    display: none;
+  }
+
+  .book-form-show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid 3px red;
+    padding: 2%;
+  }
+
+  .add-book-form-input{
+    width: 50%;
+  }
+  
   }

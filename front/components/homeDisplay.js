@@ -23,7 +23,7 @@ export const homeDisplay = () => {
     const description = document.createElement('div')
     description.setAttribute('id','description')
     placeholder.appendChild(description)
-    description.textContent = 'AUREA es el lugar para encontrar y descubrir todo lo que necesitas, acá.'
+    description.textContent = 'AUREA es el lugar para encontrar y descubrir todo lo que necesitás, acá.'
   
     const banner = document.createElement('div')
     banner.setAttribute('id', 'banner')
