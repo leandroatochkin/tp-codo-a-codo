@@ -129,7 +129,7 @@ export const adminDisplay = () => {
     updateBookFormTitle.textContent = 'MODIFICAR'
     const idInputUpdate = createInput('text', 'id',  'ID', true)
     idInputUpdate.setAttribute("readonly", "true");
-    idInputUpdate.setAttribute('display', 'none')
+    idInputUpdate.style.display = 'none'
     const titleInputUpdate = createInput('text', 'title',  'Titulo', true)
     const authorInputUpdate = createInput('text', 'author',  'Autor', true)
     const coverInputUpdate = createInput('text', 'cover',  'Ruta de la imagen', true)
