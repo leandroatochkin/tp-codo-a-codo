@@ -1,12 +1,16 @@
 import { cartArray } from "../assets/arrays.js";
 import { getLoggedIn } from "../assets/userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
+import { ordersdb } from '../assets/lookUp.js'
 
 
 
-export const shoppingCartDisplay = () => {
+export const shoppingCartDisplay = (shoppingCart, userID) => {
+
+console.log(userID)
 
   let cart = cartArray
+  console.log(cart)
   const log = getLoggedIn()
     const fetchShoppinCart = (cart) => {
 
@@ -103,8 +107,7 @@ export const shoppingCartDisplay = () => {
   
       buyButton.onclick = () => {
         if(log){
-        boughtArr.push(cart)
-        cartArray.splice(0, cart.length);
+        submitOrder()
         homeDisplay()
         return boughtArr
         } else {
@@ -118,6 +121,30 @@ export const shoppingCartDisplay = () => {
         modalBackground.remove()
         homeDisplay()
       }
+
+      async function submitOrder() {
+        const items = []
+        cart.forEach(book => {
+          items.push({ bookId: book.book_id, quantity: 1 })
+        })
+        const userId = userID;
+        console.log(JSON.stringify({ userId, items }));
+        try {
+          const response = await fetch(ordersdb, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userId, items })
+          });
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error('Error creating order:', error);
+        }
+      }
+
+
     }
     try {
       fetchShoppinCart(cart);

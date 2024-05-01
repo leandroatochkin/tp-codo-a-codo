@@ -17,10 +17,8 @@ const books = displayBooks
 const CATEGORIES = ['ficción', 'historia', 'recetas', 'cómics'];
 let PAGE_TITLE = 'AUREA';
 
-export const navBar = ( logged, role) => {
+export const navBar = ( logged, role, userID) => {
   
-   
-
  
 
     const displayDiv = document.querySelector('#display-div')
@@ -153,7 +151,7 @@ export const navBar = ( logged, role) => {
   
     shoppingCart.addEventListener('click', () => {
       displayDiv.innerHTML = ''
-      shoppingCartDisplay(cartArray)
+      shoppingCartDisplay(cartArray, userID)
       navbar.classList.remove('show')
     })
   
@@ -169,5 +167,4 @@ export const navBar = ( logged, role) => {
       navbar.classList.remove('show')
     })
 
-    
   }

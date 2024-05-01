@@ -93,7 +93,7 @@ export const logInDisplay = () => {
         if (user.password === password){
          
    
-          setLoggedIn(true, user.role)
+          setLoggedIn(true, user.role, user.user_id)
           
           loginModal.remove()
           homeDisplay()

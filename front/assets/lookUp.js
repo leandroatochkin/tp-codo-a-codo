@@ -46,5 +46,6 @@ let displayBooks = await displayBooksData()
 let userInfo = await  displayUsersData()
 const userdb = 'http://localhost:3000/users'
 const booksdb = 'http://localhost:3000/books'
+const ordersdb = 'http://localhost:3000/orders'
 
-export {displayBooks, userInfo, userdb, booksdb}
+export {displayBooks, userInfo, userdb, booksdb, ordersdb}
