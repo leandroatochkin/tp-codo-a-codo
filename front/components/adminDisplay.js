@@ -25,7 +25,7 @@ export const adminDisplay = () => {
         booksData.forEach(book => {
             const row = document.createElement('tr');
             row.classList.add('table-row')
-            const bookData = [book.id, book.title, book.author, book.cover, book.price, book.category, book.quantity]; // Adjust as per your book data structure
+            const bookData = [book.book_id, book.title, book.author, book.cover, book.price, book.category, book.quantity]; // Adjust as per your book data structure
             bookData.forEach((cellData, index) => {
                 const cell = document.createElement('td');
                 if (cellData && cellData.length > 15) {
@@ -61,7 +61,7 @@ export const adminDisplay = () => {
             deleteBtn.onclick = (e) => {
                 const confirmation = window.prompt('Esta acción no se puede deshacer. Escriba - ok - para continuar.')
                 if(confirmation === 'ok'){
-                    deleteBook(book.id)
+                    deleteBook(book.book_id)
                 } 
             }
             const updateBtn = document.createElement('button');
@@ -71,7 +71,7 @@ export const adminDisplay = () => {
                     updateBookForm.classList.remove('updateform-hidden')
                     updateBookForm.classList.toggle('updateform-show', true)
                     // Populate the update form with the details of the corresponding book
-                    idInputUpdate.value = book.id;
+                    idInputUpdate.value = book.book_id;
                     titleInputUpdate.value = book.title;
                     authorInputUpdate.value = book.author;
                     coverInputUpdate.value = book.cover;
@@ -253,7 +253,7 @@ updateBookForm.addEventListener('submit', async (event) => {
         event.preventDefault();
     
         const formData = new FormData(updateBookForm);
-        const id = formData.get('id')
+        const book_id = formData.get('id')
         const title = formData.get('title');
         const author = formData.get('author');
         const cover = formData.get('cover');
@@ -263,9 +263,9 @@ updateBookForm.addEventListener('submit', async (event) => {
         const bookIdNum = formData.get('id')
     
         // Function to update the book in the database
-        function updateBook(id, title, author, cover, price, category, quantity, bookIdNum) {
+        function updateBook(book_id, title, author, cover, price, category, quantity, bookIdNum) {
             const bookData = {
-                id: id,
+                book_id: book_id,
                 title: title,
                 author: author,
                 cover: cover,
@@ -275,7 +275,7 @@ updateBookForm.addEventListener('submit', async (event) => {
                 bookIdNum: bookIdNum
             };
     
-            fetch(`${booksdb}/${id}`, {
+            fetch(`${booksdb}/${book_id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -301,7 +301,7 @@ updateBookForm.addEventListener('submit', async (event) => {
         }
     
         // Call function to update the book
-        updateBook(id, title, author, cover, price, category, quantity, bookIdNum);
+        updateBook(book_id, title, author, cover, price, category, quantity, bookIdNum);
     });
 
     // Function to fetch updated book data and refresh the table

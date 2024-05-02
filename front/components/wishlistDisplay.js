@@ -1,4 +1,12 @@
-import { cartArray, favBooks } from "../assets/arrays.js";
+// import { cartArray, favBooks } from "../assets/arrays.js";
+import { booksdb, favoritesdb, displayBooks, favoriteItems } from "../assets/lookUp.js";
+import { getLoggedIn, getUserId } from "../assets/userAuth.js";
+
+const userId = getUserId()
+
+
+
+
 
 export const wishlistDisplay = (favBooks) => {
     const displayDiv = document.querySelector('#display-div')

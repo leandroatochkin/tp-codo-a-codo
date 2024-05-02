@@ -1,3 +1,4 @@
+
 export const createInput = (type, name, placeholder, required) => {
     const input = document.createElement('input');
     input.setAttribute('type', type);
@@ -14,6 +15,8 @@ export const appendMultipleChildrens = (parent, childrens) =>{
         parent.appendChild(children); 
     });
 }
+
+
 
 
 

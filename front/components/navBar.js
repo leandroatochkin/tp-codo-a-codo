@@ -1,5 +1,5 @@
-import { cartArray, favBooks } from "../assets/arrays.js";
-
+// import { cartArray, favBooks } from "../assets/arrays.js";
+import { favBooks } from "../assets/lookUp.js";
 import { logInDisplay } from "./logInDisplay.js";
 import { shoppingCartDisplay } from "./shoppingCartDisplay.js";
 import { categoriesDisplay } from "./categoriesDisplay.js";

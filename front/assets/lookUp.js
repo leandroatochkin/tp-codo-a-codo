@@ -1,3 +1,5 @@
+import { getUserId } from "./userAuth.js";
+
 const fetchData = async () => {
   try {
     const response = await fetch('http://localhost:3000/books');
@@ -15,6 +17,28 @@ const displayBooksData = async () => {
   try {
     const books = await fetchData(); 
     return books; 
+  } catch (error) {
+    console.error('Error using fetched data:', error);
+  }
+};
+
+const fetchFavsData = async () => {
+  try {
+    const response = await fetch('http://localhost:3000/favorite_items');
+    if (!response.ok) { 
+      throw new Error('Failed to fetch favs');
+    }
+    const data = await response.json(); 
+    return data
+  } catch (error) {
+    console.log('Error fetching data:', error);
+  }
+};
+
+const displayFavsData = async () => {
+  try {
+    const favs = await fetchFavsData(); 
+    return favs; 
   } catch (error) {
     console.error('Error using fetched data:', error);
   }
@@ -38,14 +62,23 @@ const displayUsersData = async () => {
     const userData = await fetchUsers(); 
     return userData; 
   } catch (error) {
-    console.error('Error using fetched data:', error);
+    console.error('Error using fetched data:', error);  
   }
 };
 
-let displayBooks = await displayBooksData()
-let userInfo = await  displayUsersData()
+
+
+const displayBooks = await displayBooksData()
+const userInfo = await  displayUsersData()
+const favoriteItems = await displayFavsData()
+
 const userdb = 'http://localhost:3000/users'
 const booksdb = 'http://localhost:3000/books'
 const ordersdb = 'http://localhost:3000/orders'
+const favoritesdb = 'http://localhost:3000/favorite_items'
 
-export {displayBooks, userInfo, userdb, booksdb, ordersdb}
+
+
+
+
+export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems, favoriteBooksByUser, favBooks}
