@@ -1,12 +1,13 @@
 // import { cartArray, favBooks } from "../assets/arrays.js";
-import { favBooks } from "../assets/lookUp.js";
+// import { favBooks } from "../assets/lookUp.js";
 import { logInDisplay } from "./logInDisplay.js";
 import { shoppingCartDisplay } from "./shoppingCartDisplay.js";
 import { categoriesDisplay } from "./categoriesDisplay.js";
-import { displayBooks } from "../assets/lookUp.js";
+import { displayBooks, favoriteItems } from "../assets/lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { adminDisplay } from "./adminDisplay.js";
+import { favBooks } from "../assets/arrays.js";
 
 
 const books = displayBooks  
@@ -141,7 +142,7 @@ export const navBar = ( logged, role, userID) => {
     wishlist.addEventListener('click', () => {
       if(logged){
         displayDiv.innerHTML = ''
-        wishlistDisplay(favBooks)
+        wishlistDisplay(logged, role, userID)
         navbar.classList.remove('show')
       } else {
         window.alert('Debe estar loggeado para realizar esta acción')
@@ -166,5 +167,7 @@ export const navBar = ( logged, role, userID) => {
       adminDisplay()
       navbar.classList.remove('show')
     })
+
+
 
   }

@@ -1,14 +1,44 @@
-// import { cartArray, favBooks } from "../assets/arrays.js";
-import { booksdb, favoritesdb, displayBooks, favoriteItems } from "../assets/lookUp.js";
-import { getLoggedIn, getUserId } from "../assets/userAuth.js";
 
-const userId = getUserId()
+import { favoritesdb, displayBooks } from "../assets/lookUp.js";
 
 
+export const wishlistDisplay = (logged, role, userID) => {
+  const favBooks = [];
+
+  async function getFavItemsByUser(user, displayBooks) {
+    try {
+      const response = await fetch(favoritesdb);
+      if (!response.ok) {
+        throw new Error('Failed to fetch favorite items');
+      }
+      const favoriteItems = await response.json();
+      
+     
+      favoriteItems
+        .filter(item => item.user_id === user)
+        .forEach(favoriteItem => {
+          const favoriteBookId = favoriteItem.book_id;
+          const correspondingBook = displayBooks.find(book => book.book_id === favoriteBookId);
+          if (correspondingBook) {
+            favBooks.push(correspondingBook);
+          }
+        });
+    } catch (error) {
+      console.error('Error fetching or processing favorite items:', error);
+      return []; // Return an empty array in case of error
+    }
+  }
+  
+  if (logged) {
+    (async () => {
+      const favoriteBooksByUser = await getFavItemsByUser(userID, displayBooks);
+      fetchFavs(favBooks)
+      console.log(favBooks)
+    })();
+  }
 
 
-
-export const wishlistDisplay = (favBooks) => {
+  
     const displayDiv = document.querySelector('#display-div')
     const fetchFavs = (arr) => {
       const wishlistContainer = document.createElement('div');
@@ -32,7 +62,7 @@ export const wishlistDisplay = (favBooks) => {
         wishRow.setAttribute('id', `${book.title}`)
   
         let title = document.createElement('h2')
-        title.textContent = book;
+        title.textContent = book.title;
         titleColumn.appendChild(title);
   
   
@@ -59,10 +89,5 @@ export const wishlistDisplay = (favBooks) => {
         wishRow.appendChild(buttonColumn)
         wishlistContainer.appendChild(wishRow)
       })
-    }
-    try {
-      fetchFavs(favBooks)
-    } catch (e) {
-      console.error('there was an issue fetching favorite books', e)
     }
   }//this function creates a list for your fav picks later it should create custom notifications for possible offers or bundles

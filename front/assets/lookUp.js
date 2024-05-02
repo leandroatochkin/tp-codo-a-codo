@@ -1,4 +1,4 @@
-import { getUserId } from "./userAuth.js";
+import { getLoggedIn, getUserId } from "./userAuth.js";
 
 const fetchData = async () => {
   try {
@@ -77,8 +77,13 @@ const booksdb = 'http://localhost:3000/books'
 const ordersdb = 'http://localhost:3000/orders'
 const favoritesdb = 'http://localhost:3000/favorite_items'
 
+const userId = getUserId()
+
+const favBooks = []
 
 
 
 
-export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems, favoriteBooksByUser, favBooks}
+
+
+export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems}
