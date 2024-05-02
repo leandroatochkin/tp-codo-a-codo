@@ -32,7 +32,7 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-
+/*-----------------GET ROUTES---------------------*/
 
 app.get('/books', ( req, res ) => {//get books db
   connection.query('SELECT * FROM books', (err, results) => {
@@ -50,7 +50,33 @@ app.get('/users', ( req, res ) => {//get users db
     });
   });
 
+  app.get('/orders', ( req, res ) => {//get orders db
+    connection.query('SELECT * FROM orders', (err, results) => {
+      if (err) throw err;
+      const result = res.json(results)
+      console.log(result)
+    });
+  });
+
+  app.get('/order_items', ( req, res ) => {//get order_items db
+    connection.query('SELECT * FROM order_items', (err, results) => {
+      if (err) throw err;
+      const result = res.json(results)
+      console.log(result)
+    });
+  });
+
+  app.get('/favorite_items', ( req, res ) => {//get favorite_items db
+    connection.query('SELECT * FROM favorite_items', (err, results) => {
+      if (err) throw err;
+      const result = res.json(results)
+      console.log(result)
+    });
+  });
+  
 app.options('/users', cors())
+
+/*-----------------POST ROUTES---------------------*/
 
 app.post('/users', (req, res) => {
     const { username, email, password, address, role } = req.body;
@@ -84,36 +110,6 @@ app.post('/users', (req, res) => {
     });
 });
 
-app.put('/books/:id', (req, res) => {
-    const bookId = req.params.id;
-    const { id, title, author, cover, price, category, quantity, bookIdNum } = req.body;
-    connection.query('UPDATE books SET id = ?, title = ?, author = ?, cover = ?, price = ?, category = ?, quantity = ? WHERE id = ?', 
-                     [id, title, author, cover, price, category, quantity, bookIdNum], 
-                     (err, result) => {
-      if (err) {
-        console.error("Error updating book:", err);
-        res.status(500).json({ error: 'Error updating book' });
-      } else {
-        console.log("Book updated successfully");
-        res.status(200).json({ success: true });
-      }
-    });
-});
-
-app.delete('/books/:id', (req, res) => {
-  const bookId = req.params.id;
-
-  connection.query('DELETE FROM books WHERE id = ?', [bookId], (err, result) => {
-      if (err) {
-          console.error("Error deleting book:", err);
-          res.status(500).json({ error: 'Error deleting book' });
-      } else {
-          console.log("Book deleted successfully");
-          res.status(200).json({ success: true });
-      }
-  });
-});
-
 app.post('/orders', (req, res) => {
   const { userId, items } = req.body;
 
@@ -138,11 +134,61 @@ app.post('/orders', (req, res) => {
       } else {
         res.status(200).json({success: true});
       }
-      
-      
+  
     });
   });
 });
+
+app.post('/favorite_items', (req, res) => {
+  const { user_id, book_id } = req.body;
+  connection.query('INSERT INTO favorite_items (user_id, book_id) VALUES (?, ?)', 
+                   [user_id, book_id], 
+                   (err, result) => {
+    if (err) {
+      console.error("Error inserting favorite:", err);
+      res.status(500).json({ error: 'Error inserting favorite' });
+    } else {
+      console.log("favorite inserted successfully");
+      res.status(200).json({ success: true });
+    }
+  });
+});
+
+/*-----------------PUT ROUTES---------------------*/
+
+app.put('/books/:id', (req, res) => {
+    const bookId = req.params.book_id;
+    const { book_id, title, author, cover, price, category, quantity, bookIdNum } = req.body;
+    connection.query('UPDATE books SET book_id = ?, title = ?, author = ?, cover = ?, price = ?, category = ?, quantity = ? WHERE book_id = ?', 
+                     [book_id, title, author, cover, price, category, quantity, bookIdNum], 
+                     (err, result) => {
+      if (err) {
+        console.error("Error updating book:", err);
+        res.status(500).json({ error: 'Error updating book' });
+      } else {
+        console.log("Book updated successfully");
+        res.status(200).json({ success: true });
+      }
+    });
+});
+
+/*-----------------DELETE ROUTES---------------------*/
+
+app.delete('/books/:id', (req, res) => {
+  const bookId = req.params.id;
+
+  connection.query('DELETE FROM books WHERE id = ?', [bookId], (err, result) => {
+      if (err) {
+          console.error("Error deleting book:", err);
+          res.status(500).json({ error: 'Error deleting book' });
+      } else {
+          console.log("Book deleted successfully");
+          res.status(200).json({ success: true });
+      }
+  });
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
