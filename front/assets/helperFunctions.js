@@ -16,6 +16,26 @@ export const appendMultipleChildrens = (parent, childrens) =>{
     });
 }
 
+export const initLoadingAnimation  = () =>{
+    const body = document.querySelector("body");
+    const loadingAnimationContainer = document.createElement('div')
+    loadingAnimationContainer.classList.add('spinner-container');
+
+    const spinner = document.createElement('img');
+    spinner.classList.add('spinner')
+    spinner.setAttribute('src', './front/assets/animations/Cube@1x-1.0s-200px-200px.gif')
+
+    
+    body.prepend(loadingAnimationContainer);
+    loadingAnimationContainer.appendChild(spinner);
+}
+
+export const closeLoadingAnimation = () =>{
+    const loadingAnimationContainer = document.querySelector('.spinner-container');
+    if(loadingAnimationContainer){
+    loadingAnimationContainer.remove();
+    }
+} 
 
 
 

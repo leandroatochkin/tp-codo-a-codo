@@ -1,11 +1,15 @@
 
+import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
 import { favoritesdb, displayBooks } from "../assets/lookUp.js";
+
 
 
 export const wishlistDisplay = (logged, role, userID) => {
   const favBooks = [];
-
+  initLoadingAnimation()//spinner
+  
   async function getFavItemsByUser(user, displayBooks) {
+    
     try {
       const response = await fetch(favoritesdb);
       if (!response.ok) {
@@ -25,16 +29,22 @@ export const wishlistDisplay = (logged, role, userID) => {
         });
     } catch (error) {
       console.error('Error fetching or processing favorite items:', error);
-      return []; // Return an empty array in case of error
+      return []; 
     }
+    
   }
   
   if (logged) {
+
+    
     (async () => {
-      const favoriteBooksByUser = await getFavItemsByUser(userID, displayBooks);
+
+      await getFavItemsByUser(userID, displayBooks);
+      
       fetchFavs(favBooks)
-      console.log(favBooks)
+      closeLoadingAnimation()
     })();
+    
   }
 
 

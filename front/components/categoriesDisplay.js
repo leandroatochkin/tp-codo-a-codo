@@ -1,14 +1,16 @@
 import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
-import { cartArray, favBooks } from "../assets/arrays.js";
+import { cartArray } from "../assets/arrays.js";
 import { getLoggedIn, getUserId, getUserRole } from "../assets/userAuth.js";
 import { appendMultipleChildrens } from "../assets/helperFunctions.js";
 import { favoritesdb } from "../assets/lookUp.js";
+import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
 
 let cart = cartArray
 
 
 export const categoriesDisplay = (category, books) => {
 
+ 
 
   const log = getLoggedIn()
   const role = getUserRole()
@@ -170,7 +172,9 @@ export const categoriesDisplay = (category, books) => {
   
     }
     try {
+      initLoadingAnimation()
       fetchBooks(category, books)
+      closeLoadingAnimation()
     } catch (e) {
       console.error('there was an issue fetching books', e)
     }
