@@ -1,5 +1,3 @@
-// import { cartArray, favBooks } from "../assets/arrays.js";
-// import { favBooks } from "../assets/lookUp.js";
 import { logInDisplay } from "./logInDisplay.js";
 import { shoppingCartDisplay } from "./shoppingCartDisplay.js";
 import { categoriesDisplay } from "./categoriesDisplay.js";
@@ -7,7 +5,8 @@ import { displayBooks, favoriteItems } from "../assets/lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { adminDisplay } from "./adminDisplay.js";
-import { favBooks } from "../assets/arrays.js";
+import { userDisplay } from "./userDisplay.js";
+
 
 
 const books = displayBooks  
@@ -157,9 +156,16 @@ export const navBar = ( logged, role, userID) => {
     })
   
     logIn.addEventListener('click', ()=>{
-      displayDiv.innerHTML = ''
-      logInDisplay()
-      navbar.classList.remove('show')
+      if(logged){
+        displayDiv.innerHTML = ''
+        userDisplay()
+        navbar.classList.remove('show')
+      }else{
+        displayDiv.innerHTML = ''
+        logInDisplay()
+        navbar.classList.remove('show')
+      }
+
     })
 
     admin.addEventListener('click', ()=>{
