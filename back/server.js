@@ -50,6 +50,18 @@ app.get('/users', ( req, res ) => {//get users db
     });
   });
 
+  app.get('/users/:userId', (req, res) => {
+    const userId = req.params.userId;
+    connection.query('SELECT * FROM users WHERE user_id = ?', userId, (err, results) => {
+      if (err) throw err;
+      if (results.length === 0) {
+        res.status(404).json({ message: 'User not found' });
+      } else {
+        res.json(results[0]);
+      }
+    });
+  });
+
   app.get('/orders', ( req, res ) => {//get orders db
     connection.query('SELECT * FROM orders', (err, results) => {
       if (err) throw err;
@@ -74,13 +86,13 @@ app.get('/users', ( req, res ) => {//get users db
     });
   });
   
-app.options('/users', cors())
+
 
 /*-----------------POST ROUTES---------------------*/
+app.options('/users', cors())
 
 app.post('/users', (req, res) => {
     const { username, email, password, address, role } = req.body;
-    console.log('request body', req.body)
     connection.query('INSERT INTO users (username, email, password, address, role) VALUES (?, ?, ?, ?, ?)', 
                      [username, email, password, address, role], 
                      (err, result) => {
