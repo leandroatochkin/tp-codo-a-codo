@@ -211,7 +211,7 @@ app.put('/books/:id', (req, res) => {
 app.delete('/books/:id', (req, res) => {
   const bookId = req.params.id;
 
-  connection.query('DELETE FROM books WHERE id = ?', [bookId], (err, result) => {
+  connection.query('DELETE FROM books WHERE book_id = ?', [bookId], (err, result) => {
       if (err) {
           console.error("Error deleting book:", err);
           res.status(500).json({ error: 'Error deleting book' });
