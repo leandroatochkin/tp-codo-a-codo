@@ -24,8 +24,14 @@ export const categoriesDisplay = (category, books) => {
       if (!mainDiv) {
         mainDiv = document.createElement('div');
         mainDiv.setAttribute("id", "main-div");
+        mainDiv.setAttribute ('style', `background-image: url(front/assets/wallpapers/${category}-wallpaper.jpg)`)
         displayDiv.appendChild(mainDiv);
+        
       }
+
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay')
+
       const title = document.createElement('h1');
       title.setAttribute("id", "title");
       title.textContent = `Esta es nuestra selección del género ${category}`;
