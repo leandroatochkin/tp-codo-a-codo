@@ -3,6 +3,7 @@ import { getLoggedIn } from "../assets/userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { ordersdb } from '../assets/lookUp.js';
 import { getUserId } from "../assets/userAuth.js";
+import { createModal } from "../assets/helperFunctions.js";
 
 
 
@@ -11,7 +12,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
 
 
   let cart = cartArray
-  console.log(cart)
+
   const log = getLoggedIn()
     const fetchShoppinCart = (cart) => {
 
@@ -109,7 +110,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
       buyButton.onclick = () => {
         if(log){
         submitOrder()
-        homeDisplay()
+        createModal('La compra se realizó con exito!', modalBackground)
         return boughtArr
         } else {
           window.alert('Debe estar loggeado para realizar esta acción')

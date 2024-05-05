@@ -80,7 +80,6 @@ export const categoriesDisplay = (category, books) => {
             window.alert('El administrador no puede realizar esta acción.')
           } else {
           cart.push(book);
-          console.log(cart);
        
           }
           

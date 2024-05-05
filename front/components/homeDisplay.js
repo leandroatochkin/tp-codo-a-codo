@@ -32,7 +32,8 @@ export const homeDisplay = () => {
     const footer = document.createElement('div');
     footer.setAttribute("id", "footer");
     footer.innerHTML = 'trabajo práctico para Codo a Codo - 2024. Contáctenos <a href="mailto:address@gmail.com"><span class="material-symbols-outlined" id="email-icon">alternate_email</span></a>'
-  
+
+    displayDiv.appendChild(homeContainer)
     homeContainer.appendChild(placeholder)
     homeContainer.appendChild(footer)
   
