@@ -1,5 +1,5 @@
 import { getLoggedIn,getUserId, getUserRole } from "../assets/userAuth.js";
-import { userdb, userInfo } from "../assets/lookUp.js";
+import { userdb, userInfo, ordersdb } from "../assets/lookUp.js";
 import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
 
 export const userDisplay = async () =>{
@@ -22,6 +22,7 @@ export const userDisplay = async () =>{
     }
 
     const currentUser = await getCurrentUser()
+   
 
 
 const displayDiv = document.querySelector('#display-div')
@@ -39,18 +40,52 @@ emailInfo.textContent = `Tu correo actual es: ${currentUser.email}`
 
 const addressInfo = document.createElement('p')
 addressInfo.classList.add('info-text')
-addressInfo.textContent = `Tu correo actual es: ${currentUser.email}`
+addressInfo.textContent = `Tu dirección actual es: ${currentUser.address}`
 
 const modifyInfo = document.createElement('button')
 modifyInfo.setAttribute('id', 'modify-info-btn')
 modifyInfo.textContent = 'actualizar'
 
+const ordersContainer = document.createElement('div')
+
 appendMultipleChildrens(userInfoContainer, [
     title,
     emailInfo,
     addressInfo,
-    modifyInfo
+    modifyInfo,
+    ordersContainer
 ])
+
+
+
+
+const getCurrentUserOrders = async () => {
+        try{
+            const response = await fetch(`${ordersdb}/${userID}`);
+    
+            if (!response.ok) { 
+                throw new Error('Failed to fetch orders');
+            }
+            const data = await response.json(); 
+            console.log(data )
+            return data
+        } catch(e){
+            console.log('Error fetching user:', e);
+        }
+    }
+
+
+
+const userOrders = await getCurrentUserOrders()
+
+userOrders.forEach(order => {
+    const orderLine = document.createElement('div')
+    orderLine.classList.add("order-line")
+    orderLine.textContent = `${order.order_date.toLocaleString()}: ID: ${order.order_id} Producto: ${order.title} Cantidad: ${order.quantity}`
+    ordersContainer.appendChild(orderLine)
+})
+
+
 
 displayDiv.appendChild(userInfoContainer)
 

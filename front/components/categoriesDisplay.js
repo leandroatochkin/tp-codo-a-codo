@@ -2,7 +2,7 @@ import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
 import { cartArray } from "../assets/arrays.js";
 import { getLoggedIn, getUserId, getUserRole } from "../assets/userAuth.js";
 import { appendMultipleChildrens } from "../assets/helperFunctions.js";
-import { favoritesdb } from "../assets/lookUp.js";
+import { favoritesdb, ordersdb } from "../assets/lookUp.js";
 import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
 
 let cart = cartArray
@@ -81,6 +81,7 @@ export const categoriesDisplay = (category, books) => {
           } else {
           cart.push(book);
           console.log(cart);
+       
           }
           
         }
@@ -93,8 +94,6 @@ export const categoriesDisplay = (category, books) => {
             window.alert('El administrador no puede realizar esta acción.')
           } else {
             if(log){
-              // const title = bookContainer.id
-              // favBooks.push(title)
               addFavoriteBook(userId, book.book_id)
             } else {
               window.alert('Debe estar loggeado para realizar esta acción')
@@ -168,7 +167,12 @@ export const categoriesDisplay = (category, books) => {
     .catch(error => {
         console.error('Error adding favorite:', error.message);
     });
+
+
       }
+
+
+
   
     }
     try {

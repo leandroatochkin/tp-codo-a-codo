@@ -151,7 +151,7 @@ export const navBar = ( logged, role, userID) => {
   
     shoppingCart.addEventListener('click', () => {
       displayDiv.innerHTML = ''
-      shoppingCartDisplay(cartArray, userID)
+      shoppingCartDisplay(userID)
       navbar.classList.remove('show')
     })
   

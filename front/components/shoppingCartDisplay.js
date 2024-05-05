@@ -1,13 +1,14 @@
 import { cartArray } from "../assets/arrays.js";
 import { getLoggedIn } from "../assets/userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
-import { ordersdb } from '../assets/lookUp.js'
+import { ordersdb } from '../assets/lookUp.js';
+import { getUserId } from "../assets/userAuth.js";
 
 
 
-export const shoppingCartDisplay = (shoppingCart, userID) => {
+export const shoppingCartDisplay = (shoppingCart, parameter) => {
 
-console.log(userID)
+
 
   let cart = cartArray
   console.log(cart)
@@ -115,7 +116,7 @@ console.log(userID)
         }
         
       }
-      cancelButton.onclick = () => { console.log('cancelado') }
+      cancelButton.onclick = () => { cart = [] }
   
       closeButton.onclick = () => {
         modalBackground.remove()
@@ -123,11 +124,12 @@ console.log(userID)
       }
 
       async function submitOrder() {
+      
         const items = []
         cart.forEach(book => {
           items.push({ bookId: book.book_id, quantity: 1 })
         })
-        const userId = userID;
+        const userId = getUserId();
         console.log(JSON.stringify({ userId, items }));
         try {
           const response = await fetch(ordersdb, {
