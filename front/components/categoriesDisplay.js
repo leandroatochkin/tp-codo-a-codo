@@ -108,21 +108,21 @@ export const categoriesDisplay = (category, books) => {
         bookCover.setAttribute('alt', book.title);
         bookCover.classList.add('book-cover');
 
-        appendMultipleChildrens(bookContainer,[bookCover, bookContainerInfoContainer])
+        appendMultipleChildrens(bookContainer,[bookCover, bookContainerInfoContainerTextContainer])
 
-        appendMultipleChildrens(bookContainerInfoContainer, [
-          bookContainerInfoContainerTextContainer,
-          bookContainerInfoContainerButtonsContainer
-        ])
   
         appendMultipleChildrens(bookContainerInfoContainerTextContainer, [
           bookTitle,
           bookAuthor,
           bookPrice,
+          bookContainerInfoContainerButtonsContainer,
+        ])
+        
+          appendMultipleChildrens(bookContainerInfoContainerButtonsContainer, [
           buyButton,
           favButton
-        ])
-  
+          ])
+
         coverContainer.appendChild(bookContainer);
   
       });
