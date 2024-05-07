@@ -78,7 +78,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
         bookInfo.appendChild(bookTitle)
         bookInfo.appendChild(additionalInfo)
   
-        priceAcc += Number(book.price)
+        priceAcc += Number(book.price * book.currentQuantity)
         console.log(priceAcc);
       })
   
@@ -128,7 +128,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
       
         const items = []
         cart.forEach(book => {
-          items.push({ bookId: book.book_id, quantity: 1 })
+          items.push({ bookId: book.book_id, quantity: book.currentQuantity })
         })
         const userId = getUserId();
         console.log(JSON.stringify({ userId, items }));

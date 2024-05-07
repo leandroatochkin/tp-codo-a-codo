@@ -85,11 +85,23 @@ export const categoriesDisplay = (category, books) => {
           if (role === 'admin'){
             window.alert('El administrador no puede realizar esta acción.')
           } else {
-          cart.push(book);
-       
+          if(quantityInput.value === ''){
+            window.alert("Ingrese en el recuadro a la derecha del botón 'Comprar' cuantas unidades va a comprar (Mínimo 1).")
+          } else {
+          const currentQuantity = parseInt(quantityInput.value)
+          const bookWithQuantity = {...book, currentQuantity}
+          cart.push(bookWithQuantity);
+          }
+          
           }
           
         }
+
+        const quantityInput = document.createElement('input')
+        quantityInput.setAttribute('type', 'number')
+        quantityInput.setAttribute('min', '1')
+        quantityInput.setAttribute('max', `${book.quantity}`)
+        quantityInput.classList.add('quantity-input')
   
         const favButton = document.createElement('button')
         favButton.textContent = '❤️'
@@ -126,7 +138,8 @@ export const categoriesDisplay = (category, books) => {
         
           appendMultipleChildrens(bookContainerInfoContainerButtonsContainer, [
           buyButton,
-          favButton
+          quantityInput,
+          favButton,
           ])
 
         coverContainer.appendChild(bookContainer);
