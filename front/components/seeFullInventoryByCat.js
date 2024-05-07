@@ -42,8 +42,6 @@ export const seeFullInventoryByCat = (category, books) =>{
         const inventoryItemContainer = document.createElement('div')
         inventoryItemContainer.classList.add('inventory-item-container')
   
-        const inventoryItemImageContainer = document.createElement('div')
-        inventoryItemImageContainer.classList.add('inventory-item-image-container')
   
         const inventoryItemImage = document.createElement('img')
         inventoryItemImage.setAttribute('src', `${book.cover}`)
@@ -51,7 +49,7 @@ export const seeFullInventoryByCat = (category, books) =>{
         inventoryItemImage.setAttribute('class', 'inventory-item-image')
         
   
-        inventoryItemImageContainer.appendChild(inventoryItemImage)
+      
   
         const inventoryItemTitleAuthorContainer = document.createElement('div')
         inventoryItemTitleAuthorContainer.classList.add('inventory-item-title-author-container')
@@ -100,11 +98,18 @@ export const seeFullInventoryByCat = (category, books) =>{
           }
         }
 
-        appendMultipleChildrens(inventoryItemContainer, [
-          inventoryItemImageContainer,
+        const infoDivs = document.createElement('div')
+        infoDivs.classList.add('item-row-info-div')
+
+        appendMultipleChildrens(infoDivs,[
           inventoryItemTitleAuthorContainer,
           inventoryItemQuantityPriceContainer,
           inventoryItemButtonsContainer
+        ])
+
+        appendMultipleChildrens(inventoryItemContainer, [
+          inventoryItemImage,
+          infoDivs
         ])
   
         inventoryItemRow.appendChild(inventoryItemContainer)

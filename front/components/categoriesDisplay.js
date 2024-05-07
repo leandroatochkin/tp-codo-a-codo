@@ -46,7 +46,7 @@ export const categoriesDisplay = (category, books) => {
   
   
       // Iterate over the filtered books and create elements for each book
-      filteredBooks.slice(0, 4).forEach(book => {
+      filteredBooks.slice(0, 5).forEach(book => {
         const bookContainer = document.createElement('div');
         bookContainer.classList.add('book-container');
         bookContainer.setAttribute('id', `${book.title}`)
