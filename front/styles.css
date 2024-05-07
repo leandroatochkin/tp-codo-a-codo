@@ -1135,7 +1135,7 @@ color: var(--main-color-dark);
 
 #shoppingcart-container{
     height: 80vh;
-    width: 65vw;
+    width: 45vw;
     background-color: antiquewhite;
     border-radius: 28px;
     display: flex;
@@ -1152,7 +1152,10 @@ color: var(--main-color-dark);
     margin: 20px;
     height: 30px;
     width: 30px;
-    
+    border-radius: 50%;
+    border: none;
+    background-color: var(--main-color-dark);
+    color: var(--main-accent-color);
 }
 
 #close-btn-container{
@@ -1174,6 +1177,14 @@ color: var(--main-color-dark);
     flex-direction: row;
     justify-content: flex-start;
     width: 100%;
+    height: 200px;
+}
+.book-cover-cart{
+    display: flex;
+    justify-content: center;
+}
+.book-cover-content{
+    height: 200px;
 }
 
 #shopping-cart-display{

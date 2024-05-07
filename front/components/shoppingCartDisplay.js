@@ -71,9 +71,9 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
   
         const bookTitle = document.createElement('h2')
         bookTitle.textContent = book.title;
-  
+        
         const additionalInfo = document.createElement('p')
-        additionalInfo.textContent = 'Envío sin costo!'
+        additionalInfo.textContent = `Comprás ${book.currentQuantity} unidades a $${book.price} cada uno. ¡Envío sin costo!`
   
         bookInfo.appendChild(bookTitle)
         bookInfo.appendChild(additionalInfo)
