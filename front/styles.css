@@ -68,6 +68,18 @@ body{
     padding-left: 10%;
 }
 
+#form-close-button{
+    background: none;
+    border: none;
+    font-weight: bolder;
+    padding: 5px;
+    border-radius: 50px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-color: var(--main-color-dark);
+    color: var(--main-accent-color);
+}
 @media only screen and (min-width: 1281px) {
 
         #navbar{
@@ -231,11 +243,10 @@ body{
             transform: scale(1.10);
             transition: 0.3s ease-in-out;
         }
-        .book-cover{
-            display: none;
-        }
+        
         
         .book-container > h2{
+            font-size: small;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -266,13 +277,16 @@ body{
             box-shadow: 10px 22px 17px 7px rgba(0,0,0,0.4);
         
         }
+
+       
         
         .book-container-info-text-container:hover{
+            font-size: smaller;
             color: white;
             margin-bottom: 0;
             background-color: var(--main-color-dark);
             padding-left: 5px;
-            height: auto;
+            height: 100%;
             transition: 0.3s ease all;
             padding: 1%;
            
@@ -563,18 +577,7 @@ body{
             display: flex;
             justify-content: flex-end;
         }
-        #form-close-button{
-            background: none;
-            border: none;
-            font-weight: bolder;
-            padding: 5px;
-        }
         
-        #form-close-button:hover{
-            cursor: pointer;
-            background-color: var(--main-color-dark);
-            color: var(--main-accent-color);
-        }
         
           #login-form>input {
             border-radius: 8px;
@@ -892,6 +895,7 @@ body{
 }
 
 .book-container > h2{
+    font-size: small;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -929,10 +933,12 @@ body{
 }
 
 .book-container-info-text-container:hover{
+    font-size: small;
     color: white;
     margin-bottom: 0;
     background-color: var(--main-color-dark);
     padding-left: 5px;
+    width: 100%;
     height: auto;
     transition: 0.3s ease all;
     padding: 1%;
@@ -1226,28 +1232,24 @@ color: var(--main-color-dark);
     width: 50vw;
   }
   
-  #close-button-container{
+#close-button-container{
     display: flex;
     justify-content: flex-end;
 }
-#form-close-button{
-    background: none;
-    border: none;
-    font-weight: bolder;
-    padding: 5px;
-}
 
-#form-close-button:hover{
-    cursor: pointer;
-    background-color: var(--main-color-dark);
-    color: var(--main-accent-color);
-}
+
+
 
   #login-form>input {
     border-radius: 8px;
     border: none;
     height: 20px;
+    cursor: pointer;
   }
+  #login-form>input:hover{
+    box-shadow: 2px 2px 4px var(--main-color-dark);
+  }
+
   
   #create-account-button {
     background-color: var(--main-color-light);
@@ -1380,14 +1382,39 @@ color: var(--main-color-dark);
   }
   /*----------USER PROFILE-----------*/
   #user-info-container{
-    margin-top: 10%;
+    margin-top: 5%;
     height: 50vh;
     width: 100vw;
     position: fixed;
   }
 
+  #orders-container{
+    background-color: var(--main-color-dark);
+    color: white;
+    max-height: 120px;
+    overflow-y: scroll;
+  }
 
-
+  .order-line{
+    display: flex;
+    flex-direction: row;
+  }
+  .order-column-narrow{
+    width: 10%;
+  }
+  .order-column-wide{
+    width: 40%;
+  }
+  .user-upper-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .profile-animation{
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
+  }
 }
 
 
@@ -1833,11 +1860,7 @@ padding-top: 1%;
     display: flex;
     justify-content: flex-end;
 }
-#form-close-button{
-    background: none;
-    border: none;
-    font-weight: bolder;
-}
+
 
   #login-form>input {
     border-radius: 8px;
