@@ -715,12 +715,41 @@ body{
             width: 50%;
           }
           /*----------USER PROFILE-----------*/
-          #user-info-container{
-            margin-top: 10%;
-            height: 50vh;
-            width: 100vw;
-            position: fixed;
-          }
+          
+  #user-info-container{
+    margin-top: 8%;
+    height: 50vh;
+    width: 100vw;
+    position: fixed;
+  }
+
+  #orders-container{
+    background-color: var(--main-color-dark);
+    color: white;
+    max-height: 450px;
+    overflow-y: scroll;
+  }
+
+  .order-line{
+    display: flex;
+    flex-direction: row;
+  }
+  .order-column-narrow{
+    width: 10%;
+  }
+  .order-column-wide{
+    width: 40%;
+  }
+  .user-upper-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .profile-animation{
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
+  }
         
         
         
@@ -2003,4 +2032,44 @@ padding-top: 1%;
     width: 50%;
   }
   
+  /*----------USER PROFILE-----------*/
+  #user-info-container{
+    margin-top: 10%;
+    height: 50vh;
+    width: 100vw;
+    position: fixed;
+  }
+  .profile-another-container{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+  }
+
+
+  #orders-container{
+    background-color: var(--main-color-dark);
+    color: white;
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+
+  .order-line{
+    display: flex;
+    flex-direction: row;
+  }
+  .order-column-narrow{
+    width: 10%;
+  }
+  .order-column-wide{
+    width: 40%;
+  }
+  .user-upper-section{
+    display: flex;
+    flex-direction: row;
+  }
+  .profile-animation{
+    display: none;
+  }
+
+
   }

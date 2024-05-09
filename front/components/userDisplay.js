@@ -55,6 +55,15 @@ logOut.onclick = () => {
     setLoggedIn(false, null, null)
     homeDisplay()
 }
+
+const buttonsContainer = document.createElement('div');
+buttonsContainer.classList.add('profile-buttons-container')
+
+appendMultipleChildrens(buttonsContainer, [
+    modifyInfo,
+    logOut
+])
+
 const userOrdersTitle = document. createElement('h3')
 userOrdersTitle.textContent = 'Compras realizadas'
 const ordersContainer = document.createElement('div')
@@ -68,10 +77,8 @@ const userInfo = document.createElement('div')
 appendMultipleChildrens(userInfo, [
     title,
     emailInfo,
-    addressInfo,
-    modifyInfo,
-    logOut,
-    userOrdersTitle
+    addressInfo
+
 ])
 
 const animationContainer = document.createElement('div')
@@ -82,8 +89,16 @@ animation.classList.add('profile-animation')
 
 animationContainer.appendChild(animation)
 
-appendMultipleChildrens(userUpperSection, [
+const anotherContainer = document.createElement('div')
+anotherContainer.classList.add('profile-another-container')
+appendMultipleChildrens(anotherContainer,[
     userInfo,
+    buttonsContainer,
+    userOrdersTitle
+])
+
+appendMultipleChildrens(userUpperSection, [
+    anotherContainer,
     animationContainer
 ])
 
