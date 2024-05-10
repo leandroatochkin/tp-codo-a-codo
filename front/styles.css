@@ -133,9 +133,12 @@ body{
         }
         
         .hidden{
-            display: none;
-        }
+            display: none;  
         
+        }
+        .hidden-menu{
+            height: 0;
+        }
         .show{
             position:fixed;
             top: 10%;
@@ -148,6 +151,7 @@ body{
             flex-direction: column;
             justify-content: start;
             box-shadow: 2px 4px 4px var(--main-color-dark);
+            transition: height 0.3s ease-in;
         }
         
         .show > a{
@@ -727,7 +731,7 @@ body{
     background-color: var(--main-color-dark);
     color: white;
     max-height: 450px;
-    overflow-y: scroll;
+    overflow-y: scroll; 
   }
 
   .order-line{
@@ -745,12 +749,23 @@ body{
     flex-direction: row;
     justify-content: space-between;
   }
+  .animation-container{
+    height: 100%;
+  }
+
   .profile-animation{
-    height: 300px;
+    height: 100%;
     width: 300px;
     object-fit: contain;
   }
-        
+
+  .profile-another-container{
+    margin-left: 5%;
+  }
+  
+  .profile-another-container>h3{
+    margin-top: 20%;
+  }
         
         
            

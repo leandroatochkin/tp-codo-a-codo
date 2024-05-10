@@ -1,11 +1,11 @@
-import { getLoggedIn,getUserId, getUserRole } from "../assets/userAuth.js";
+import { getLoggedIn,getUserId, getUserRole, setLoggedIn } from "../assets/userAuth.js";
 import { userdb, userInfo, ordersdb } from "../assets/lookUp.js";
-import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
-import { setLoggedIn } from "../assets/userAuth.js";
+import { createInput, appendMultipleChildrens, initLoadingAnimation,closeLoadingAnimation } from "../assets/helperFunctions.js";
 import { homeDisplay } from "./homeDisplay.js";
 
+
 export const userDisplay = async () =>{
-    
+    initLoadingAnimation()
     const userID = getUserId()
 
     const getCurrentUser = async () => {
@@ -25,6 +25,13 @@ export const userDisplay = async () =>{
 
     const currentUser = await getCurrentUser()
    
+    const modifyUser = async () => {
+
+    }
+
+    const editButton = document.createElement('div')
+    editButton.innerHTML = '<span class="material-symbols-outlined">edit_square</span>'
+    editButton.classList.add('edit-button')
 
 
 const displayDiv = document.querySelector('#display-div')
@@ -42,7 +49,9 @@ emailInfo.textContent = `Tu correo actual es: ${currentUser.email}`
 
 const addressInfo = document.createElement('p')
 addressInfo.classList.add('info-text')
-addressInfo.textContent = `Tu dirección actual es: ${currentUser.address}`
+addressInfo.innerHTML = `Tu dirección actual es: ${currentUser.address}` + editButton
+
+
 
 const modifyInfo = document.createElement('button')
 modifyInfo.setAttribute('id', 'modify-info-btn')
@@ -81,7 +90,21 @@ appendMultipleChildrens(userInfo, [
 
 ])
 
+const formContainer = document.createElement('div')
+formContainer.classList.add('profile-form-container')
+
+const modifyUserForm = document. createElement('form')
+modifyUserForm.setAttribute('id', 'modify-user-info-form')
+
+const usernameInput =  createInput('text', 'username', 'nuevo nombre de usuario...', true)
+
+const addressInput = createInput('text', 'address', 'nueva dirección', true)
+
+const passwordInput = createInput('password', 'password', 'nueva contraseña...', true)
+
+
 const animationContainer = document.createElement('div')
+animationContainer.classList.add('animatiorn-container')
 
 const animation = document.createElement('img')
 animation.setAttribute('style', 'background-image: url(front/assets/animations/girl-reading.gif)')
@@ -158,7 +181,7 @@ userOrders.forEach(order => {
 
 
 displayDiv.appendChild(userInfoContainer)
-
+closeLoadingAnimation()
 }
 
 
