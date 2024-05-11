@@ -11,6 +11,11 @@ const app = express();
 const port = process.env.PORT;
 const password = process.env.DATABASE_PASS;
 
+app.use(cors({
+  origin: 'http://localhost:5500',
+}))
+
+app.use(bodyParser.json());
 
 
 const connection = mysql.createConnection({
@@ -27,34 +32,9 @@ connection.connect((err) => {
 });
 
 
-app.get('/init-database', (req, res) => {
-  // Read the SQL script from the file
-  fs.readFile('init-database.sql', 'utf8', (err, data) => {
-    if (err) {
-      console.error('Error reading SQL file:', err);
-      res.status(500).send('Error reading SQL file');
-      return;
-    }
-    
-    // Execute the SQL script
-    connection.query(data, (err, result) => {
-      if (err) {
-        console.error('Error executing SQL script:', err);
-        res.status(500).send('Error executing SQL script');
-        return;
-      }
-      console.log('SQL script executed successfully');
-      res.send('Database initialized successfully');
-    });
-  });
-});
 
 
-app.use(cors({
-    origin: 'http://localhost:5500',
-}))
 
-app.use(bodyParser.json());
 
 /*-----------------GET ROUTES---------------------*/
 
