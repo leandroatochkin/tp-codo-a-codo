@@ -4,6 +4,7 @@ import { createInput, appendMultipleChildrens, initLoadingAnimation,closeLoading
 import { homeDisplay } from "./homeDisplay.js";
 
 
+
 export const userDisplay = async () =>{
     initLoadingAnimation()
     const userID = getUserId()
@@ -24,15 +25,10 @@ export const userDisplay = async () =>{
     }
 
     const currentUser = await getCurrentUser()
-   
-    const modifyUser = async () => {
-
-    }
-
-    const editButton = document.createElement('div')
-    editButton.innerHTML = '<span class="material-symbols-outlined">edit_square</span>'
-    editButton.classList.add('edit-button')
-
+    
+const editButton = document.createElement('button')
+editButton.innerHTML = '<span class="material-symbols-outlined">border_color</span>'
+editButton.classList.add('edit-button')
 
 const displayDiv = document.querySelector('#display-div')
 
@@ -43,19 +39,19 @@ const title = document.createElement('h2')
 title.setAttribute('id',  'user-profile-title')
 title.textContent = `Hola ${currentUser.username}!, este es tu espacio personal.`
 
+
 const emailInfo = document.createElement('p')
 emailInfo.classList.add('info-text')
 emailInfo.textContent = `Tu correo actual es: ${currentUser.email}`
 
 const addressInfo = document.createElement('p')
 addressInfo.classList.add('info-text')
-addressInfo.innerHTML = `Tu dirección actual es: ${currentUser.address}` + editButton
+addressInfo.textContent = `Tu dirección actual es: ${currentUser.address}` 
 
 
 
-const modifyInfo = document.createElement('button')
-modifyInfo.setAttribute('id', 'modify-info-btn')
-modifyInfo.textContent = 'actualizar'
+
+
 
 const logOut = document.createElement('button')
 logOut.setAttribute('id', 'logout-btn')
@@ -69,7 +65,6 @@ const buttonsContainer = document.createElement('div');
 buttonsContainer.classList.add('profile-buttons-container')
 
 appendMultipleChildrens(buttonsContainer, [
-    modifyInfo,
     logOut
 ])
 
@@ -90,17 +85,6 @@ appendMultipleChildrens(userInfo, [
 
 ])
 
-const formContainer = document.createElement('div')
-formContainer.classList.add('profile-form-container')
-
-const modifyUserForm = document. createElement('form')
-modifyUserForm.setAttribute('id', 'modify-user-info-form')
-
-const usernameInput =  createInput('text', 'username', 'nuevo nombre de usuario...', true)
-
-const addressInput = createInput('text', 'address', 'nueva dirección', true)
-
-const passwordInput = createInput('password', 'password', 'nueva contraseña...', true)
 
 
 const animationContainer = document.createElement('div')
@@ -112,7 +96,7 @@ animation.classList.add('profile-animation')
 
 animationContainer.appendChild(animation)
 
-const anotherContainer = document.createElement('div')
+const anotherContainer = document.createElement('div')  
 anotherContainer.classList.add('profile-another-container')
 appendMultipleChildrens(anotherContainer,[
     userInfo,
