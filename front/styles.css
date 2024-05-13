@@ -1781,8 +1781,12 @@ padding-top: 1%;
 
  .inventory-item-row{
   gap: 20px;
+  max-height: 150px;
  }
 
+ .inventory-item-container{
+  height: 140px;
+ }
  .inventory-item-image{
   border-radius: 8px;
  }
@@ -1793,11 +1797,17 @@ padding-top: 1%;
 
  }
 
+ .inventory-item-title-author-container{
+  height: 90px;
+ }
+
  .inventory-item-buttons-container{
+  margin-top: 0;
   display: flex;
   justify-content: space-around;
   gap: 10px;
   margin-left: 5%;
+  width: 200px;
  }
 
  .inventory-item-buttons-container>button{
@@ -1808,6 +1818,13 @@ padding-top: 1%;
   font-weight: bolder;
   background-color: var(--main-color-dark);
   color: var(--light-background-color);
+  box-shadow: 1px 1px 2px black;
+ }
+
+ .inventory-item-buttons-container>input{
+  height: 20px;
+  border-radius: 4px;
+  font-weight: bolder;
   box-shadow: 1px 1px 2px black;
  }
 
@@ -2114,6 +2131,11 @@ padding-top: 1%;
     width: 100vw;
     position: fixed;
   }
+
+  .user-upper-section{
+    padding-left: 5%;
+  }
+
   .profile-another-container{
     display: flex;
     flex-direction: column;

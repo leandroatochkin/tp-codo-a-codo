@@ -36,7 +36,7 @@ export const seeFullInventoryByCat = (category, books) =>{
   
       const filteredBooks = books.filter(book => book.category === category);
       filteredBooks.forEach(book=>{
-        console.log(book)
+       
         const inventoryItemRow = document.createElement('div')
         inventoryItemRow.classList.add('inventory-item-row')
         inventoryItemRow.setAttribute('id', `${book.title}` )
@@ -82,9 +82,13 @@ export const seeFullInventoryByCat = (category, books) =>{
         addToCartButton.classList.add('add-to-cart-button')
         addToCartButton.textContent = 'Comprar'
         addToCartButton.onclick = () => {
+          if(quantityInput.value === ''){
+            window.alert("Ingrese en el recuadro a la derecha del botón 'Comprar' cuantas unidades va a comprar (Mínimo 1).")
+          } else {
           const currentQuantity = parseInt(quantityInput.value)
           const bookWithQuantity = {...book, currentQuantity}
           cartArray.push(bookWithQuantity);
+          }
         }
 
         const quantityInput = document.createElement('input')
