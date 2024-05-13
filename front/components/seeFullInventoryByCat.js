@@ -1,12 +1,14 @@
 import { cartArray, favBooks } from "../assets/arrays.js";
 import { homeDisplay } from "./homeDisplay.js";
-import { getLoggedIn } from "../assets/userAuth.js";
-import { appendMultipleChildrens } from "../assets/helperFunctions.js";
+import { getLoggedIn, getUserId } from "../assets/userAuth.js";
+import { appendMultipleChildrens, addFavoriteBook } from "../assets/helperFunctions.js";
 
 export const seeFullInventoryByCat = (category, books) =>{
     const displayDiv = document.querySelector('#display-div')
     const fetchCatInventory = (category, books) => {
-      //clear out old content before adding new info
+
+      const user_id = getUserId()
+    
       const log = getLoggedIn()
   
       // const spacer = document.createElement('div')
@@ -78,25 +80,31 @@ export const seeFullInventoryByCat = (category, books) =>{
   
         const addToCartButton = document.createElement('button')
         addToCartButton.classList.add('add-to-cart-button')
-        inventoryItemButtonsContainer.appendChild(addToCartButton)
         addToCartButton.textContent = 'Comprar'
         addToCartButton.onclick = () => {
-          cartArray.push(book)
-          console.log(cartArray)
+          const currentQuantity = parseInt(quantityInput.value)
+          const bookWithQuantity = {...book, currentQuantity}
+          cartArray.push(bookWithQuantity);
         }
+
+        const quantityInput = document.createElement('input')
+        quantityInput.setAttribute('type', 'number')
+        quantityInput.setAttribute('min', '1')
+        quantityInput.setAttribute('max', `${book.quantity}`)
+        quantityInput.classList.add('quantity-input')
         
         const addToFavsButton = document.createElement('button')
         addToFavsButton.classList.add('add-to-favs-button')
-        inventoryItemButtonsContainer.appendChild(addToFavsButton)
         addToFavsButton.textContent = 'Favoritos'
         addToFavsButton.onclick = () => {
           if(log){
-            const title = inventoryItemRow.id
-            favBooks.push(title)
+            addFavoriteBook(user_id, book.book_id)
           } else {
             window.alert('Debe estar loggeado para realizar esta acción')
           }
         }
+
+        appendMultipleChildrens(inventoryItemButtonsContainer, [addToCartButton, quantityInput, addToFavsButton])
 
         const infoDivs = document.createElement('div')
         infoDivs.classList.add('item-row-info-div')

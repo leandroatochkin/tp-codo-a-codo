@@ -1,7 +1,7 @@
 import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
 import { cartArray } from "../assets/arrays.js";
 import { getLoggedIn, getUserId, getUserRole } from "../assets/userAuth.js";
-import { appendMultipleChildrens } from "../assets/helperFunctions.js";
+import { appendMultipleChildrens, addFavoriteBook } from "../assets/helperFunctions.js";
 import { favoritesdb, ordersdb } from "../assets/lookUp.js";
 import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
 
@@ -160,34 +160,7 @@ export const categoriesDisplay = (category, books) => {
         seeFullInventoryByCat(category, books)
       })
 
-      function addFavoriteBook(user_id, book_id){
-        const favBookData = {
-          user_id: user_id,
-          book_id: book_id
-        }
-        fetch(favoritesdb, {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-              'Accept': '*/*'
-          },
-          body: JSON.stringify(favBookData) 
-      }).then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to add favorite');
-        }
-        return response.json(); // Parse the response JSON
-    })
-    .then(data => {
-        console.log('favorite added successfully:', data);
-        // After successfully adding a book, fetch updated book data
-    })
-    .catch(error => {
-        console.error('Error adding favorite:', error.message);
-    });
 
-
-      }
 
 
 

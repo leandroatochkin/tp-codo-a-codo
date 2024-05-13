@@ -1,5 +1,7 @@
 import { homeDisplay } from "../components/homeDisplay.js";
 
+import { favoritesdb } from "./lookUp.js";
+
 
 export const createInput = (type, name, placeholder, required) => {
     const input = document.createElement('input');
@@ -67,6 +69,34 @@ export const createModal = (text, toRemove) => {
     
 }
 
+export function addFavoriteBook(user_id, book_id){
+    const favBookData = {
+      user_id: user_id,
+      book_id: book_id
+    }
+    fetch(favoritesdb, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Accept': '*/*'
+      },
+      body: JSON.stringify(favBookData) 
+  }).then(response => {
+    if (!response.ok) {
+        throw new Error('Failed to add favorite');
+    }
+    return response.json(); // Parse the response JSON
+})
+.then(data => {
+    console.log('favorite added successfully:', data);
+    // After successfully adding a book, fetch updated book data
+})
+.catch(error => {
+    console.error('Error adding favorite:', error.message);
+});
+
+
+  }
 
 
     

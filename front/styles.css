@@ -1532,7 +1532,10 @@ color: var(--main-color-dark);
 
 /*NAVBAR COLLIPSIBLE FUNCTION*/
 
-
+  #navbar{
+    position: fixed;
+    top: 0;
+  }
   .hidden {
     height: 6vh; /* Set the height of the hidden navbar */
   }
@@ -1777,7 +1780,7 @@ padding-top: 1%;
  }
 
  .inventory-item-row{
-  gap: 5px;
+  gap: 20px;
  }
 
  .inventory-item-image{
