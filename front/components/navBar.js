@@ -1,7 +1,7 @@
 import { logInDisplay } from "./logInDisplay.js";
 import { shoppingCartDisplay } from "./shoppingCartDisplay.js";
 import { categoriesDisplay } from "./categoriesDisplay.js";
-import { displayBooks, favoriteItems } from "../assets/lookUp.js";
+import { displayBooks, favoriteItems, searchdb } from "../assets/lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { adminDisplay } from "./adminDisplay.js";
@@ -51,6 +51,15 @@ export const navBar = ( logged, role, userID) => {
     searchBar.setAttribute('id', 'navbar-input');
     searchBar.setAttribute('type', 'text');
     searchBar.setAttribute('placeholder', 'buscar libros...')
+
+
+    searchBar.addEventListener('input', function() {
+      const query = searchBar.value;
+      fetch(`${searchdb}?q=${query}`)
+          .then(response => response.json())
+          .then(data => {console.log(data)})
+          .catch(error => console.error('Error:', error));
+  });
   
     titleContainer.appendChild(searchBar);
     titleContainer.appendChild(toggleMenuButton);

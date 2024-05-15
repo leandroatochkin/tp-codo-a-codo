@@ -76,6 +76,7 @@ const userdb = 'http://localhost:3000/users'
 const booksdb = 'http://localhost:3000/books'
 const ordersdb = 'http://localhost:3000/orders'
 const favoritesdb = 'http://localhost:3000/favorite_items'
+const searchdb = 'http://localhost:3000/search'
 
 const userId = getUserId()
 
@@ -86,4 +87,4 @@ const favBooks = []
 
 
 
-export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems}
+export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems, searchdb}
