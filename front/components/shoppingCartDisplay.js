@@ -21,7 +21,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
     
 
       const modalBackground = document.createElement("div");
-      modalBackground.setAttribute("id", "modal-background");
+      modalBackground.setAttribute("class", "modal-background");
       body.appendChild(modalBackground);
   
       const emptyMsg = document.createElement('h1')
