@@ -6,6 +6,7 @@ import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { adminDisplay } from "./adminDisplay.js";
 import { userDisplay } from "./userDisplay.js";
+import { appendMultipleChildrens } from "../assets/helperFunctions.js";
 
 
 
@@ -53,12 +54,67 @@ export const navBar = ( logged, role, userID) => {
     searchBar.setAttribute('placeholder', 'buscar libros...')
 
 
+    const searchDropDown = document.createElement('div')
+    searchDropDown.setAttribute('id', 'search-dropdown')
+    searchDropDown.classList.add('search-dropdown-hidden')
+    navbar.appendChild(searchDropDown)
+
     searchBar.addEventListener('input', function() {
+      
+
       const query = searchBar.value;
+
+      if (query.trim() === '') {
+          searchDropDown.classList.remove('search-dropdown-show');
+          searchDropDown.innerHTML = '';
+          return;
+      }
+  
       fetch(`${searchdb}?q=${query}`)
           .then(response => response.json())
-          .then(data => {console.log(data)})
+          .then(data => {
+  
+              // Clear previous search results
+              searchDropDown.innerHTML = '';
+  
+              if (data.length > 0) {
+                  searchDropDown.classList.add('search-dropdown-show');
+              } else {
+                  searchDropDown.classList.remove('search-dropdown-show');
+              }
+  
+              data.forEach(book => {
+                  const searchRow = document.createElement('div');
+                  searchRow.classList.add('search-row');
+  
+                  const coverColumn = document.createElement('div');
+                  coverColumn.classList.add('search-cover-column');
+  
+                  const searchCover = document.createElement('img');
+                  searchCover.style.height = '50px';
+                  searchCover.style.width = '40px';
+                  searchCover.src = book.cover;
+                  coverColumn.append(searchCover);
+  
+                  const titleColumn = document.createElement('div');
+                  titleColumn.classList.add('search-title-column');
+                  titleColumn.textContent = book.title.length > 15 ? book.title.slice(0, 15) + '...' : book.title;
+  
+                  const authorColumn = document.createElement('div');
+                  authorColumn.classList.add('search-author-column');
+                  authorColumn.textContent = book.author;
+  
+                  const categoryColumn = document.createElement('div');
+                  categoryColumn.classList.add('search-category-column');
+                  categoryColumn.textContent = book.category;
+  
+                  searchRow.append(coverColumn, titleColumn, authorColumn, categoryColumn);
+                  searchDropDown.append(searchRow);
+              });
+          })
           .catch(error => console.error('Error:', error));
+          
+         
   });
   
     titleContainer.appendChild(searchBar);
