@@ -95,7 +95,7 @@ export const navBar = (logged, role, userID) => {
         modalAddToFavs.onclick = () => {
           modalAddToFavs.innerHTML = '<span class="material-symbols-outlined">favorite</span>'
           addFavoriteBook(userID, book.book_id)
-          modalAddToFavs.style.color = 'crimson'
+          modalAddToFavs.style.color = 'white'
           modalAddToFavs.disabled = 'true'
         };
         

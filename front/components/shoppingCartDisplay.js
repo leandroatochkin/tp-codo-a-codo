@@ -41,7 +41,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
   
       const closeButton = document.createElement("button");
       closeButton.setAttribute("id", "close-button");
-      closeButton.textContent = 'X'
+      closeButton.innerHTML = '<span class="material-symbols-outlined">cancel</span>'
       closeButtonContainer.appendChild(closeButton)
   
       const shoppingCartDisplay = document.createElement('div')
@@ -73,7 +73,7 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
         bookTitle.textContent = book.title;
         
         const additionalInfo = document.createElement('p')
-        additionalInfo.textContent = `Comprás ${book.currentQuantity} unidades a $${book.price} cada uno. ¡Envío sin costo!`
+        additionalInfo.innerHTML = `Comprás ${book.currentQuantity} unidades a <span style = 'font-weight: bolder'>$${book.price}</span> cada uno. ¡Envío sin costo!`
   
         bookInfo.appendChild(bookTitle)
         bookInfo.appendChild(additionalInfo)
@@ -100,8 +100,8 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
   
       const buyButton = document.createElement("button");
       const cancelButton = document.createElement("button");
-      buyButton.textContent = "comprar"
-      cancelButton.textContent = 'cancelar'
+      buyButton.innerHTML = `Comprar<span class="material-symbols-outlined" style='margin-left: 3px'>shopping_bag</span>`
+      cancelButton.innerHTML = `Cancelar<span class="material-symbols-outlined" style='margin-left: 3px'>delete_forever</span>`
   
       operationBtnContainer.appendChild(buyButton)
       operationBtnContainer.appendChild(cancelButton)
