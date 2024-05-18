@@ -23,16 +23,20 @@ export const logInDisplay = () => {
     const closeButtonContainer = document.createElement( 'div' );
     closeButtonContainer.setAttribute('id', 'close-button-container')
     
+    const logInTitle = document.createElement('h2')
+    logInTitle.textContent = 'Log In'
+    logInTitle.setAttribute('id', 'log-in-title')
+
     const closeButton = document.createElement('button')
     closeButton.setAttribute('id', 'form-close-button')
-    closeButton.textContent = 'X'
+    closeButton.innerHTML = '<span class="material-symbols-outlined">cancel</span>'
 
     closeButton.addEventListener('click', ()=>{
       loginModal.remove()
       homeDisplay()
     })
 
-    closeButtonContainer.appendChild(closeButton)
+    closeButtonContainer.append(logInTitle, closeButton)
     /*-----------------INPUTS-------------------*/
 
     const emailLabel = document.createElement('div')
@@ -49,15 +53,21 @@ export const logInDisplay = () => {
 
     const passwordInput = createInput('password', 'password', 'Contraseña')
     passwordInput.classList.add('input-correct')
+
+    const logInButtonsContainer = document.createElement('div')
+    logInButtonsContainer.setAttribute('id', 'log-in-buttons-container')
     
-    const loginButton = document.createElement("input");
+    const loginButton = document.createElement("button");
+    loginButton.setAttribute("id", "login-button");
     loginButton.setAttribute("type", "submit");
     loginButton.setAttribute("value", "login");
-    loginButton.textContent = "Log in";
+    loginButton.innerHTML = '<span class="material-symbols-outlined">login</span> Acceder';
     
     const createAccountButton = document.createElement("button");
     createAccountButton.setAttribute("id","create-account-button");
-    createAccountButton.textContent = "Crear cuenta";
+    createAccountButton.innerHTML = '<span class="material-symbols-outlined">person_add</span> Crear cuenta';
+
+    logInButtonsContainer.append(loginButton, createAccountButton)
 
     createAccountButton.addEventListener('click', ()=>{
       loginModal.remove()
@@ -71,8 +81,7 @@ export const logInDisplay = () => {
         emailInput, 
         passwordLabel, 
         passwordInput, 
-        loginButton, 
-        createAccountButton
+        logInButtonsContainer
       ])
 
     /*-----------------API FUNCTIONS-------------------*/
@@ -102,10 +111,8 @@ export const logInDisplay = () => {
         }
       } else {
         console.log('user not found ')
-        emailInput.classList.remove('input-correct')
         emailInput.classList.toggle('input-error')
         
-        passwordInput.classList.remove('input-correct')
         passwordInput.classList.toggle('input-error')
         window.alert('El usuario o contraseña son  incorrectos')
       }

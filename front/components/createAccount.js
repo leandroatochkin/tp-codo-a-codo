@@ -27,16 +27,19 @@ loginModal.appendChild(loginForm);
 const closeButtonContainer = document.createElement("div");
 closeButtonContainer.setAttribute('id', 'create-account-form-close-button-container')
 
+const createAccountTitle = document.createElement('h2')
+createAccountTitle.textContent = 'Crear cuenta'
+
 const closeButton = document.createElement("button");
 closeButton.setAttribute("id", "create-acc-form-close-button");
-closeButton.textContent = "X";
+closeButton.innerHTML =  '<span class="material-symbols-outlined">cancel</span>';
 
 closeButton.addEventListener('click', ()=>{
     loginModal.remove()
     homeDisplay()
 })
 
-closeButtonContainer.appendChild(closeButton)
+closeButtonContainer.append(createAccountTitle, closeButton)
 
 /*-----------------INPUTS-------------------*/
 
@@ -62,9 +65,17 @@ const addressInput = createInput('text', 'address', 'Ingrese su dirección...', 
 const addressLabel = document.createElement("div");
 addressLabel.textContent = "Dirección para envíos";
 
-const createAccButton = document.createElement("input");
+const createAccButtonContainer = document.createElement('div')
+createAccButtonContainer.style.display = 'flex'
+createAccButtonContainer.style.justifyContent = 'center'
+
+const createAccButton = document.createElement("button");
 createAccButton.setAttribute("type", "submit");
 createAccButton.setAttribute("value", "crear");
+createAccButton.setAttribute("id", "create-account-button-form");
+createAccButton.innerHTML = '<span class="material-symbols-outlined">person_add</span> Crear cuenta'
+
+createAccButtonContainer.append(createAccButton)
 
 appendMultipleChildrens(loginForm, [
   closeButtonContainer,
@@ -77,7 +88,7 @@ appendMultipleChildrens(loginForm, [
   repeatPasswordInput,
   addressLabel,
   addressInput,
-  createAccButton
+  createAccButtonContainer
 ])
 
 /*-----------------API FUNCTIONS-------------------*/

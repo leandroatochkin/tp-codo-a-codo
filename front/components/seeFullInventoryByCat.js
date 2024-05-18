@@ -19,7 +19,7 @@ export const seeFullInventoryByCat = (category, books) =>{
   
       const backButton =  document.createElement('button')
       backButton.setAttribute('id', 'cat-back-button')
-      backButton.textContent = 'volver'
+      backButton.innerHTML = '<span class="material-symbols-outlined">keyboard_return</span>'
   
       backButton.onclick = () =>{
         displayDiv.innerHTML = ''
@@ -72,6 +72,7 @@ export const seeFullInventoryByCat = (category, books) =>{
   
         const inventoryItemPrice = document.createElement('h3')
         inventoryItemPrice.textContent = 'Precio unitario: ' + '$'+book.price
+        inventoryItemPrice.classList.add('inventory-item-price')
 
         appendMultipleChildrens(inventoryItemQuantityPriceContainer, [inventoryItemQuantity, inventoryItemPrice])
   

@@ -78,6 +78,7 @@ export const categoriesDisplay = (category, books) => {
   
         const bookPrice = document.createElement('p');
         bookPrice.textContent = `Precio: $${book.price.toString()}`;
+        bookPrice.classList.add('category-book-price')
   
         const buyButton = document.createElement('button')
         buyButton.innerHTML = 'Comprar'
@@ -146,7 +147,7 @@ export const categoriesDisplay = (category, books) => {
   
       const seeMoreButton = document.createElement('button');
       seeMoreButton.setAttribute("id", "seeMoreButton");
-      seeMoreButton.textContent = "Ver más...";
+      seeMoreButton.innerHTML = '<span class="material-symbols-outlined">add_circle</span><span class="material-symbols-outlined">more_up</span>';
       seeMoreButtonContainer.appendChild(seeMoreButton)
       seeMoreButton.addEventListener('click', () => {
         mainDiv.remove()
