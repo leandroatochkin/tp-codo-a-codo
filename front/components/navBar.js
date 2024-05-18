@@ -84,7 +84,9 @@ export const navBar = (logged, role, userID) => {
         modalAddToCart.textContent = 'Comprar';
         modalAddToCart.onclick = () => {
           modalAddToCart.innerHTML = '<span class="material-symbols-outlined">check_circle</span>'
-          cartArray.push(book)
+          const currentQuantity = 1
+          const bookWithQuantity = {...book, currentQuantity}
+          cartArray.push(bookWithQuantity)
           modalAddToCart.disabled = 'true'
         };
 
@@ -110,9 +112,9 @@ export const navBar = (logged, role, userID) => {
     };
 
     searchBar.addEventListener('input', function() {
-        const query = searchBar.value;
+        const query = searchBar.value.trim();
 
-        if (query.trim() === '') {
+        if (query.length < 1) {
             searchDropDown.classList.remove('search-dropdown-show');
             searchDropDown.innerHTML = '';
             return;
@@ -166,6 +168,12 @@ export const navBar = (logged, role, userID) => {
             })
             .catch(error => console.error('Error:', error));
     });
+
+   document.addEventListener('click', function (e) {
+      if (!searchBar.contains(e.target) && !searchDropDown.contains(e.target)) {
+          searchDropDown.classList.remove('search-dropdown-show');
+      }
+   });
 
     titleContainer.appendChild(searchBar);
     titleContainer.appendChild(toggleMenuButton);

@@ -80,35 +80,30 @@ export const seeFullInventoryByCat = (category, books) =>{
   
         const addToCartButton = document.createElement('button')
         addToCartButton.classList.add('add-to-cart-button')
-        addToCartButton.textContent = 'Comprar'
+        addToCartButton.innerHTML = 'Comprar'
         addToCartButton.onclick = () => {
-          if(quantityInput.value === ''){
-            window.alert("Ingrese en el recuadro a la derecha del botón 'Comprar' cuantas unidades va a comprar (Mínimo 1).")
-          } else {
-          const currentQuantity = parseInt(quantityInput.value)
+          addToCartButton.disabled = 'true'
+          addToCartButton.innerHTML = '<span class="material-symbols-outlined">shopping_cart</span>'
+          const currentQuantity = 1
           const bookWithQuantity = {...book, currentQuantity}
-          cartArray.push(bookWithQuantity);
-          }
+          cartArray.push(bookWithQuantity); 
         }
 
-        const quantityInput = document.createElement('input')
-        quantityInput.setAttribute('type', 'number')
-        quantityInput.setAttribute('min', '1')
-        quantityInput.setAttribute('max', `${book.quantity}`)
-        quantityInput.classList.add('quantity-input')
         
         const addToFavsButton = document.createElement('button')
         addToFavsButton.classList.add('add-to-favs-button')
-        addToFavsButton.textContent = 'Favoritos'
+        addToFavsButton.innerHTML = 'Favoritos'
         addToFavsButton.onclick = () => {
           if(log){
+            addToFavsButton.disabled = 'true'
+            addToFavsButton.innerHTML = '<span class="material-symbols-outlined">heart_plus</span>'
             addFavoriteBook(user_id, book.book_id)
           } else {
             window.alert('Debe estar loggeado para realizar esta acción')
           }
         }
 
-        appendMultipleChildrens(inventoryItemButtonsContainer, [addToCartButton, quantityInput, addToFavsButton])
+        appendMultipleChildrens(inventoryItemButtonsContainer, [addToCartButton, addToFavsButton])
 
         const infoDivs = document.createElement('div')
         infoDivs.classList.add('item-row-info-div')

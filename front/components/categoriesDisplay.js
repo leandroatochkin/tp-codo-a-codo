@@ -80,37 +80,31 @@ export const categoriesDisplay = (category, books) => {
         bookPrice.textContent = `Precio: $${book.price.toString()}`;
   
         const buyButton = document.createElement('button')
-        buyButton.textContent = 'Comprar'
+        buyButton.innerHTML = 'Comprar'
         buyButton.onclick = () => {
           if (role === 'admin'){
             window.alert('El administrador no puede realizar esta acción.')
           } else {
-          if(quantityInput.value === ''){
-            window.alert("Ingrese en el recuadro a la derecha del botón 'Comprar' cuantas unidades va a comprar (Mínimo 1).")
-          } else {
-          const currentQuantity = parseInt(quantityInput.value)
-          const bookWithQuantity = {...book, currentQuantity}
-          cart.push(bookWithQuantity);
-          }
-          
+            buyButton.disabled = 'true'
+            buyButton.innerHTML = '<span class="material-symbols-outlined">shopping_cart</span>'
+            const currentQuantity = 1
+            const bookWithQuantity = {...book, currentQuantity}
+            cart.push(bookWithQuantity);
           }
           
         }
-
-        const quantityInput = document.createElement('input')
-        quantityInput.setAttribute('type', 'number')
-        quantityInput.setAttribute('min', '1')
-        quantityInput.setAttribute('max', `${book.quantity}`)
-        quantityInput.classList.add('quantity-input')
   
         const favButton = document.createElement('button')
-        favButton.textContent = '❤️'
+        favButton.innerHTML = 'Favorito'
   
         favButton.onclick = () => {
           if (role === 'admin'){
             window.alert('El administrador no puede realizar esta acción.')
           } else {
             if(log){
+              favButton.disabled = 'true'
+              favButton.innerHTML = '<span class="material-symbols-outlined">heart_plus</span>'
+              favButton.style.color = 'red'
               addFavoriteBook(userId, book.book_id)
             } else {
               window.alert('Debe estar loggeado para realizar esta acción')
@@ -138,7 +132,6 @@ export const categoriesDisplay = (category, books) => {
         
           appendMultipleChildrens(bookContainerInfoContainerButtonsContainer, [
           buyButton,
-          quantityInput,
           favButton,
           ])
 
