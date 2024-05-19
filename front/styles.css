@@ -74,7 +74,7 @@ body{
 
 /*-------USER PROFILE-----------*/
 
-#logout-btn{
+.logout-btn{
   background-color: crimson;
   color: antiquewhite;
   font-weight: bolder;
@@ -91,6 +91,39 @@ body{
 
 @media only screen and (min-width: 1281px) {
 
+#home{
+    background-color: var(--light-background-color);
+    height: 100vh;
+    position: fixed;
+}      
+.material-symbols-outlined{
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}      
+#home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}       
+#footer{
+    position: fixed;
+    bottom: 0;  
+    height: 5vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--light-background-color);
+}
+/* #footer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}   */
+
+/*----------------------NAVBAR--------------------------*/
 #navbar{
             position: fixed;
             top: 0;
@@ -471,7 +504,7 @@ body{
             height: 280px;
             width: 180px;
             border-radius: 16px;
-            margin-left: 10%;
+            margin-left: 0;
   } 
 .inventory-item-title-author-container{
             font-size: large;
@@ -494,33 +527,8 @@ body{
             box-shadow: 2px 2px 2px var(--black-transparent);
             font-weight: bolder;
   }    
-#home{
-            background-color: var(--light-background-color);
-            height: 100vh;
-            position: fixed;
-  }
-               
-.material-symbols-outlined{
-          font-variation-settings:
-          'FILL' 1,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 24
-  }      
-#home{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-  }       
-#footer{
-            position: fixed;
-            bottom: 0;  
-            height: 5vh;
-            width: 100vw;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: var(--light-background-color);
-  }   
+
+/*------------------------SHOPPING CART-----------------------*/
 #modal-background{
             position: fixed;
             height: 100vh;
@@ -621,13 +629,8 @@ body{
             justify-content: center;
             align-items: center;
   }  
-#footer{
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-  }
 
-/*------------------WISHLIST---------------------------*/
+/*-------------------------------WISHLIST---------------------------*/
 
 #wishlist-container{
             margin-top: 8%;
@@ -729,6 +732,10 @@ body{
             border: none;
             border-radius: 8px;
             height: 40px;
+  }
+#create-account-button, #login-button{
+    text-shadow: 2px 2px 2px var(--black-transparent);
+    box-shadow: 2px 2x 2px var(--black-transparent);
   }
 #login-button{
             background-color: var(--main-color-light);
@@ -856,19 +863,26 @@ body{
             display: none;
   }
 .book-form-show{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 20px;
-            border: solid 3px red;
-            padding: 2%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: var(--main-color-dark);
+    padding: 2%;
   }
-.add-book-form-input{
-            width: 50%;
+.book-form-show>input{
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+  }
+.forms-container{
+  display: flex;
+  gap: 10px;
   }
           
-  /*------------------------USER PROFILE----------------------*/
+/*------------------------USER PROFILE----------------------*/
           
 #user-info-container{
     margin-top: 8%;
@@ -899,7 +913,7 @@ body{
   }
 .animation-container{
     height: 100%;
-  }
+  } 
 .profile-animation{
     height: 100%;
     width: 300px;
@@ -915,6 +929,35 @@ body{
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1280px){
+
+#home{
+    background-color: var(--light-background-color);
+    height: 100vh;
+    position: fixed;
+}
+.material-symbols-outlined{
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+#home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footer{
+    position: fixed;
+    bottom: 0;  
+    height: 5vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--light-background-color);
+}
+
+/*--------------------------------NAVBAR-----------------------------*/
 
 #navbar{
     position: fixed;
@@ -1027,8 +1070,8 @@ body{
     color: var(--light-background-color);
     text-shadow: 2px 4px 4px var(--main-color-dark);
   }
-/*--------------SEARCHBAR--------------*/
-
+  
+/*----------------------------SEARCHBAR-------------------------------*/
 
 .search-dropdown-hidden{
           display: none;
@@ -1135,8 +1178,7 @@ body{
           text-shadow: 2px 2px 2px var(--black-transparent);
   }
 
-/*CATEGORIES PICKS*/
-
+/*----------------------------CATEGORIES PICKS--------------------------*/
 
 #title{
     color: var(--light-background-color);
@@ -1246,97 +1288,108 @@ background-color: var(--main-accent-color);
 color: var(--main-color-dark);
 }
 
-
 /*-----------------------------INVENTORY SCREEN------------------------------*/
 
 #cat-back-button-container{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding-bottom: 5px;
-    padding-right: 5px;
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
- }
- #cat-back-button{
-    font-weight: bolder;
-    color: var(--main-color-dark);
-    border: none;
-    background-color: var(--light-background-color);
-    font-size: large;
- }
- #cat-inventory-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 10%;
-    width: 100%;
-    gap: 10px;
- }
-
-
- .inventory-item-row:hover{
-    background-color: var(--main-color-dark);
-    transform: scale(1.03);
-    transition: ease-in .2s;
-    color: white;
-    border-radius: 16px;
- }
- 
-
- .inventory-item-image{
-    height: 280px;
-    width: 180px;
-    border-radius: 16px;
-    margin-left: 10%;
- }
-
- .inventory-item-title-author-container{
-    font-size: large;
- }
-
- .inventory-item-quantity-price-container{
-    font-size: 12px;
- }
-.inventory-item-buttons-container > button{
-    width: 80px;
- }
-
-
-#home{
-    background-color: var(--light-background-color);
-    height: 100vh;
-    position: fixed;
+  position: fixed;
+  bottom: 0;
+  margin-right: 10%;
+  width: 100%;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  height: 40px;
+}    
+#cat-back-button{
+  font-weight: bolder;
+  color: var(--main-color-dark);
+  border: none;
+  background-color: orangered;
+  color: white;
+  font-size: large;
+  margin-right: 20px;
+  border-radius: 8px;
+  text-shadow: 2px 2px 2px var(--black-transparent);
+  width: 40px;
+  box-shadow: 2px 2px 2px var(--black-transparent);
 }
+#cat-inventory-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 10%;
+  gap: 10px;
+}      
+.inventory-item-row:hover{
+  background-color: var(--main-color-light);
+  transform: scale(1.10);
+  transition: ease-in .2s;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 2px 2px 2px var(--black-transparent);
+}
+.inventory-item-price{
+color: aqua;
+font-size: smaller;
+}
+.item-row-info-div{
+padding-left: 10px;
+}       
+.inventory-item-image{
+  height: 280px;
+  width: 180px;
+  border-radius: 16px;
+  margin-left: 0;
+} 
+.inventory-item-title-author-container{
+  font-size: medium;
+}
+.inventory-item-quantity-price-container{
+  font-size: small;
+}
+.inventory-item-buttons-container{
+display: flex;
+gap: 10px;
+}
+.inventory-item-buttons-container > button{
+  width: 80px;
+  height: 30px;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 2px 2px 2px var(--black-transparent);
+  font-weight: bolder;
+}    
+
+/*------------------------------WISHLIST-----------------------------------*/
 
 .wish-row{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: var(--light-background-color);
-}
-
+  }
 .wish-row:hover{
     background-color: var(--main-color-dark);
-}
-
+  }
 .wish-row > *:hover{
     color: var(--light-background-color);
-}
-
+  }
 .title-column{
     flex: 1;
     margin-left: 1vw;
     color: black;
-}
+  }
 .author-column{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
-}
+  }
 .icon-column{
     color: red;
     flex: 1;
@@ -1344,15 +1397,13 @@ color: var(--main-color-dark);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
+  }
 .button-column{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 20px;
-}
-
+  }
 .remove-button{
     height: 40px;
     width: auto;
@@ -1361,324 +1412,348 @@ color: var(--main-color-dark);
     background-color: var(--main-accent-color);
     color: var(--main-color-dark);
     border-radius: 8px;
-}
-
+  }
 .remove-button:hover{
     cursor: pointer;
-}
+  }
 
+/*------------------------------SHOPPING CART-----------------------------------*/
 
-.material-symbols-outlined{
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-#home{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#footer{
-    position: fixed;
-    bottom: 0;  
-    height: 5vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: var(--light-background-color);
-}
-
-.modal-background{
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+#modal-background{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  } 
 #shoppingcart-container{
-    height: 80vh;
-    width: 45vw;
-    background-color: antiquewhite;
-    border-radius: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+  height: auto;
+  width: 65vw;
+  background-color: antiquewhite;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }       
 .shoppingcart-container-large > #shopping-cart-display{
-    overflow-y: scroll ;
-    max-height: 55vh;
-}
-
+  overflow-y: scroll ;
+  max-height: 55vh;
+  }      
 #close-button{
-    margin: 20px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    border: none;
-    background-color: var(--main-color-dark);
-    color: var(--main-accent-color);
-}
-
-#close-btn-container{
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-    width: inherit;
-}
-
-#operation-btn-container{
-    display: flex;
-    margin-top: auto;
-    margin-bottom: 10px;
-    gap: 20px;    
-}
-#operation-btn-container>button{
+  margin: 20px;
   height: 30px;
-  background-color: orangered;
-  color: white;
-  font-weight: bolder;
-  text-shadow: 2px 2px 2px var(--black-transparent);
-  box-shadow: 2px 2px 2px var(--black-transparent);
-}
-
+  width: 30px;     
+  }     
+#close-btn-container{
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  width: inherit;
+  }      
+#operation-btn-container{
+  display: flex;
+  margin-top: auto;
+  margin-bottom: 10px;
+  gap: 20px;    
+  }
+#operation-btn-container>button{
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: larger;
+border: none;
+border-radius: 8px;
+height: 60px;
+width: 140px;
+background-color: orangered;
+color: white;
+font-weight: bolder;
+text-shadow: 2px 2px 2px var(--black-transparent);
+box-shadow: 2px 2px 2px var(--black-transparent);
+padding-left: 5px;
+padding-right: 5px;
+  }
+#operation-btn-container>button:hover{
+transform: scale(1.04);
+box-shadow: 2px 2px 5px var(--black-transparent);
+  }  
 #shoppingcart-cover{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-    height: 200px;
-}
-.book-cover-cart{
-    display: flex;
-    justify-content: center;
-}
-.book-cover-content{
-    height: 200px;
-}
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  }
+#close-button{
+color: orangered;
+height: 30px;
+width: 30px;
+background-color: transparent;
+border: none
+  }  
 #shopping-cart-display{
-    width: 90%;
-}
-
+  width: 90%;
+  }        
 .shoppingcart-container-large > #shopping-cart-display{
-    overflow-y: scroll;
-}
-
-#book-cover-content{
-    height: 200px;
-    width: 160px;
-    margin-left: 30px;
-}
-
+  overflow-y: scroll;
+  }
+.book-cover-cart{
+display: flex;
+justify-content: center;
+  }
+.book-cover-content{
+  height: 200px;
+  width: 160px;
+  margin-left: 30px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px var(--black-transparent);
+  }  
 #book-info{
-    margin-left: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#footer{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-/*LOGIN AND ACC CREATION*/
-#login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: var(--light-background-color);
-    padding: 10px;
-    border-radius: 16px;
-    width: 50vw;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   }
-  
+
+ /*---------------------------LOG IN AND ACC CREATION---------------------------*/
+
+
 #close-button-container{
-    display: flex;
-    justify-content: flex-end;
-}
-
-
-
-
-  #login-form>input {
-    border-radius: 8px;
-    border: none;
-    height: 20px;
-    cursor: pointer;
+          display: flex;
+          justify-content: space-between;
   }
-  #login-form>input:hover{
-    box-shadow: 2px 2px 4px var(--main-color-dark);
+#form-close-button{
+          background-color: var(--light-background-color);
+          border: none;
+          font-weight: bolder;
+          padding: 5px;
+          border-radius: 50px;
+          height: 40px;
+          width: 40px;
+          cursor: pointer;
+          color: var(--main-accent-color);
   }
-
-  
-  #create-account-button {
-    background-color: var(--main-color-light);
-    color: var(--light-background-color);
-    border: none;
-    border-radius: 8px;
-    height: 20px;
+#login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--light-background-color);
+            padding: 10px;
+            border-radius: 16px;
+            width: 50vw;
   }
-
-
-  
-  #login-modal-bg {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+#login-form>input, .input-correct {
+            border-radius: 8px;
+            border: none;
+            height: 30px;
+            background-color: #333 !important;
+            color: white;
+            font-weight: bolder;
   }
-
-  /*create account*/
-
-  #create-account-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: var(--light-background-color);
-    padding: 10px;
-    border-radius: 16px;
-    width: 50vw;
-    padding: 10px;
+#log-in-buttons-container{
+            display: flex;
+            justify-content: space-around;
   }
-
-  #create-account-form-close-button-container{
-    display: flex;
-    justify-content: flex-end;
+#create-account-button {
+            background-color: orangered;
+            color: white;
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            height: 40px;
+            
   }
-
-  #create-acc-form-close-button{
-    background-color: var(--light-background-color);
-    color: var(--main-color-dark);
-    border: none;
-    font-weight: bolder;
+#login-button{
+            background-color: var(--main-color-light);
+            color: white;
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            height: 40px;
   }
-
-  #create-acc-form-close-button:hover{
-    background-color: var(--main-color-dark);
-    color: var(--main-accent-color);
-    cursor: pointer;
+#create-account-button, #login-button{
+  text-shadow: 2px 2px 2px var(--black-transparent);
+  box-shadow: 2px 2x 2px var(--black-transparent);
+  cursor: pointer;
   }
-  
-  #create-account-form>input {
-    border-radius: 8px;
-    border: none;
-    height: 20px;
+.input-error{
+            background-color: palevioletred;
+            font-weight: bolder;
+            border: 2px solid red;
+            color: linen
   }
-  
-  /*ADMIN USER DISPLAY*/
-  .stock-management-title{
+#login-modal-bg {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+  }
+        
+/*-------------------CREATE ACCOUNT--------------------*/
+        
+#create-account-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            background-color: var(--light-background-color);
+            padding: 10px;
+            border-radius: 16px;
+            width: 50vw;
+            padding: 10px;
+  }
+#create-account-form-close-button-container{
+            display: flex;
+            justify-content: space-between;
+            grid-column: span 2;
+  }
+#create-acc-form-close-button{
+            background-color: var(--light-background-color);
+            color: orangered;
+            border: none;
+            font-weight: bolder;
+            cursor: pointer;
+  }
+#create-account-form>input {
+            border-radius: 8px;
+            border: none;
+            height: 30px;
+            background-color: #333 !important;
+            color: white;
+            font-weight: bolder;
+  }
+#create-account-form>input[type='password']{
+  grid-column: span 2;
+  }
+.create-account-button-container{
+  grid-column: span 2;
+  }
+#create-account-button-form{
+            background-color: orangered;
+            color: white;
+            font-weight: bolder;
+            display: flex;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            height: 40px;
+            width: 120px;
+  }
+/*---------------------------ADMIN USER DISPLAY-------------------------------*/
+.stock-management-title{
     margin-top: 6%;
     padding: 0;
   }
-
-  #table-container{
+#table-container{
     padding-left: 1%;
     max-height: 250px;
     overflow-y: scroll;
     display: flex;
     position: fixed;
   }
-  .header-row{
+.header-row{
     margin-top: 0;
     width: 65vw;
     display: flex;
     justify-content: space-between;
     padding-left: 1%;
   }
-  
-  .book-table{
+.book-table{
     max-height: 300px;
     width: 65vw; 
     overflow-y: auto;
     background-color: #FF6542; 
   }
-
-  .table-row{
+.table-row{
     background-color: white;
   }
-
-  .row-button{
+.row-button{
     width: 80px;
     font-weight: bolder;
     cursor: pointer;
   }
-  .forms-container{
+.forms-container{
     display: flex;
     flex-direction: column;
     position: fixed;
     right: 0;
     margin-right: 10%;
   }
-  .update-book-form{
+.update-book-form{
     width: auto;
     display: flex;
     flex-direction: column;
   }
-  
-  .updateform-close-btn{
+.updateform-close-btn{
     display: none;
   }
-  
-  .book-form-hidden{
+.book-form-hidden{
     display: none;
   }
-
-  .book-form-show{
+.book-form-show{
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    border: solid 3px red;
+    border-radius: 4px;
+    background-color: var(--main-color-dark);
     padding: 2%;
   }
-
-  .add-book-form-input{
+.book-form-show>input{
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+  }
+.add-book-form-input{
     width: 50%;
   }
-  /*----------USER PROFILE-----------*/
-  #user-info-container{
+.forms-container{
+    display: flex;
+    gap: 10px;
+  }
+/*------------------------------USER PROFILE-----------------------------*/
+#user-info-container{
     margin-top: 5%;
     height: 50vh;
     width: 100vw;
     position: fixed;
   }
-
-  #orders-container{
+.profile-another-container{
+    margin-left: 5%;
+  }
+.profile-another-container>h3{
+    margin-top: 20%;
+  }
+#orders-container{
     background-color: var(--main-color-dark);
     color: white;
     max-height: 120px;
     overflow-y: scroll;
   }
-
-  .order-line{
+.order-line{
     display: flex;
     flex-direction: row;
   }
-  .order-column-narrow{
+.order-column-narrow{
     width: 10%;
   }
-  .order-column-wide{
+.order-column-wide{
     width: 40%;
   }
-  .user-upper-section{
+.user-upper-section{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1690,21 +1765,14 @@ color: var(--main-color-dark);
   }
 }
 
-
-
-/*SMALL SCREENS*/
-
-
-
 @media only screen and (max-width: 767px){
   /*HERE STARTS THE NAVBAR*/
 
-  #primary-title{
+#primary-title{
     color: var(--light-background-color);
     text-shadow: 1px 4px 4px var(--secondary-accent-color);
   }
-
-  #navbar {
+#navbar {
     position: absolute;
     top: 0;
     width: 100vw;
@@ -1713,11 +1781,10 @@ color: var(--main-color-dark);
     z-index: 3;
     transition: height 0.3s ease; /* Add transition for height change */
   } 
-  #navbar-input{
+#navbar-input{
     border-radius: 8px;
     border: none;
-}
-
+  }
 #placeholder{
     margin-top: 12%;
     height: 100vh;
@@ -1725,51 +1792,46 @@ color: var(--main-color-dark);
     background-image: url('./assets/carousel-images/img2.jpg');
     background-size: cover;
     position: fixed;
-}
-
+  }
 #slogan{
     margin-top: 0;
     margin-bottom: 30%;
     font-weight: bolder;
     font-size: 48px;
     color: var(--light-background-color);
-}
-
+  }
 #description{
     font-weight: bold;
     font-size: 24px;
     color: var(--light-background-color);
-}
-
-/*NAVBAR COLLIPSIBLE FUNCTION*/
-
-  #navbar{
+  }
+/*----------------------NAVBAR COLLIPSIBLE FUNCTION---------------------------*/
+#navbar{
     position: fixed;
     top: 0;
   }
-  .hidden {
+.hidden {
     height: 6vh; /* Set the height of the hidden navbar */
   }
-  .hidden > #navbar-categories,
-  .hidden > #navbar-wishlist,
-  .hidden > #navbar-shoppingcart,
-  .hidden > #navbar-login,
-  .hidden > #navbar-input,
-  .hidden > #navbar-admin {
-    display: none; /* Or display: block; depending on your layout */
+.hidden > #navbar-categories,
+.hidden > #navbar-wishlist,
+.hidden > #navbar-shoppingcart,
+.hidden > #navbar-login,
+.hidden > #navbar-input,
+.hidden > #navbar-admin {
+    display: none; 
   }
-  .show > #navbar-categories,
-  .show > #navbar-wishlist,
-  .show > #navbar-shoppingcart,
-  .show > #navbar-login,
-  .show > #navbar-input,
-  .show > #navbar-admin{
-    display: flex; /* Or display: block; depending on your layout */
+.show > #navbar-categories,
+.show > #navbar-wishlist,
+.show > #navbar-shoppingcart,
+.show > #navbar-login,
+.show > #navbar-input,
+.show > #navbar-admin{
+    display: flex; 
     flex-direction: column;
     align-items: center;
   }
-  
-  #page-title{
+#page-title{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1780,52 +1842,50 @@ color: var(--main-color-dark);
     font-weight: bolder;
     color: var(--light-background-color);
   }
-  .navbar-button{
+.navbar-button{
     height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 5px;
-}
+  }
 #navbar-wishlist{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;    
-}
-  #toggle-menu-button{
+  }
+#toggle-menu-button{
     height: 40px;
     width: 40px;
     color: var(--light-background-color);
     border: none;
     background: none;
   }
-  .show {
+.show{
     height: auto; /* Set the height of the navbar to auto when it's in the show state */
   }
-  .hidden-menu{
+.hidden-menu{
     display: none;
   }
-  .open{
+.open{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
-  .navbar-button:hover {
+.navbar-button:hover {
     cursor: pointer;
     background-color: var(--light-background-color);
     color: var(--main-color-dark);
-}
+  }
 
-/*--------------SEARCHBAR--------------*/
-
+/*---------------------------SEARCHBAR-----------------------------*/
 
 .search-dropdown-hidden{
   display: none;
-}
+  }
 .search-dropdown-show{
   position: absolute;
   display: flex;
@@ -1833,12 +1893,12 @@ color: var(--main-color-dark);
   height: auto;
   max-height: 80vh;
   width: 100vw;
-  background-color: white;
+  background-color: #333;
   z-index: 9999;
   overflow-y: scroll;
   overflow-x: hidden;
-  color: black;
-}
+  color: var(--light-background-color);
+  }
 .modal-background{
   position: fixed;
   height: 100vh;
@@ -1848,89 +1908,101 @@ color: var(--main-color-dark);
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  }
 .search-row{
   display: flex;
   align-items: center;
   padding: 5px;
-}
+  }
 .search-cover-column{
   display: flex;
-}
+  }
 .search-row>.search-cover-column>img{
   border-radius: 4px;
-}
+  }
 .search-row:hover{
   background-color: var(--main-color-dark);
   color: var(--light-background-color);
   cursor: pointer;
-}
+  }
 .modal-center{
-  border-radius: 24px;
   background-color: var(--light-background-color);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: 80vh;
-  width: 90vw;
-}
+  width: 100vw;
+  }
 .modal-center:hover{
   transform: scale(1.10);
   transition: 0.3s ease-in-out;
-}
-.modal-center>button{
+  }
+.modal-close-button-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 15%;
+  }
+.modal-close-button-container>button{
   color: var(--main-accent-color);
   background: none;
   border: none;
   cursor: pointer;
-}
+  }
 .modal-center>h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--black-transparent);
   color: var(--light-background-color);
   font-size: 24px;
-  width: 100%;
+  width: 90%;
   text-align: center;
-}
+  text-shadow: 2px 2px 2px var(--main-color-dark);
+  }
 .modal-center>h3{
   background-color: var(--black-transparent);
   color: var(--light-background-color);
+  text-shadow: 2px 2px 2px var(--main-color-dark);
   font-size: 28px;
-}
+  }
 .modal-buttons-container{
   display: flex;
   gap: 10px;
   margin-bottom: 0;
-}
+  }
 .modal-buttons-container>button{
-  width: 70px;
-  background-color: var(--main-color-dark);
-  color: var(--light-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 40px;
+  background-color: orangered;
+  color: white;
   font-weight: bolder;
   border-radius: 4px;
   border: none;
   padding: 5px;
   cursor: pointer;
+  text-shadow: 2px 2px 2px var(--black-transparent);
 }
 
-
-
-
-/*CATEGORIES MENU*/
+/*-----------------------CATEGORIES MENU--------------------------*/
 #deploy-menu{
 font-weight: bolder;
 width: 100%;
 height: auto;
 overflow-y: auto;
 padding-top: 1%;
-}
+  }
 #deploy-menu>a{
     width: 100%;
-}
+  }
 #deploy-menu>a:hover{
     background-color: var(--main-color-dark);
     color: var(--light-background-color);
-}   
+  }   
 #footer{
     position: fixed;
     bottom: 0;  
@@ -1940,7 +2012,7 @@ padding-top: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 #main-div{
     display: flex;
     flex-direction: column;
@@ -1951,26 +2023,34 @@ padding-top: 1%;
     margin-top: 0;
     width: 100%;
     overflow: hidden;
-}
-/*CATEGORIES PICKS*/
+  }
+/*--------------------------CATEGORIES PICKS--------------------------*/
 .see-more-container{
     height: 60px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
+  }
 #seeMoreButton{
     position: absolute;
- }
- 
- #title{
-     color: var(--main-color-light);
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-right: 5%;
+    height: 40px;
+    text-shadow: 2px 2px 2px var(--black-transparent);
+  }
+#title{
+     color: var(--light-background-color);
+     text-shadow: 2px 2px 2px var(--main-color-dark);
      font-size: 40px;
-     margin-top: 5vh;
+     margin-top: 6vh;
      margin-bottom: -40px;
- }
- #cover-container{
+     background-color: var(--black-transparent);
+  }
+#cover-container{
     margin-top: 10%;
     overflow-y: auto;
      width: 100%;
@@ -1978,8 +2058,8 @@ padding-top: 1%;
      display: flex;
      flex-direction: column;
      align-items: center;
- }
- .book-container{
+  }
+.book-container{
      margin-top: 8%;    
      display: flex;
      flex-direction: row;
@@ -1988,52 +2068,54 @@ padding-top: 1%;
      width: 100%;
      height: 400px;
      box-shadow: 10px 22px 17px 7px rgba(0,0,0,0.4);
-    background-image: none !important;
-    align-items: stretch;
-   
- }
-
- .book-container-info-container{
+     background-image: none !important;
+     align-items: stretch;
+  }
+.book-container-info-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--main-accent-color);
- }
-
- .book-container-info-text-container{
-    background-color: var(--main-color-dark);
-    color: var(--light-background-color);
+    background-color: var(--main-color-light);
+  }
+.book-container-info-text-container{
+    background-color: var(--main-color-light);
+    color: white;
     flex: 1;
- }
-
- .book-container-info-buttons-container{
+  }
+.category-book-price{
+  color: aqua;
+  font-weight: bolder;
+  }
+.book-container-info-buttons-container{
     margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 5px;
     align-items: center;
- }
-
- .book-container-info-buttons-container > button{
+  }
+.book-container-info-buttons-container > button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     border-radius: 8px;
     height: 40px;
+    width: 120px;
     font-weight: bolder;
     background-color: var(--main-color-dark);
-    color: var(--main-accent-color);
- }
-
-
- .book-cover{
+    background-color: orangered;
+    color: white;
+    text-shadow: 2px 2px 2px var(--black-transparent);
+  }
+.book-cover{
      height: 400px;
      width: 280px;
      margin-bottom: 0;
      margin-left: 0; 
- }
- 
- .book-container > .book-container-info-container > button {
+  }
+.book-container > .book-container-info-container > button {
      background-color: var(--main-accent-color);
      border: none;
      font-weight: bolder;
@@ -2043,31 +2125,12 @@ padding-top: 1%;
      height: 40px;
      background-color: var(--secondary-accent-color);
      margin-bottom: 0;
- }
- 
- .book-container > .book-container-info-container > button:hover {
+  } 
+.book-container > .book-container-info-container > button:hover {
      cursor: pointer;
- }
+  }
 
- .quantity-input {
-  width: 100px;
-}
- 
- #seeMoreButton{
- background-color: var(--light-background-color);
- font-weight: bolder;
- border: none;
- color: var(--main-color-dark);
- font-size: 20px;
- height: 40px;
- }
- 
- #seeMoreButton:hover{
- cursor: pointer;
- }
-
- /*INVENTORY SCREEN*/
-
+  /*--------------------------------INVENTORY SCREEN------------------------------------*/
 
  #cat-back-button-container{
     position: fixed;
@@ -2079,42 +2142,43 @@ padding-top: 1%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
- }
-
+  }
  #cat-back-button{
     font-weight: bolder;
-    color: var(--light-background-color);
+    color: white;
     border: none;
-    background-color: var(--main-color-dark);
+    background-color: orangered;
+    text-shadow: 2px 2px 2px var(--black-transparent);
     font-size: large;
     padding: 10px;
     border-radius: 8px;
     margin-right: 5%;
     margin-bottom: 5%;
- }
-
+  }
  .inventory-item-row{
   gap: 20px;
   max-height: 150px;
- }
-
+  }
+ .inventory-item-row:hover{
+  background-color: var(--main-color-light);
+  transform: scale(1.05);
+  transition: 0.2s ease-in;
+  color: white;
+  }
  .inventory-item-container{
   height: 140px;
- }
+  }
  .inventory-item-image{
   border-radius: 8px;
- }
-
+  }
  .item-row-info-div{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
- }
-
+  }
  .inventory-item-title-author-container{
   height: 90px;
- }
-
+  }
  .inventory-item-buttons-container{
   margin-top: 0;
   display: flex;
@@ -2122,96 +2186,84 @@ padding-top: 1%;
   gap: 10px;
   margin-left: 5%;
   width: 200px;
- }
-
+  }
  .inventory-item-buttons-container>button{
   height: 20px;
   width: 100px;
   border-radius: 4px;
   border: none;
   font-weight: bolder;
-  background-color: var(--main-color-dark);
-  color: var(--light-background-color);
+  background-color: orangered;
+  color: white;
+  text-shadow: 2px 2px 2px var(--black-transparent);
   box-shadow: 1px 1px 2px black;
- }
-
+  }
  .inventory-item-buttons-container>input{
   height: 20px;
   border-radius: 4px;
   font-weight: bolder;
   box-shadow: 1px 1px 2px black;
- }
-
+  }
  #cat-inventory-container{
     margin-top: 15%;
     width: 100%;
- }
-
+  }
  .inventory-item-image{
     height: 140px;
     width: 90px;
- }
-
+  }
  .inventory-item-title-author-container{
     margin-left: 5px;
     font-size: small;
- }
-
+  }
  .inventory-item-quantity-price-container{
     font-size: 12px;
- }
+  }
 
-
-
- /*WISHLIST*/
+ /*-----------------------WISHLIST-----------------------*/
  
  #wishlist-container{
     margin-top: 20%;
- }
- .wish-row{
+  }
+.wish-row{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: var(--light-background-color);
     border: 1px none 1px solid black;
-}
-
+  }
 .wish-row:hover{
     background-color: var(--main-color-dark);
-}
-
+  }
 .wish-row > *:hover{
     color: var(--light-background-color);
-}
-
+  }
 .title-column{
     flex: 1;
     margin-left: 1vw;
     color: black;
-}
+  }
 .author-column{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1;
-}
+  }
 .icon-column{
-    color: red;
+    color: white;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
+  }
 .button-column{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 20px;
-}
-
+  }
 .remove-button{
     height: 40px;
     width: auto;
@@ -2220,13 +2272,12 @@ padding-top: 1%;
     background-color: var(--main-accent-color);
     color: var(--main-color-dark);
     border-radius: 8px;
-}
-
-.remove-button:hover{
+  }
+  .remove-button:hover{
     cursor: pointer;
-}
+  }
 
-/*SHOPPING CART*/
+/*----------------------SHOPPING CART----------------------------*/
 
 #modal-background{
     position: fixed;
@@ -2237,51 +2288,65 @@ padding-top: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
+  }
 #shoppingcart-container{
-    height: 80vh;
+    height: auto;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: var(--light-background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
+  }
 .shoppingcart-container-large > #shopping-cart-display{
     overflow-y: scroll ;
     max-height: 55vh;
-}
-
+  }
 #close-button{
-    margin: 20px;
-    height: 30px;
-    width: 30px;
-    
-}
-
+    color: orangered;
+    font-weight: bolder;
+    background-color: var(--light-background-color);
+    border: none;  
+  }
 #close-btn-container{
     display: flex;
     justify-content: flex-end;
     align-items: end;
     width: inherit;
-}
-
+  }
 .shoppingcart-cover{
     display: flex;
     flex-direction: row;
     height: 300px;
     width: 100%;
     margin-bottom: 2%;
-}
+  }
 .book-cover-content{
     height: 300px;
-}
+  }
 .book-info{
     margin-left: 4%;
-}
-/*LOGIN AND ACC CREATION*/
-#login-form {
+  }
+#operation-btn-container{
+  display: flex;
+  gap: 20px;
+  margin-bottom: 3%;
+  }
+#operation-btn-container>button{
+background-color: orangered;
+color: white;
+font-weight: bolder;
+text-shadow: 2px 2px 2px var(--black-transparent);
+display: flex;
+justify-content: center;
+align-items: center;
+border: none;
+border-radius: 8px;
+height: 40px;
+width: 120px;
+  }
+
+/*------------------------LOGIN AND ACC CREATION--------------------------*/
+#login-form{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -2289,29 +2354,63 @@ padding-top: 1%;
     padding: 10px;
     width: 100vw;
     padding-bottom: 50px;
-  }
-  
+  } 
 #close-button-container{
     display: flex;
-    justify-content: flex-end;
-}
-
-
-  #login-form>input {
+    justify-content: space-between;
+  }
+#login-form>input, .input-correct{
     border-radius: 8px;
     border: none;
-    height: 20px;
+    height: 30px;
+    background-color: #333 !important;
+    color: white;
+    font-weight: bolder;
   }
-  
-  #create-account-button {
-    background-color: var(--main-color-dark);
-    color: var(--light-background-color);
+#form-close-button{
+background-color: var(--light-background-color);
+border:none;
+font-weight: bolder;
+cursor: pointer;
+color: orangered;
+  }
+#log-in-buttons-container{
+    display: flex;
+    justify-content: space-around;
+  }
+#create-account-button {
+    background-color: orangered;
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
     border: none;
     border-radius: 8px;
-    height: 20px;
+    height: 40px;
+    
   }
-  
-  #login-modal-bg {
+#login-button{
+    background-color: var(--main-color-light);
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+  }
+#create-account-button, #login-button{
+text-shadow: 2px 2px 2px var(--black-transparent);
+box-shadow: 2px 2x 2px var(--black-transparent);
+cursor: pointer;
+  }
+.input-error{
+    background-color: palevioletred;
+    font-weight: bolder;
+    border: 2px solid red;
+    color: linen
+  }
+#login-modal-bg{
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -2322,8 +2421,7 @@ padding-top: 1%;
     z-index: 10;
   }
 
-  /*create account*/
-
+/*--------------------------------CREATE ACCOUNT----------------------------*/
   #create-account-form {
     display: flex;
     flex-direction: column;

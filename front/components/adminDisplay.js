@@ -1,5 +1,7 @@
 import { displayBooks, booksdb } from "../assets/lookUp.js";
 import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
+import { getUserId, getLoggedIn, setLoggedIn } from "../assets/userAuth.js";
+import { homeDisplay } from "./homeDisplay.js";
 
 
 
@@ -186,13 +188,22 @@ export const adminDisplay = () => {
         addBookForm.classList.toggle('book-form-show');
     };
 
+    const logOut = document.createElement('button')
+    logOut.setAttribute('class', 'logout-btn')
+    logOut.textContent = 'Cerrar sesión'
+    logOut.onclick = () => {
+    setLoggedIn(false, null, null)
+    displayDiv.innerHTML = ''
+    homeDisplay()
+    }
+
     const areaTitle = document.createElement('h1')
     areaTitle.textContent='Control y manejo de stock'
     areaTitle.classList.add('stock-management-title')
 
     appendMultipleChildrens(displayDiv, [areaTitle, booksHeaderRow,tableContainer]);
     appendMultipleChildrens(tableContainer,[booksTable, formsContainer])
-    appendMultipleChildrens(formsContainer, [updateBookForm, addBookButton, addBookForm]);
+    appendMultipleChildrens(formsContainer, [updateBookForm, addBookButton, addBookForm, logOut]);
 
     /*-----------------API FUNCTIONS-------------------*/
 

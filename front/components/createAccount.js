@@ -68,6 +68,7 @@ addressLabel.textContent = "Dirección para envíos";
 const createAccButtonContainer = document.createElement('div')
 createAccButtonContainer.style.display = 'flex'
 createAccButtonContainer.style.justifyContent = 'center'
+createAccButtonContainer.classList.add('create-account-button-container')
 
 const createAccButton = document.createElement("button");
 createAccButton.setAttribute("type", "submit");

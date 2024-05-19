@@ -1,6 +1,6 @@
-import { getLoggedIn,getUserId, getUserRole, setLoggedIn } from "../assets/userAuth.js";
-import { userdb, userInfo, ordersdb } from "../assets/lookUp.js";
-import { createInput, appendMultipleChildrens, initLoadingAnimation,closeLoadingAnimation } from "../assets/helperFunctions.js";
+import { getUserId, setLoggedIn } from "../assets/userAuth.js";
+import { userdb, ordersdb } from "../assets/lookUp.js";
+import {  appendMultipleChildrens, initLoadingAnimation,closeLoadingAnimation } from "../assets/helperFunctions.js";
 import { homeDisplay } from "./homeDisplay.js";
 
 
@@ -54,7 +54,7 @@ addressInfo.textContent = `Tu dirección actual es: ${currentUser.address}`
 
 
 const logOut = document.createElement('button')
-logOut.setAttribute('id', 'logout-btn')
+logOut.setAttribute('class', 'logout-btn')
 logOut.textContent = 'Cerrar sesión'
 logOut.onclick = () => {
     setLoggedIn(false, null, null)
