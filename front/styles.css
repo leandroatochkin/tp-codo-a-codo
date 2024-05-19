@@ -91,7 +91,7 @@ body{
 
 @media only screen and (min-width: 1281px) {
 
-        #navbar{
+#navbar{
             position: fixed;
             top: 0;
             width: 100vw;
@@ -105,11 +105,9 @@ body{
             padding-bottom: 1%;
             color: var(--light-background-color);
             font-size: larger;
-            z-index: 3;
-            
-        }
-        
-        #page-title{
+            z-index: 3;    
+  }
+#page-title{
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -118,37 +116,33 @@ body{
             font-weight: bolder;
             color: var(--light-background-color);
             text-shadow: 1px 4px 4px var(--secondary-accent-color);
-        }
-        
-        #toggle-menu-button{
+  }   
+#toggle-menu-button{
             display: none;
-          }
-        
-          .hidden-menu{
+  }      
+.hidden-menu{
             display: none;
-          }
-        .navbar-button{
+  }
+.navbar-button{
             height: auto;
             width: 120px;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 8px;
-        }
-        .navbar-button:hover {
+  }
+.navbar-button:hover{
             cursor: pointer;
             background-color: var(--light-background-color);
             color: var(--main-color-dark);
-        }
-        
-        .hidden{
+  }    
+.hidden{
             display: none;  
-        
-        }
-        .hidden-menu{
+  }
+.hidden-menu{
             height: 0;
-        }
-        .show{
+  }
+.show{
             position:fixed;
             top: 10%;
             height: auto;
@@ -161,27 +155,24 @@ body{
             justify-content: start;
             box-shadow: 2px 4px 4px var(--main-color-dark);
             transition: height 0.3s ease-in;
-        }
-        
-        .show > a{
+  }   
+.show > a{
             padding-left: 10px;
             font-weight: bolder;
             border-radius: 8px;
-        }
-        .show > a:hover{
+  }
+.show > a:hover{
             background-color: var(--main-color-dark);
             color: var(--light-background-color);
-        }
-        
-        #navbar-input{
+  }       
+#navbar-input{
             height: 50%;
             width: 20vw;
             border-radius: 8px;
             border: none;
             background-color: #333;
-        }
-        
-        #main-div{
+  }
+#main-div{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -190,37 +181,31 @@ body{
             margin-top: 0;
             width: 100%;
             overflow: hidden;
-        }
-        
-        #placeholder{
+  }
+#placeholder{
             width: 100%;
             height: 100vh;
             margin-top: 0;
             background-image: url('./assets/carousel-images/img1.jpg');
             background-size: cover;
-        }
-        
-        #slogan{
+  }     
+#slogan{
             margin-left: 5%;
             margin-top: 10%;
             font-weight: bolder;
             font-size: 56px;
             color: var(--light-background-color);
             text-shadow: 2px 4px 4px var(--main-color-dark);
-        }
-        
-        #description{
+  }  
+#description{
           margin-left: 5%;
             font-weight: bold;
             font-size: 48px;
             color: var(--light-background-color);
             text-shadow: 2px 4px 4px var(--main-color-dark);
-        }
-        
-        
-        
-        /*--------------SEARCHBAR--------------*/
-
+  }
+              
+/*-------------------------SEARCHBAR-------------------------*/
 
 .search-dropdown-hidden{
   display: none;
@@ -278,7 +263,13 @@ body{
   transform: scale(1.10);
   transition: 0.3s ease-in-out;
 }
-.modal-center>button{
+.modal-close-button-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10%;
+}
+.modal-close-button-container>button{
   color: var(--main-accent-color);
   background: none;
   border: none;
@@ -302,30 +293,34 @@ body{
   margin-bottom: 0;
 }
 .modal-buttons-container>button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
   background-color: orangered;
-  width: 70px;
+  width: 120x;
+  height: 50px;
   color: white;
   font-weight: bolder;
   border-radius: 4px;
   border: none;
   padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   cursor: pointer;
   text-shadow: 2px 2px 2px var(--black-transparent);
 }
 
-
-        /*CATEGORIES PICKS*/
-        
-        
-        #title{
+/*------------------CATEGORIES PICKS-------------------------*/
+            
+#title{
             color: var(--light-background-color);
             font-size: 60px;
             margin-top: 10%;
             text-shadow: 2px 2px 2px var(--main-color-dark);
-            background-color: var(--black-transparent);
-        
-        }
-        #cover-container{
+            background-color: var(--black-transparent); 
+  }
+#cover-container{
             width: 100%;
             height: 80vh;
             display: flex;
@@ -333,8 +328,8 @@ body{
             align-items: center;
             justify-content: space-evenly;
             gap: 10px;
-        }
-        .book-container{ 
+  }
+.book-container{ 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -344,33 +339,28 @@ body{
             height: 420px;
             box-shadow: 10px 22px 17px 7px rgba(0,0,0,0.4);
  
-        }
-        .book-container:hover{
+  }
+.book-container:hover{
             transform: scale(1.10);
             transition: 0.3s ease-in-out;
-        }
-
-        .book-cover{
+  }
+.book-cover{
         display: none;
-        }
-        
-        
-        .book-container > h2{
+  } 
+.book-container > h2{
             font-size: small;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: auto;
-        }
-        
-         .book-container-info-buttons-container {
+  } 
+.book-container-info-buttons-container {
             display: flex;
             justify-content: space-around;
             padding-bottom: 5px;
             height: 20px;
-        }
-        
-         .book-container-info-buttons-container > button {
+  }    
+.book-container-info-buttons-container > button {
             background-color: orangered;
             color: white;
             border: none;
@@ -379,19 +369,14 @@ body{
             border-radius: 8px;
             height: 40px;
             text-shadow: 2px 2px 2px var(--black-transparent);
-        }
-        
-        .book-container-info-buttons-container > button:hover {
+  }   
+.book-container-info-buttons-container > button:hover {
             background-color: var(--main-color-light);
             cursor: pointer;
             transform: scale(1.05);
             box-shadow: 10px 22px 17px 7px rgba(0,0,0,0.4);
-        
-        }
-
-       
-        
-        .book-container-info-text-container:hover{
+  }      
+.book-container-info-text-container:hover{
             font-size: smaller;
             color: white;
             margin-bottom: 0;
@@ -401,17 +386,12 @@ body{
             transition: 0.3s ease all;
             padding: 1%;
             display: flex;
-            flex-direction: column;
-           
-        }
-
-        .book-container-info-text-container {
+            flex-direction: column;  
+  }
+.book-container-info-text-container {
             color: transparent;
-        }
-        
-        
-        
-        .see-more-container{
+  }        
+.see-more-container{
             position: fixed; 
             bottom: 0; 
             width: 100%;
@@ -419,9 +399,8 @@ body{
             display: flex;
             justify-content: flex-end;
             align-items: center;
-        }
-        
-        #seeMoreButton{
+  }      
+#seeMoreButton{
         background-color: orangered;
         font-weight: bolder;
         border: none;
@@ -432,18 +411,17 @@ body{
         margin-right: 20px;
         border-radius: 8px;
         text-shadow: 2px 2px 2px var(--black-transparent);
-        }
-        
-        #seeMoreButton:hover{
+  }
+#seeMoreButton:hover{
         cursor: pointer;
         background-color: var(--main-accent-color);
         color: var(--main-color-dark);
-        }
+  }
         
-        /*INVENTORY SCREEN*/
+/*---------------------INVENTORY SCREEN--------------------------*/
         
         
-        #cat-back-button-container{
+#cat-back-button-container{
             position: fixed;
             bottom: 0;
             margin-right: 10%;
@@ -454,9 +432,8 @@ body{
             display: flex;
             justify-content: flex-end;
             height: 40px;
-         }
-        
-         #cat-back-button{
+  }    
+#cat-back-button{
             font-weight: bolder;
             color: var(--main-color-dark);
             border: none;
@@ -468,55 +445,45 @@ body{
             text-shadow: 2px 2px 2px var(--black-transparent);
             width: 40px;
             box-shadow: 2px 2px 2px var(--black-transparent);
-         }
-         #cat-inventory-container{
+  }
+#cat-inventory-container{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             margin-top: 10%;
             width: 100%;
             gap: 10px;
-         }
-        
-        
-         .inventory-item-row:hover{
+  }      
+.inventory-item-row:hover{
             background-color: var(--main-color-light);
             transform: scale(1.03);
             transition: ease-in .2s;
             color: white;
             border-radius: 16px;
             box-shadow: 2px 2px 2px var(--black-transparent);
-         }
-
-         .inventory-item-price{
+  }
+.inventory-item-price{
           color: aqua;
-         }
-
-         .item-row-info-div{
+  }
+.item-row-info-div{
           padding-left: 10px;
-         }
-         
-        
-         .inventory-item-image{
+  }       
+.inventory-item-image{
             height: 280px;
             width: 180px;
             border-radius: 16px;
             margin-left: 10%;
-         }
-        
-         .inventory-item-title-author-container{
+  } 
+.inventory-item-title-author-container{
             font-size: large;
-         }
-        
-         .inventory-item-quantity-price-container{
+  }
+.inventory-item-quantity-price-container{
             font-size: 12px;
-         }
-
-        .inventory-item-buttons-container{
+  }
+.inventory-item-buttons-container{
           display: flex;
           gap: 10px;
-        }
-
-        .inventory-item-buttons-container > button{
+  }
+.inventory-item-buttons-container > button{
             width: 80px;
             height: 30px;
             background-color: orangered;
@@ -526,99 +493,35 @@ body{
             text-shadow: 1px 1px 1px black;
             box-shadow: 2px 2px 2px var(--black-transparent);
             font-weight: bolder;
-         }
-        
-        
-        #home{
+  }    
+#home{
             background-color: var(--light-background-color);
             height: 100vh;
             position: fixed;
-        }
-        
-        .wish-row{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            background-color: var(--light-background-color);
-        }
-        
-        .wish-row:hover{
-            background-color: var(--main-color-dark);
-        }
-        
-        .wish-row > *:hover{
-            color: var(--light-background-color);
-        }
-        
-        .title-column{
-            flex: 1;
-            margin-left: 1vw;
-            color: black;
-        }
-        .author-column{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-        }
-        .icon-column{
-            color: red;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .button-column{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 20px;
-        }
-        
-        .remove-button{
-            height: 40px;
-            width: auto;
-            font-weight: bolder;
-            border: none;
-            background-color: var(--main-accent-color);
-            color: var(--main-color-dark);
-            border-radius: 8px;
-        }
-        
-        .remove-button:hover{
-            cursor: pointer;
-        }
-        
-        
-        .material-symbols-outlined{
+  }
+               
+.material-symbols-outlined{
           font-variation-settings:
           'FILL' 1,
           'wght' 400,
           'GRAD' 0,
           'opsz' 24
-        }
-        
-        #home{
+  }      
+#home{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        
-        
-        #footer{
+  }       
+#footer{
             position: fixed;
             bottom: 0;  
             height: 5vh;
             width: 100vw;
             background-color: rgba(0, 0, 0, 0.5);
             color: var(--light-background-color);
-        }
-        
-        #modal-background{
+  }   
+#modal-background{
             position: fixed;
             height: 100vh;
             width: 100vw;
@@ -627,9 +530,8 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        
-        #shoppingcart-container{
+  } 
+#shoppingcart-container{
             height: auto;
             width: 65vw;
             background-color: antiquewhite;
@@ -638,35 +540,29 @@ body{
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        
-        .shoppingcart-container-large > #shopping-cart-display{
+  }       
+.shoppingcart-container-large > #shopping-cart-display{
             overflow-y: scroll ;
             max-height: 55vh;
-        }
-        
-        #close-button{
+  }      
+#close-button{
             margin: 20px;
             height: 30px;
-            width: 30px;
-            
-        }
-        
-        #close-btn-container{
+            width: 30px;     
+  }     
+#close-btn-container{
             display: flex;
             justify-content: flex-end;
             align-items: end;
             width: inherit;
-        }
-        
-        #operation-btn-container{
+  }      
+#operation-btn-container{
             display: flex;
             margin-top: auto;
             margin-bottom: 10px;
             gap: 20px;    
-        }
-
-        #operation-btn-container>button{
+  }
+#operation-btn-container>button{
           display: flex;
           align-items: center;
           justify-content: center;
@@ -682,79 +578,117 @@ body{
           box-shadow: 2px 2px 2px var(--black-transparent);
           padding-left: 5px;
           padding-right: 5px;
-        }
-
-        #operation-btn-container>button:hover{
+  }
+#operation-btn-container>button:hover{
           transform: scale(1.04);
           box-shadow: 2px 2px 5px var(--black-transparent);
-        }
-        
-        #shoppingcart-cover{
+  }  
+#shoppingcart-cover{
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
             width: 100%;
-        }
-
-        #close-button{
+  }
+#close-button{
           color: orangered;
           height: 30px;
           width: 30px;
           background-color: transparent;
           border: none
-
-        }
-        
-        #shopping-cart-display{
+  }  
+#shopping-cart-display{
             width: 90%;
-        }
-        
-        .shoppingcart-container-large > #shopping-cart-display{
+  }        
+.shoppingcart-container-large > #shopping-cart-display{
             overflow-y: scroll;
-        }
-        
-        .book-cover-cart{
+  }
+.book-cover-cart{
           display: flex;
           justify-content: center;
-        }
-
-        .book-cover-content{
+  }
+.book-cover-content{
             height: 200px;
             width: 160px;
             margin-left: 30px;
             border-radius: 8px;
             box-shadow: 2px 2px 2px var(--black-transparent);
-        }
-        
-        #book-info{
+  }  
+#book-info{
             margin-left: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        }
-        
-        #footer{
+  }  
+#footer{
             display: flex;
             align-items: center;
             justify-content: flex-end;
-        }
+  }
 
-        /*WISHLIST*/
+/*------------------WISHLIST---------------------------*/
 
-        #wishlist-container{
+#wishlist-container{
             margin-top: 8%;
-         }
-        
-        /*LOGIN AND ACC CREATION*/
+  }
+.wish-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--light-background-color);
+}      
+.wish-row:hover{
+    background-color: var(--main-color-dark);
+}  
+.wish-row > *:hover{
+    color: var(--light-background-color);
+}  
+.title-column{
+    flex: 1;
+    margin-left: 1vw;
+    color: black;
+}
+.author-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+.icon-column{
+    color: red;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}   
+.button-column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+.remove-button{
+    height: 40px;
+    width: auto;
+    font-weight: bolder;
+    border: none;
+    background-color: var(--main-accent-color);
+    color: var(--main-color-dark);
+    border-radius: 8px;
+}
+.remove-button:hover{
+    cursor: pointer;
+}
+/*------------------LOGIN AND ACC CREATION-------------------*/
 
-        #close-button-container{
+#close-button-container{
           display: flex;
           justify-content: space-between;
-        }
-
-        #form-close-button{
+  }
+#form-close-button{
           background-color: var(--light-background-color);
           border: none;
           font-weight: bolder;
@@ -764,10 +698,8 @@ body{
           width: 40px;
           cursor: pointer;
           color: var(--main-accent-color);
-      }
-
-
-        #login-form {
+  }
+#login-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -775,24 +707,20 @@ body{
             padding: 10px;
             border-radius: 16px;
             width: 50vw;
-          }
-          
-        
-          #login-form>input, .input-correct {
+  }
+#login-form>input, .input-correct {
             border-radius: 8px;
             border: none;
             height: 30px;
             background-color: #333 !important;
             color: white;
             font-weight: bolder;
-          }
-
-          #log-in-buttons-container{
+  }
+#log-in-buttons-container{
             display: flex;
             justify-content: space-around;
-          }
-          
-          #create-account-button {
+  }
+#create-account-button {
             background-color: orangered;
             color: white;
             font-weight: bolder;
@@ -801,9 +729,8 @@ body{
             border: none;
             border-radius: 8px;
             height: 40px;
-          }
-
-          #login-button{
+  }
+#login-button{
             background-color: var(--main-color-light);
             color: white;
             font-weight: bolder;
@@ -812,18 +739,14 @@ body{
             border: none;
             border-radius: 8px;
             height: 40px;
-          }
-
-          .input-error{
+  }
+.input-error{
             background-color: palevioletred;
             font-weight: bolder;
             border: 2px solid red;
             color: linen
-          }
-        
-        
-          
-          #login-modal-bg {
+  }
+#login-modal-bg {
             position: absolute;
             height: 100vh;
             width: 100vw;
@@ -832,11 +755,11 @@ body{
             justify-content: center;
             align-items: center;
             z-index: 10;
-          }
+  }
         
-          /*create account*/
+/*-------------------CREATE ACCOUNT--------------------*/
         
-          #create-account-form {
+#create-account-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -845,36 +768,31 @@ body{
             border-radius: 16px;
             width: 50vw;
             padding: 10px;
-          }
-        
-          #create-account-form-close-button-container{
+  }
+#create-account-form-close-button-container{
             display: flex;
             justify-content: space-between;
-          }
-        
-          #create-acc-form-close-button{
+  }
+#create-acc-form-close-button{
             background-color: var(--light-background-color);
             color: var(--main-color-dark);
             border: none;
             font-weight: bolder;
-          }
-        
-          #create-acc-form-close-button:hover{
+  }
+#create-acc-form-close-button:hover{
             background-color: var(--main-color-dark);
             color: var(--main-accent-color);
             cursor: pointer;
-          }
-          
-          #create-account-form>input {
+  }
+#create-account-form>input {
             border-radius: 8px;
             border: none;
             height: 30px;
             background-color: #333 !important;
             color: white;
             font-weight: bolder;
-          }
-
-          #create-account-button-form{
+  }
+#create-account-button-form{
             background-color: orangered;
             color: white;
             font-weight: bolder;
@@ -884,67 +802,60 @@ body{
             border-radius: 8px;
             height: 40px;
             width: 120px;
-          }
+  }
           
-          /*ADMIN USER DISPLAY*/
-          .stock-management-title{
+/*--------------------ADMIN USER DISPLAY--------------------*/
+.stock-management-title{
             margin-top: 6%;
             padding: 0;
-          }
-        
-          #table-container{
+  }
+#table-container{
             padding-left: 1%;
             max-height: 70vh;
             overflow-y: scroll;
             display: flex;
             position: fixed;
-          }
-          .header-row{
+  }
+.header-row{
             margin-top: 0;
             width: 65vw;
             display: flex;
             justify-content: space-between;
             padding-left: 1%;
-          }
-          
-          .book-table{
+  }
+.book-table{
             max-height: 300px;
             width: 65vw; 
             overflow-y: auto;
             background-color: #FF6542; 
-          }
-        
-          .table-row{
+  }
+.table-row{
             background-color: white;
-          }
-        
-          .row-button{
+  }
+.row-button{
             width: 80px;
             font-weight: bolder;
             cursor: pointer;
-          }
-          .forms-container{
+  }
+.forms-container{
             display: flex;
             flex-direction: column;
             position: fixed;
             right: 0;
             margin-right: 10%;
-          }
-          .update-book-form{
+  }
+.update-book-form{
             width: auto;
             display: flex;
             flex-direction: column;
-          }
-          
-          .updateform-close-btn{
+  }
+.updateform-close-btn{
             display: none;
-          }
-          
-          .book-form-hidden{
+  }
+.book-form-hidden{
             display: none;
-          }
-        
-          .book-form-show{
+  }
+.book-form-show{
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -952,62 +863,55 @@ body{
             border-radius: 20px;
             border: solid 3px red;
             padding: 2%;
-          }
-        
-          .add-book-form-input{
+  }
+.add-book-form-input{
             width: 50%;
-          }
-          /*----------USER PROFILE-----------*/
+  }
           
-  #user-info-container{
+  /*------------------------USER PROFILE----------------------*/
+          
+#user-info-container{
     margin-top: 8%;
     height: 50vh;
     width: 100vw;
     position: fixed;
   }
-
-  #orders-container{
+#orders-container{
     background-color: var(--main-color-dark);
     color: white;
     max-height: 450px;
     overflow-y: scroll; 
   }
-
-  .order-line{
+.order-line{
     display: flex;
     flex-direction: row;
   }
-  .order-column-narrow{
+.order-column-narrow{
     width: 10%;
   }
-  .order-column-wide{
+.order-column-wide{
     width: 40%;
   }
-  .user-upper-section{
+.user-upper-section{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
-  .animation-container{
+.animation-container{
     height: 100%;
   }
-
-  .profile-animation{
+.profile-animation{
     height: 100%;
     width: 300px;
     object-fit: contain;
   }
-
-  .profile-another-container{
+.profile-another-container{
     margin-left: 5%;
   }
-  
-  .profile-another-container>h3{
+.profile-another-container>h3{
     margin-top: 20%;
   }
-        
-        
-           
+                  
 }
 
 @media only screen and (min-width: 640px) and (max-width: 1280px){
@@ -1028,90 +932,7 @@ body{
     font-size: larger;
     z-index: 3;
     
-}
-
-
-/*--------------SEARCHBAR--------------*/
-
-
-.search-dropdown-hidden{
-  display: none;
-}
-.search-dropdown-show{
-  position: absolute;
-  margin-top: 3.9%;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  max-height: 50vh;
-  width: 30%;
-  background-color: white;
-  z-index: 9999;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.search-row{
-  display: flex;
-  align-items: center;
-  padding: 5px;
-}
-.search-cover-column{
-  display: flex;
-}
-.search-row>.search-cover-column>img{
-  border-radius: 4px;
-}
-.search-row:hover{
-  background-color: var(--main-color-dark);
-  color: var(--light-background-color);
-  cursor: pointer;
-}
-.modal-center{
-  border-radius: 24px;
-  background-color: var(--light-background-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: 80vh;
-  width: 50vw;
-}
-.modal-center:hover{
-  transform: scale(1.10);
-  transition: 0.3s ease-in-out;
-}
-.modal-center>button{
-  color: var(--main-accent-color);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.modal-center>h2{
-  background-color: var(--black-transparent);
-  color: var(--light-background-color);
-  font-size: 24px;
-}
-.modal-center>h3{
-  background-color: var(--black-transparent);
-  color: var(--light-background-color);
-  font-size: 18px;
-}
-.modal-buttons-container{
-  display: flex;
-  gap: 10px;
-  margin-bottom: 0;
-}
-.modal-buttons-container>button{
-  width: 70px;
-  background-color: var(--main-color-dark);
-  color: var(--light-background-color);
-  font-weight: bolder;
-  border-radius: 4px;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-}
-
+  }
 #page-title{
     display: flex;
     justify-content: space-between;
@@ -1121,13 +942,11 @@ body{
     font-weight: bolder;
     color: var(--light-background-color);
     text-shadow: 1px 4px 4px var(--secondary-accent-color);
-}
-
+  }
 #toggle-menu-button{
     display: none;
   }
-
-  .hidden-menu{
+.hidden-menu{
     display: none;
   }
 .navbar-button{
@@ -1137,17 +956,15 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-}
+  }
 .navbar-button:hover {
     cursor: pointer;
     background-color: var(--light-background-color);
     color: var(--main-color-dark);
-}
-
+  }
 .hidden{
     display: none;
-}
-
+  }
 .show{
     position:fixed;
     top: 10%;
@@ -1160,25 +977,25 @@ body{
     flex-direction: column;
     justify-content: start;
     box-shadow: 2px 4px 4px var(--main-color-dark);
-}
-
+  }
 .show > a{
     padding-left: 10px;
     font-weight: bolder;
     border-radius: 8px;
-}
+  }
 .show > a:hover{
     background-color: var(--main-color-dark);
     color: var(--light-background-color);
-}
-
+  }
 #navbar-input{
     height: 20px;
     width: 15vw;
     border-radius: 8px;
     border: none;
-}
-
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+  }
 #main-div{
     display: flex;
     flex-direction: column;
@@ -1188,8 +1005,7 @@ body{
     margin-top: 0;
     width: 100%;
     overflow: hidden;
-}
-
+  }
 #placeholder{
     width: 100%;
     height: 100vh;
@@ -1197,29 +1013,127 @@ body{
     background-image: url('./assets/carousel-images/img1.jpg');
     background-size: cover;
     transition: background-image 0.5s ease;
-}
-
+  }
 #slogan{
     margin-top: 5%;
     font-weight: bolder;
     font-size: 56px;
     color: var(--light-background-color);
     text-shadow: 2px 4px 4px var(--main-color-dark);
-}
-
+  }
 #description{
     font-weight: bold;
     font-size: 48px;
     color: var(--light-background-color);
     text-shadow: 2px 4px 4px var(--main-color-dark);
-}
+  }
+/*--------------SEARCHBAR--------------*/
 
-#banner{
-    display: none;
-    background-color: green;
-    width: 100%;
-    height: 40%;
-}
+
+.search-dropdown-hidden{
+          display: none;
+  }
+.search-dropdown-show{
+          position: absolute;
+          margin-top: 3%;
+          display: flex;
+          flex-direction: column;
+          height: auto;
+          max-height: 70vh;
+          width: 30%;
+          background-color: #333;
+          z-index: 9999;
+          overflow-y: scroll;
+          overflow-x: hidden;
+  }
+.modal-background{
+          position: fixed;
+          height: 100vh;
+          width: 100vw;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+  }
+.search-row{
+          display: flex;
+          align-items: center;
+          padding: 5px;
+  }
+.search-cover-column{
+          display: flex;
+  }
+.search-row>.search-cover-column>img{
+          border-radius: 4px;
+  }
+.search-row:hover{
+          background-color: var(--main-color-dark);
+          color: var(--light-background-color);
+          cursor: pointer;
+  }
+.modal-center{
+          border-radius: 24px;
+          background-color: var(--light-background-color);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          height: auto;
+          width: auto;
+          padding: 2%;
+  }
+.modal-center:hover{
+          transform: scale(1.10);
+          transition: 0.3s ease-in-out;
+  }
+.modal-close-button-container{
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          margin-right: 10%;
+  }
+.modal-close-button-container>button{
+          color: var(--main-accent-color);
+          background: none;
+          border: none;
+          cursor: pointer;
+  }
+.modal-center>h2{
+          background-color: var(--black-transparent);
+          color: var(--light-background-color);
+          text-shadow: 2px 2px 2px var(--main-color-dark);
+          font-size: 36px;
+  }
+.modal-center>h3{
+          background-color: var(--black-transparent);
+          color: var(--light-background-color);
+          text-shadow: 2px 2px 2px var(--main-color-dark);
+          font-size: 28px;
+  }
+.modal-buttons-container{
+          display: flex;
+          gap: 10px;
+          margin-bottom: 0;
+  }
+.modal-buttons-container>button{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: larger;
+          background-color: orangered;
+          width: 120x;
+          height: 50px;
+          color: white;
+          font-weight: bolder;
+          border-radius: 4px;
+          border: none;
+          padding: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+          cursor: pointer;
+          text-shadow: 2px 2px 2px var(--black-transparent);
+  }
 
 /*CATEGORIES PICKS*/
 
@@ -1228,7 +1142,8 @@ body{
     color: var(--light-background-color);
     font-size: 40px;
     margin-top: 0;
-
+    text-shadow: 2px 2px 2px var(--main-color-dark);
+    background-color: var(--black-transparent);
 }
 #cover-container{
     margin-top: 5%;
@@ -1258,7 +1173,6 @@ body{
 .book-cover{
     display: none;
 }
-
 .book-container > h2{
     font-size: small;
     display: flex;
@@ -1266,29 +1180,23 @@ body{
     align-items: center;
     margin: auto;
 }
-
- .book-container-info-buttons-container {
+.book-container-info-buttons-container {
     display: flex;
     justify-content: space-around;
     padding-bottom: 5px;
     height: 20px;
 }
-
- .book-container-info-buttons-container > button {
+.book-container-info-buttons-container > button {
+    display: flex;
+    align-items: center;
     background-color: orangered;
     color: white;
     border: none;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 14px;
     border-radius: 8px;
     height: 40px;
 }
-
-.quantity-input{
-    height: 30px;
-    width: 40px;
-}
-
 .book-container-info-buttons-container > button:hover {
     background-color: var(--main-color-light);
     cursor: pointer;
@@ -1296,7 +1204,6 @@ body{
     box-shadow: 10px 22px 17px 7px rgba(0,0,0,0.4);
 
 }
-
 .book-container-info-text-container:hover{
     font-size: small;
     color: aqua;
@@ -1309,44 +1216,38 @@ body{
     padding: 1%;
    
 }
-
 .book-container-info-text-container {
     color: transparent;
 }
-
-
-
-
 .see-more-container{
-    position: fixed; 
-    bottom: 0; 
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
+  position: fixed; 
+  bottom: 0; 
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}      
 #seeMoreButton{
-background-color: var(--main-color-dark);
+background-color: orangered;
 font-weight: bolder;
 border: none;
-color: var(--main-accent-color);
+color: white;
 font-size: 20px;
 height: 40px;
 width: auto;
 margin-right: 20px;
 border-radius: 8px;
+text-shadow: 2px 2px 2px var(--black-transparent);
 }
-
 #seeMoreButton:hover{
 cursor: pointer;
 background-color: var(--main-accent-color);
 color: var(--main-color-dark);
 }
 
-/*INVENTORY SCREEN*/
 
+/*-----------------------------INVENTORY SCREEN------------------------------*/
 
 #cat-back-button-container{
     position: fixed;
@@ -1359,7 +1260,6 @@ color: var(--main-color-dark);
     flex-direction: row;
     justify-content: flex-end;
  }
-
  #cat-back-button{
     font-weight: bolder;
     color: var(--main-color-dark);

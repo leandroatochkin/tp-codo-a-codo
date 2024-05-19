@@ -4,6 +4,7 @@ import { getLoggedIn, getUserId, getUserRole } from "../assets/userAuth.js";
 import { appendMultipleChildrens, addFavoriteBook } from "../assets/helperFunctions.js";
 import { favoritesdb, ordersdb } from "../assets/lookUp.js";
 import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
+import { addToFavoriteIcon, buyIcon } from "../assets/icons.js";
 
 let cart = cartArray
 
@@ -77,11 +78,11 @@ export const categoriesDisplay = (category, books) => {
         bookAuthor.textContent = `Autor: ${book.author}`;
   
         const bookPrice = document.createElement('p');
-        bookPrice.textContent = `Precio: $${book.price.toString()}`;
+        bookPrice.innerHTML = `Precio: $${book.price.toString()}`;
         bookPrice.classList.add('category-book-price')
   
         const buyButton = document.createElement('button')
-        buyButton.innerHTML = 'Comprar'
+        buyButton.innerHTML = `${buyIcon} Comprar`
         buyButton.onclick = () => {
           if (role === 'admin'){
             window.alert('El administrador no puede realizar esta acción.')
@@ -96,7 +97,7 @@ export const categoriesDisplay = (category, books) => {
         }
   
         const favButton = document.createElement('button')
-        favButton.innerHTML = 'Favorito'
+        favButton.innerHTML = `${addToFavoriteIcon} Favorito`
   
         favButton.onclick = () => {
           if (role === 'admin'){

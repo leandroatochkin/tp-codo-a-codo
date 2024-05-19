@@ -108,16 +108,33 @@ export const shoppingCartDisplay = (shoppingCart, parameter) => {
       let boughtArr = []
   
       buyButton.onclick = () => {
+       if (cart.length === 0){
+        alert("No hay libros en el carrito")
+        buyButton.disabled = 'true'
+        buyButton.style.opacity = '0.5'
+       } else {
         if(log){
-        submitOrder()
-        createModal('La compra se realizó con exito!', modalBackground)
-        return boughtArr
-        } else {
-          window.alert('Debe estar loggeado para realizar esta acción')
-        }
+          submitOrder()
+          createModal('La compra se realizó con exito!', modalBackground)
+          return boughtArr
+          } else {
+            window.alert('Debe estar loggeado para realizar esta acción')
+          }
+       }
         
       }
-      cancelButton.onclick = () => { cart = [] }
+      cancelButton.onclick = () => { 
+        const confirmation = confirm('Esta acción eliminara todos los artículos de su carrito. Quiere proceder?')
+        
+        if (confirmation) {
+        cart = [] 
+        modalBackground.remove()
+        homeDisplay()
+      } else{
+        return
+      }
+
+      }
   
       closeButton.onclick = () => {
         modalBackground.remove()

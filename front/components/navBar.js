@@ -8,6 +8,7 @@ import { adminDisplay } from "./adminDisplay.js";
 import { userDisplay } from "./userDisplay.js";
 import { cartArray } from "../assets/arrays.js";
 import { addFavoriteBook } from "../assets/helperFunctions.js";
+import { accountIcon, addToFavoriteIcon, adminIcon, buyIcon, cancelIcon, favoriteIcon, menuIcon, shoppingCartIcon } from "../assets/icons.js";
 
 const books = displayBooks
 
@@ -62,9 +63,14 @@ export const navBar = (logged, role, userID) => {
         modalCenter.style.backgroundSize = 'cover';
         modal.appendChild(modalCenter);
 
+        const modalCloseButtonContainer = document.createElement('div')
+        modalCloseButtonContainer.classList.add('modal-close-button-container')
+
         const closeButton = document.createElement('button');
-        closeButton.innerHTML = '<span class="material-symbols-outlined">cancel</span>';
+        closeButton.innerHTML = `${cancelIcon}`;
         closeButton.onclick = () => modal.remove();
+
+        modalCloseButtonContainer.append(closeButton)
 
         
 
@@ -81,9 +87,9 @@ export const navBar = (logged, role, userID) => {
         modalButtonsContainer.classList.add('modal-buttons-container');
 
         const modalAddToCart = document.createElement('button');
-        modalAddToCart.textContent = 'Comprar';
+        modalAddToCart.innerHTML = `${buyIcon} Comprar`;
         modalAddToCart.onclick = () => {
-          modalAddToCart.innerHTML = '<span class="material-symbols-outlined">check_circle</span>'
+          modalAddToCart.innerHTML = `${shoppingCartIcon}`
           const currentQuantity = 1
           const bookWithQuantity = {...book, currentQuantity}
           cartArray.push(bookWithQuantity)
@@ -91,9 +97,9 @@ export const navBar = (logged, role, userID) => {
         };
 
         const modalAddToFavs = document.createElement('button');
-        modalAddToFavs.textContent = 'Favorito';
+        modalAddToFavs.innerHTML = `${addToFavoriteIcon} Favorito`;
         modalAddToFavs.onclick = () => {
-          modalAddToFavs.innerHTML = '<span class="material-symbols-outlined">favorite</span>'
+          modalAddToFavs.innerHTML = `${addToFavoriteIcon}`
           addFavoriteBook(userID, book.book_id)
           modalAddToFavs.style.color = 'white'
           modalAddToFavs.disabled = 'true'
@@ -102,7 +108,7 @@ export const navBar = (logged, role, userID) => {
 
         modalButtonsContainer.append(modalAddToCart, modalAddToFavs);
         modalCenter.append(
-          closeButton, 
+          modalCloseButtonContainer, 
           modalTitle, 
           modalAuthor, 
           modalPrice, 
@@ -179,7 +185,7 @@ export const navBar = (logged, role, userID) => {
     titleContainer.appendChild(toggleMenuButton);
 
     toggleMenuButton.setAttribute('id', 'toggle-menu-button');
-    toggleMenuButton.innerHTML = '<span class="material-symbols-outlined">menu</span>';
+    toggleMenuButton.innerHTML = `${menuIcon}`;
 
     toggleMenuButton.onclick = () => {
         navbar.classList.toggle('show');
@@ -194,22 +200,22 @@ export const navBar = (logged, role, userID) => {
     const wishlist = document.createElement("div");
     wishlist.classList.add('navbar-button');
     wishlist.setAttribute('id', 'navbar-wishlist');
-    wishlist.innerHTML = '<span>Deseos</span>' + '<span class="material-symbols-outlined">favorite</span>';
+    wishlist.innerHTML = '<span>Deseos</span>' + `${favoriteIcon}`;
 
     const shoppingCart = document.createElement("div");
     shoppingCart.classList.add('navbar-button');
     shoppingCart.setAttribute('id', 'navbar-shoppingcart');
-    shoppingCart.innerHTML = '<span class="material-symbols-outlined">shopping_cart</span>';
+    shoppingCart.innerHTML = `${shoppingCartIcon}`;
 
     const logIn = document.createElement("div");
     logIn.classList.add('navbar-button');
     logIn.setAttribute('id', 'navbar-login');
-    logIn.innerHTML = '<span class="material-symbols-outlined">account_circle</span>';
+    logIn.innerHTML = `${accountIcon}`;
 
     const admin = document.createElement("div");
     admin.classList.add('navbar-button');
     admin.setAttribute('id', 'navbar-admin');
-    admin.innerHTML = '<span class="material-symbols-outlined">shield_person</span>';
+    admin.innerHTML = `${adminIcon}`;
 
     navbar.appendChild(categoriesBtn);
     navbar.appendChild(wishlist);
