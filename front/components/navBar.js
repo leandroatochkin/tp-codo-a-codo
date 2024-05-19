@@ -14,7 +14,7 @@ const books = displayBooks
 
 
 const CATEGORIES = ['ficción', 'historia', 'recetas', 'cómics'];
-let PAGE_TITLE = 'AUREA';
+const PAGE_TITLE = 'AUREA';
 
 export const navBar = (logged, role, userID) => {
     const displayDiv = document.querySelector('#display-div');
@@ -257,7 +257,6 @@ export const navBar = (logged, role, userID) => {
 
     function handleMenuLinkClick(str) {
         displayDiv.innerHTML = '';
-        PAGE_TITLE = str;
         categoriesDisplay(str, books);
     }
 

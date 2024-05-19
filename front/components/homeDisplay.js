@@ -1,6 +1,3 @@
-import { cartArray, favBooks } from "../assets/arrays.js";
-
-
 export const homeDisplay = () => {
 
  

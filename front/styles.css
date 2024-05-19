@@ -28,6 +28,7 @@ body{
     background-color: rgba(0, 0, 0, 0.0);
     z-index: 100;
 }
+
 .spinner{
     height: 80px;
     width: 80px;
@@ -44,20 +45,31 @@ body{
 }
 
 .modal{
-    height: 10vh;
-    width: 20vw;
+    font-weight: bolder;
+    height: auto;
+    width: auto;
     background-color: var(--light-background-color);
-    border-radius: 16px;
+    border-radius: 8px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
+.modal>button{
+  background-color: orangered;
+  color: white;
+  text-shadow: 2px 2px 2px var(--black-transparent);
+  box-shadow: 2px 2px 2px var(--black-transparent);
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  width: 90px;
+  margin-top: 5%;
+}
 #primary-title:hover{
     cursor: pointer;
 }
-
 .inventory-item-container{
     width: 100%;
     display: flex;
