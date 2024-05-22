@@ -2,7 +2,6 @@ import { seeFullInventoryByCat } from "./seeFullInventoryByCat.js";
 import { cartArray } from "../assets/arrays.js";
 import { getLoggedIn, getUserId, getUserRole } from "../assets/userAuth.js";
 import { appendMultipleChildrens, addFavoriteBook } from "../assets/helperFunctions.js";
-import { favoritesdb, ordersdb } from "../assets/lookUp.js";
 import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
 import { addToFavoriteIcon, buyIcon } from "../assets/icons.js";
 
