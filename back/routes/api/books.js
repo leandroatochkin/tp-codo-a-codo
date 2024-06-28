@@ -26,8 +26,8 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:book_id', (req, res) => {
-    const bookId = req.params.book_id; 
+router.put('/:bookId', (req, res) => {
+    const bookId = req.params.bookId; 
     const { title, author, cover, price, category, quantity } = req.body; 
   
     connection.query(
@@ -45,8 +45,8 @@ router.put('/:book_id', (req, res) => {
     );
   });
 
-  router.delete('/book_id', (req, res) => {
-    const bookId = req.params.id;
+  router.delete('/:bookId', (req, res) => {
+    const bookId = req.params.bookId;
   
     connection.query('DELETE FROM books WHERE book_id = ?', [bookId], (err, result) => {
         if (err) {

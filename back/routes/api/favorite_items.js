@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../db');
 
-router.get('/favorite_items', ( req, res ) => {//get favorite_items db
+router.get('/', ( req, res ) => {//get favorite_items db
     connection.query('SELECT * FROM favorite_items', (err, results) => {
       if (err) throw err;
       const result = res.json(results)
@@ -11,7 +11,7 @@ router.get('/favorite_items', ( req, res ) => {//get favorite_items db
   });
 
 
-router.post('/favorite_items', (req, res) => {
+router.post('/', (req, res) => {
     const { user_id, book_id } = req.body;
     connection.query('INSERT INTO favorite_items (user_id, book_id) VALUES (?, ?)', 
                      [user_id, book_id], 

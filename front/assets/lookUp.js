@@ -6,7 +6,7 @@ const userdb = 'http://localhost:3000/api/users'
 const booksdb = 'http://localhost:3000/api/books'
 const ordersdb = 'http://localhost:3000/api/orders'
 const orderItemsDb = 'http://localhost:3000/api/order_items'
-const favoritesdb = 'http://localhost:3000/api/favorite_items'
+const favoritesdb = 'http://localhost:3000/api/favorites'
 const searchdb = 'http://localhost:3000/api/search'
 const login = 'http://localhost:3000/api/login'
 
