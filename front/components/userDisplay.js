@@ -1,5 +1,5 @@
 import { getUserId, setLoggedIn } from "../assets/userAuth.js";
-import { userdb, ordersdb } from "../assets/lookUp.js";
+import { userdb, ordersdb, orderItemsDb} from "../assets/lookUp.js";
 import {  appendMultipleChildrens, initLoadingAnimation,closeLoadingAnimation } from "../assets/helperFunctions.js";
 import { homeDisplay } from "./homeDisplay.js";
 
@@ -10,6 +10,7 @@ export const userDisplay = async () =>{
     const userID = getUserId()
 
     const getCurrentUser = async () => {
+
         try{
             const response = await fetch(`${userdb}/${userID}`);
             if (!response.ok) { 
@@ -120,7 +121,7 @@ appendMultipleChildrens(userInfoContainer, [
 
 const getCurrentUserOrders = async () => {
         try{
-            const response = await fetch(`${ordersdb}/${userID}`);
+            const response = await fetch(`${orderItemsDb}/${userID}`);
     
             if (!response.ok) { 
                 throw new Error('Failed to fetch orders');

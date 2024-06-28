@@ -1,11 +1,11 @@
 import { homeDisplay } from "./homeDisplay.js";
-import { userInfo, userdb } from "../assets/lookUp.js";
+import { userInfo } from "../assets/lookUp.js";
 import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
-
+import { addUser } from "../utils/addUser.js";
 
 
 const users = userInfo
-const userDataBase = userdb
+
 
 
 
@@ -107,41 +107,7 @@ loginForm.addEventListener("submit", async (event) => {
   const address = formData.get("address");
   const role = 'user'
 
-  function addUser(username, email, password, address, role) {
-    // Define the data to be sent in the request body
-    const userData = {
-      username: username,
-      email: email,
-      password: password,
-      address: address,
-      role: role
-    };
-
   
-    // Make a POST request to the server endpoint
-    fetch(userDataBase, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': '*/*'
-      },
-      body: JSON.stringify(userData) // Convert the data to JSON format
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to add user');
-      }
-      return response.json(); // Parse the response JSON
-    })
-    .then(data => {
-      console.log('User added successfully:', data);
-      // Handle success if needed
-    })
-    .catch(error => {
-      console.error('Error adding user:', error.message);
-      // Handle error if needed
-    });
-  }
 
 
   const userExists = users.some(user => user.username === username)

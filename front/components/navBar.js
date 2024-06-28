@@ -1,7 +1,7 @@
 import { logInDisplay } from "./logInDisplay.js";
 import { shoppingCartDisplay } from "./shoppingCartDisplay.js";
 import { categoriesDisplay } from "./categoriesDisplay.js";
-import { displayBooks, favoriteItems, searchdb } from "../assets/lookUp.js";
+import { displayBooks, searchdb } from "../assets/lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { adminDisplay } from "./adminDisplay.js";

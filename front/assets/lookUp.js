@@ -1,8 +1,19 @@
 import { getLoggedIn, getUserId } from "./userAuth.js";
 
+
+
+const userdb = 'http://localhost:3000/api/users'
+const booksdb = 'http://localhost:3000/api/books'
+const ordersdb = 'http://localhost:3000/api/orders'
+const orderItemsDb = 'http://localhost:3000/api/order_items'
+const favoritesdb = 'http://localhost:3000/api/favorite_items'
+const searchdb = 'http://localhost:3000/api/search'
+const login = 'http://localhost:3000/api/login'
+
+
 const fetchData = async () => {
   try {
-    const response = await fetch('http://localhost:3000/books');
+    const response = await fetch(booksdb);
     if (!response.ok) { 
       throw new Error('Failed to fetch data');
     }
@@ -24,7 +35,7 @@ const displayBooksData = async () => {
 
 const fetchFavsData = async () => {
   try {
-    const response = await fetch('http://localhost:3000/favorite_items');
+    const response = await fetch(favoritesdb);
     if (!response.ok) { 
       throw new Error('Failed to fetch favs');
     }
@@ -46,7 +57,7 @@ const displayFavsData = async () => {
 
 const fetchUsers = async () => {
   try {
-    const response = await fetch('http://localhost:3000/users');
+    const response = await fetch(userdb);
     if (!response.ok) { 
       throw new Error('Failed to fetch users');
     }
@@ -72,11 +83,7 @@ const displayBooks = await displayBooksData()
 const userInfo = await  displayUsersData()
 const favoriteItems = await displayFavsData()
 
-const userdb = 'http://localhost:3000/users'
-const booksdb = 'http://localhost:3000/books'
-const ordersdb = 'http://localhost:3000/orders'
-const favoritesdb = 'http://localhost:3000/favorite_items'
-const searchdb = 'http://localhost:3000/search'
+
 
 const userId = getUserId()
 
@@ -87,4 +94,4 @@ const favBooks = []
 
 
 
-export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems, searchdb}
+export {displayBooks, userInfo, userdb, booksdb, ordersdb, favoritesdb, favoriteItems, searchdb, login, orderItemsDb}

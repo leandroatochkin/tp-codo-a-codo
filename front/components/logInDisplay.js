@@ -3,6 +3,7 @@ import { createAccountDisplay } from './createAccount.js';
 import { setLoggedIn } from '../assets/userAuth.js';
 import { userInfo } from '../assets/lookUp.js';
 import { createInput, appendMultipleChildrens } from '../assets/helperFunctions.js';
+import { login } from '../assets/lookUp.js';
 
 const users = userInfo
 
@@ -85,37 +86,76 @@ export const logInDisplay = () => {
       ])
 
     /*-----------------API FUNCTIONS-------------------*/
-    
+
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-    
+  
       const formData = new FormData(loginForm);
-    
       const email = formData.get("email");
       const password = formData.get("password");
+      
+      try {
+          const response = await fetch(login, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ email, password }),
+          });
+  
+          const result = await response.json();
+  
+          if (response.ok) {
+              const { token, user } = result;
+
+              // Save the token in localStorage or sessionStorage
+              localStorage.setItem('token', token);
+              
+              // Set the user as logged in
+              setLoggedIn(true, user.role, user.user_id);
+              
+              loginModal.remove();
+              homeDisplay();
+          } else {
+              console.log('Authentication failed:', result.message);
+              window.alert('El usuario o contraseña son incorrectos');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          window.alert('Error al iniciar sesión. Inténtalo de nuevo más tarde.');
+      }
+  });
+    
+    // loginForm.addEventListener("submit", async (event) => {
+    //   event.preventDefault();
+    
+    //   const formData = new FormData(loginForm);
+    
+    //   const email = formData.get("email");
+    //   const password = formData.get("password");
     
   
     
-      const user = users.find(user => user.email === email);
+    //   const user = users.find(user => user.email === email);
     
-      if (user) {
-        if (user.password === password){
+    //   if (user) {
+    //     if (user.password === password){
          
    
-          setLoggedIn(true, user.role, user.user_id)
+    //       setLoggedIn(true, user.role, user.user_id)
           
-          loginModal.remove()
-          homeDisplay()
-        } else {
-          console.log('failed')
-        }
-      } else {
-        console.log('user not found ')
-        emailInput.classList.toggle('input-error')
+    //       loginModal.remove()
+    //       homeDisplay()
+    //     } else {
+    //       console.log('failed')
+    //     }
+    //   } else {
+    //     console.log('user not found ')
+    //     emailInput.classList.toggle('input-error')
         
-        passwordInput.classList.toggle('input-error')
-        window.alert('El usuario o contraseña son  incorrectos')
-      }
-    });
+    //     passwordInput.classList.toggle('input-error')
+    //     window.alert('El usuario o contraseña son  incorrectos')
+    //   }
+    // });
     
     }
