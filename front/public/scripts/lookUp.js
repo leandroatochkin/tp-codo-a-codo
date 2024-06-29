@@ -2,13 +2,13 @@ import { getLoggedIn, getUserId } from "./userAuth.js";
 
 
 
-const userdb = 'http://localhost:3000/api/users'
-const booksdb = 'http://localhost:3000/api/books'
-const ordersdb = 'http://localhost:3000/api/orders'
-const orderItemsDb = 'http://localhost:3000/api/order_items'
-const favoritesdb = 'http://localhost:3000/api/favorites'
-const searchdb = 'http://localhost:3000/api/search'
-const login = 'http://localhost:3000/api/login'
+const userdb = 'https://tp-codo-a-codo.onrender.com/api/users'
+const booksdb = 'https://tp-codo-a-codo.onrender.com/api/books'
+const ordersdb = 'https://tp-codo-a-codo.onrender.com/api/orders'
+const orderItemsDb = 'https://tp-codo-a-codo.onrender.com/api/order_items'
+const favoritesdb = 'https://tp-codo-a-codo.onrender.com/api/favorites'
+const searchdb = 'https://tp-codo-a-codo.onrender.com/api/search'
+const login = 'https://tp-codo-a-codo.onrender.com/api/login'
 
 
 const fetchData = async () => {
