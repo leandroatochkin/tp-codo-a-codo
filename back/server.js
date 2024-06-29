@@ -17,7 +17,7 @@ const authRoutes = require('./routes/auth');
 
 // middleware
 app.use(cors({
-  origin: 'http://localhost:5500',
+  origin: 'https://66805aabcd6edb3d7528c15a--starlit-conkies-26f234.netlify.app/',
 }));
 
 
