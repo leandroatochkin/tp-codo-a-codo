@@ -17,7 +17,7 @@ const authRoutes = require('./routes/auth');
 
 // middleware
 app.use(cors({
-  origin: 'https://66805aabcd6edb3d7528c15a--starlit-conkies-26f234.netlify.app/',
+  origin: 'https://66805aabcd6edb3d7528c15a--starlit-conkies-26f234.netlify.app',
 }));
 
 
