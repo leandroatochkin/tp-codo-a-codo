@@ -1,5 +1,5 @@
-import { navBar } from "./components/navBar.js";
-import { homeDisplay } from "./components/homeDisplay.js";
+import { navBar } from "./navBar.js";
+import { homeDisplay } from "./homeDisplay.js";
 
 const navbarContainer = document.querySelector(".navbar-container");
 const displayDiv = document.querySelector(".display-div");
