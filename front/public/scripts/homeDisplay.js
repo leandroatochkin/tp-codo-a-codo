@@ -1,4 +1,4 @@
-import { createInput } from "../assets/helperFunctions.js"
+import { createInput } from "./helperFunctions.js"
 
 export const homeDisplay = () => {
 

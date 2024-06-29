@@ -1,9 +1,9 @@
 import {homeDisplay} from './homeDisplay.js'
 import { createAccountDisplay } from './createAccount.js';
-import { setLoggedIn } from '../assets/userAuth.js';
-import { userInfo } from '../assets/lookUp.js';
-import { createInput, appendMultipleChildrens } from '../assets/helperFunctions.js';
-import { login } from '../assets/lookUp.js';
+import { setLoggedIn } from './userAuth.js';
+import { userInfo } from './lookUp.js';
+import { createInput, appendMultipleChildrens } from './helperFunctions.js';
+import { login } from './lookUp.js';
 
 const users = userInfo
 

@@ -1,6 +1,6 @@
 
-import { initLoadingAnimation, closeLoadingAnimation } from "../assets/helperFunctions.js";
-import { favoritesdb, displayBooks } from "../assets/lookUp.js";
+import { initLoadingAnimation, closeLoadingAnimation } from "./helperFunctions.js";
+import { favoritesdb, displayBooks } from "./lookUp.js";
 
 
 

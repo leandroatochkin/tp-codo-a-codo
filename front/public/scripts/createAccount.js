@@ -1,7 +1,7 @@
 import { homeDisplay } from "./homeDisplay.js";
-import { userInfo } from "../assets/lookUp.js";
-import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
-import { addUser } from "../utils/addUser.js";
+import { userInfo } from "./lookUp.js";
+import { createInput, appendMultipleChildrens } from "./helperFunctions.js";
+import { addUser } from "./addUser.js";
 
 
 const users = userInfo

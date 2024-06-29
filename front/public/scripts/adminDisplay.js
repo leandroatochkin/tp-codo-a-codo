@@ -1,6 +1,6 @@
-import { displayBooks, booksdb } from "../assets/lookUp.js";
-import { createInput, appendMultipleChildrens } from "../assets/helperFunctions.js";
-import { getUserId, getLoggedIn, setLoggedIn } from "../assets/userAuth.js";
+import { displayBooks, booksdb } from "./lookUp.js";
+import { createInput, appendMultipleChildrens } from "./helperFunctions.js";
+import { getUserId, getLoggedIn, setLoggedIn } from "./userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
 
 

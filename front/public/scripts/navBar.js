@@ -1,14 +1,14 @@
 import { logInDisplay } from "./logInDisplay.js";
 import { shoppingCartDisplay } from "./shoppingCartDisplay.js";
 import { categoriesDisplay } from "./categoriesDisplay.js";
-import { displayBooks, searchdb } from "../assets/lookUp.js";
+import { displayBooks, searchdb } from "./lookUp.js";
 import { wishlistDisplay } from "./wishlistDisplay.js";
 import { homeDisplay } from "./homeDisplay.js";
 import { adminDisplay } from "./adminDisplay.js";
 import { userDisplay } from "./userDisplay.js";
-import { cartArray } from "../assets/arrays.js";
-import { addFavoriteBook } from "../assets/helperFunctions.js";
-import { accountIcon, addToFavoriteIcon, adminIcon, buyIcon, cancelIcon, favoriteIcon, menuIcon, shoppingCartIcon } from "../assets/icons.js";
+import { cartArray } from "./arrays.js";
+import { addFavoriteBook } from "./helperFunctions.js";
+import { accountIcon, addToFavoriteIcon, adminIcon, buyIcon, cancelIcon, favoriteIcon, menuIcon, shoppingCartIcon } from "./icons.js";
 
 const books = displayBooks
 

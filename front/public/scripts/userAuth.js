@@ -1,5 +1,5 @@
 
-import { navBar } from "../components/navBar.js";
+import { navBar } from "./navBar.js";
 
 const globalState = {
   loggedIn: false,

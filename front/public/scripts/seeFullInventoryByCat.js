@@ -1,7 +1,7 @@
-import { cartArray, favBooks } from "../assets/arrays.js";
+import { cartArray, favBooks } from "./arrays.js";
 import { homeDisplay } from "./homeDisplay.js";
-import { getLoggedIn, getUserId } from "../assets/userAuth.js";
-import { appendMultipleChildrens, addFavoriteBook } from "../assets/helperFunctions.js";
+import { getLoggedIn, getUserId } from "./userAuth.js";
+import { appendMultipleChildrens, addFavoriteBook } from "./helperFunctions.js";
 
 export const seeFullInventoryByCat = (category, books) =>{
     const displayDiv = document.querySelector('#display-div')

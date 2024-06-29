@@ -1,9 +1,9 @@
-import { cartArray } from "../assets/arrays.js";
-import { getLoggedIn } from "../assets/userAuth.js";
+import { cartArray } from "./arrays.js";
+import { getLoggedIn } from "./userAuth.js";
 import { homeDisplay } from "./homeDisplay.js";
-import { ordersdb } from '../assets/lookUp.js';
-import { getUserId } from "../assets/userAuth.js";
-import { createModal } from "../assets/helperFunctions.js";
+import { ordersdb } from './lookUp.js';
+import { getUserId } from "./userAuth.js";
+import { createModal } from "./helperFunctions.js";
 
 
 

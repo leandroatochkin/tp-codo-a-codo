@@ -1,6 +1,6 @@
-import { getUserId, setLoggedIn } from "../assets/userAuth.js";
-import { userdb, ordersdb, orderItemsDb} from "../assets/lookUp.js";
-import {  appendMultipleChildrens, initLoadingAnimation,closeLoadingAnimation } from "../assets/helperFunctions.js";
+import { getUserId, setLoggedIn } from "./userAuth.js";
+import { userdb, ordersdb, orderItemsDb} from "./lookUp.js";
+import {  appendMultipleChildrens, initLoadingAnimation,closeLoadingAnimation } from "./helperFunctions.js";
 import { homeDisplay } from "./homeDisplay.js";
 
 

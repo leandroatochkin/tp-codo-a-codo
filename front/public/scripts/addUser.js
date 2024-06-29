@@ -1,4 +1,4 @@
-import { userdb } from "../assets/lookUp.js";
+import { userdb } from "./lookUp.js";
  
 const userDataBase = userdb
 
