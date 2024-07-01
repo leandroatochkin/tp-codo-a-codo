@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const connection = require('./routes/db');
 
 const app = express();
 const port = process.env.PORT; 
@@ -32,7 +31,7 @@ app.use('/api/order_items', orderItemsRoutes);
 app.use('/api', authRoutes);
 
 
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).json({ message: 'Page not found' });
 });
 

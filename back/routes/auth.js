@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const connection = require('./db');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Login route
 router.post('/login', (req, res) => {
@@ -28,8 +28,6 @@ router.post('/login', (req, res) => {
 
       if (password === user.password) {
         const token = jwt.sign({ id: user.user_id, role: user.role }, JWT_SECRET, { expiresIn: '1h' });
-        console.log('Token generated:', token);
-
         return res.json({ token, user });
       } else {
         console.log('Invalid password');
