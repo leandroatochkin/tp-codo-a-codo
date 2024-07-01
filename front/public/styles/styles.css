@@ -237,7 +237,7 @@ body{
       width: 100%;
       height: 100vh;
       margin-top: 0;
-      background-image: url('./assets/carousel-images/img1.jpg');
+      background-image: url('../assets/carousel-images/img1.jpg');
       background-size: cover;
       transition: background-image 0.5s ease;
     }
@@ -1079,7 +1079,7 @@ body{
             width: 100%;
             height: 100vh;
             margin-top: 0;
-            background-image: url('./assets/carousel-images/img1.jpg');
+            background-image: url('../assets/carousel-images/img1.jpg');
             background-size: cover;
   }     
 #slogan{
@@ -1812,7 +1812,7 @@ body{
     margin-top: 12%;
     height: 100vh;
     width: 100%;
-    background-image: url('./assets/carousel-images/img2.jpg');
+    background-image: url('../assets/carousel-images/img2.jpg');
     background-size: cover;
     position: fixed;
   }

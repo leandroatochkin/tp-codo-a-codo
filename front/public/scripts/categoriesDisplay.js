@@ -24,7 +24,7 @@ export const categoriesDisplay = (category, books) => {
       if (!mainDiv) {
         mainDiv = document.createElement('div');
         mainDiv.setAttribute("id", "main-div");
-        mainDiv.setAttribute ('style', `background-image: url(front/assets/wallpapers/${category}-wallpaper.jpg)`)
+        mainDiv.setAttribute ('style', `background-image: url(./assets/wallpapers/${category}-wallpaper.jpg`)
         displayDiv.appendChild(mainDiv);
         
       }

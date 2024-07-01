@@ -5,8 +5,7 @@ const cors = require('cors');
 const connection = require('./routes/db');
 
 const app = express();
-const port = process.env.PORT; // Default to 3000 if PORT is not set
-
+const port = process.env.PORT; 
 const bookRoutes = require('./routes/api/books');
 const favoriteRoutes = require('./routes/api/favorite_items');
 const usersRoutes = require('./routes/api/users');

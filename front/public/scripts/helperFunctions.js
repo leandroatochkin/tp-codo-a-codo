@@ -1,4 +1,4 @@
-import { homeDisplay } from "../components/homeDisplay.js";
+import { homeDisplay } from "./homeDisplay.js";
 
 import { favoritesdb } from "./lookUp.js";
 
